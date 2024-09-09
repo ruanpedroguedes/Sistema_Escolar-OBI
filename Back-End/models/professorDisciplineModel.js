@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ProfessoresDisciplinaSchema = new mongoose.Schema({
+const ProfessorDisciplineSchema = new mongoose.Schema({
     professor_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
@@ -13,4 +13,4 @@ const ProfessoresDisciplinaSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('ProfessoresDisciplinas', ProfessoresDisciplinaSchema);
+module.exports = mongoose.model('ProfessorDiscipline', ProfessorDisciplineSchema);
