@@ -27,7 +27,7 @@ const conceitoSchema = new mongoose.Schema({
     conceito: {
         type: String,
         required: true,
-        enum: ['A', 'B', 'C', 'D', 'E', 'F'] // Apenas valores válidos para o conceito
+        enum: ['exelente', 'otimo', 'bom', 'ruim', 'ai'] // Apenas valores válidos para o conceito
     },
 
     // Comentários adicionais (ex: 'Excelente desempenho', 'Precisa melhorar')
