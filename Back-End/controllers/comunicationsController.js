@@ -15,7 +15,7 @@ exports.createComunicado = async (req, res) => {
 // Obtém todos os comunicados
 exports.getComunicados = async (req, res) => {
   try {
-    const comunicados = await Comunicado.find().populate('autor_id', 'username');
+    const comunicados = await Comunicado.find().populate('author', 'username');
     res.json(comunicados);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -25,7 +25,7 @@ exports.getComunicados = async (req, res) => {
 // Obtém comunicado por ID
 exports.getComunicadoById = async (req, res) => {
   try {
-    const comunicado = await Comunicado.findById(req.params.id).populate('autor_id', 'username'); 
+    const comunicado = await Comunicado.findById(req.params.id).populate('author', 'username'); 
     if (!comunicado) {
       return res.status(404).json({ message: 'Comunicado não encontrado' });
     }
@@ -68,12 +68,10 @@ exports.getComunicadosByUserId = async (req, res) => {
       return res.status(404).json({ message: 'Usuário não encontrado' });
     }
 
-    const comunicados = await Comunicado.find({ autor_id: userId });
+    const comunicados = await Comunicado.find({ author: userId });
 
     res.status(200).json(comunicados);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
-
-
