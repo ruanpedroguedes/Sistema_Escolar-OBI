@@ -31,6 +31,7 @@ MongoDB
 Yarn ou npm
 
 Participantes: Grupo 6
+
 ERICK CARRASCO OLIVEIRA (Representante);
 
 DANDARA GOUVEIA MENEZES CALUMBY;
