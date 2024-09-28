@@ -82,8 +82,8 @@ border-radius: 99px;
 }
 
 input[type="text"]::placeholder {
-color: #9CA3AF; /* Cor do placeholder para o input de texto */
-font-style: italic; /* Estilo da fonte */
+color: #9CA3AF; 
+font-style: italic; 
 font-family: Poppins;
 font-size: 15px;
 font-style: italic;
