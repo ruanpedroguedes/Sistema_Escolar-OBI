@@ -1,0 +1,180 @@
+body {
+          background-color: #FFFFFF;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+      
+      }
+      
+      header {
+          background-color: #0037FF; /* Cor do fundo do cabeçalho */
+          color: white;
+          padding: 10px 20px;
+          display: flex;
+          align-items: center;
+          width: 100%;
+      }
+
+      header h1{
+          font-family: "Arvo", serif;
+          font-size: 24px;
+          font-weight: 200;
+          line-height: 29.64px;
+          text-align: left;
+          margin-left: 2px;
+      }
+      
+      .header-content {
+          display: flex;
+          align-items: center;
+      }
+      
+      .header-image {
+          width: 40px; /* Ajuste o tamanho da imagem */
+          height: 40px; /* Ajuste o tamanho da imagem */
+          margin-left: 10px;
+          text-align: center;
+          align-items: center;
+          margin-bottom: 10px;
+      }
+      
+      .sidebar {
+          position: fixed;
+          left: 0;
+          top: 82px; /* Distância do topo (ajuste conforme a altura do cabeçalho) */
+          width: 40px; /* Largura do menu lateral */
+          background-color: #FFFFFF; /* Cor do fundo do menu lateral */
+          padding: 10px;
+          box-shadow: 0px 4px 10px 0px #00000026;
+          height: 100%;
+      }
+      
+      .sidebar ul {
+          list-style-type: none; /* Remove marcadores da lista */
+          padding: 0;
+      }
+      
+      .sidebar li {
+          margin: 15px 0; /* Espaçamento entre os itens */
+      }
+      
+      .sidebar img {
+          width: 40px; /* Ajuste o tamanho da imagem do menu */
+          height: 40px; /* Ajuste o tamanho da imagem do menu */
+      }
+      
+
+      #titulo {
+          position: relative;      /* Necessário para posicionar o h1 e a imagem */
+          text-align: center;      /* Centraliza o h1 */
+          height: 100px;           /* Ajuste a altura conforme necessário */
+      }
+
+      #titulo h1{
+        font-family: Poppins;
+        font-size: 48px;
+        font-weight: 600;
+        line-height: 36px;
+        text-align: center;
+        color: #103ADA;
+      }
+      
+
+      #titulo img {
+          position: absolute;      /* Posiciona a imagem de forma independente do fluxo normal */
+          left: 80px;                 /* Posiciona a imagem à esquerda */
+          top: 40%;                /* Centraliza verticalmente em relação ao contêiner */
+          transform: translateY(-50%);
+      }
+      
+      #titulo h1 {
+          display: inline-block;   /* Garante que o h1 ocupe o espaço central */
+      }
+
+      main {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin-top: -300px;
+        }
+        
+        .card {
+          display: flex;
+          align-items: center;
+          border: 0.5px solid #ccc;
+          border-radius: 8px;
+          padding: 16px;
+          width: 560px;
+          height: 231.9;
+          box-shadow: 0 4px 8px rgba(255, 251, 251, 0.1);
+        }
+        
+        .card-img {
+          width: 96.2px;
+          height: 96.2px;
+          border-radius: 50%;
+          margin-right: 16px;
+        }
+        
+        .card-info h2 {
+          margin: 0;
+          font-family: Poppins;
+          font-size: 32px;
+          font-weight: 400;
+          line-height: 48px;
+          text-align: left;
+        }
+        
+        .card-info p {
+          margin: 4px 0;
+          font-family: Poppins;
+          font-size: 30px;
+          font-weight: 400;
+          line-height: 45px;
+          text-align: left;
+        }
+        
+        .input-fino {
+          border: none;
+          border-bottom: 1px solid #ccc;
+          width: 400px;
+          padding: 4px;
+          margin-top: 8px;
+          font-size: 1rem;
+        }
+        
+        .input-fino:focus {
+          outline: none;
+          border-bottom: 1px solid #000;
+        }
+
+        input::placeholder{
+          font-family: Poppins;
+          font-size: 24px;
+          font-weight: 400;
+          line-height: 36px;
+          text-align: left;
+        }
+        
+        .container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: -300px;
+          margin-right: 400px;
+      }
+
+      .container h1{
+          font-family: Poppins;
+          font-size: 32px;
+          font-weight: 500;
+          line-height: 48px;
+          color: #103ADA;
+      }
+
+      .container img {
+          margin-left: 10px;
+          width: 25px;
+          height:28.05 ;
+      }
