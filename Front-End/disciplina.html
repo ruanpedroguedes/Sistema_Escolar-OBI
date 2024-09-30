@@ -34,42 +34,35 @@
             <main class="main-content">
                 <section class="section-column" id="avisos-section">
                     <h2>Avisos</h2>
-                    <div class="card">
-                        <p><strong>Ivo Campos</strong></p>
-                        <p>Tue, 28 Mar, 2024</p>
-                        <p>A nossa próxima aula (04/04) será resolução de questões...</p>
-                    </div>
+                    <!-- A seção começa vazia -->
                 </section>
                 <section class="section-column" id="materiais-section">
                     <h2>Materiais</h2>
-                    <div class="card">
-                        <p><strong>Ivo Campos</strong></p>
-                        <p>Tue, 28 Mar, 2024</p>
-                        <p>Slides da nossa aula passada:</p>
-                        <a href="https://docs.google.com">https://docs.google.com</a>
-                    </div>
+                    <!-- A seção começa vazia -->
                 </section>
                 <section class="section-column" id="enquetes-section">
                     <h2>Enquetes</h2>
-                    <div class="card">
-                        <p><strong>Ivo Campos</strong></p>
-                        <p>Tue, 28 Mar, 2024</p>
-                        <p>Gostariam dessa prática?</p>
-                        <div class="poll">
-                            <div class="poll-text">
-                                <p>Sim: 80%</p>
-                                <p>Não: 20%</p>
-                            </div>
-                            <div class="poll-bar"></div>
-                            <div class="poll-bar-no"></div>
-                        </div>
-                    </div>
+                    <!-- A seção começa vazia -->
                 </section>
             </main>
         </div>
     </div>
 
     <button class="add-button">+</button>
+
+    <div id="form-container" style="display: none;">
+        <h3>Criar Novo Card</h3>
+        <select id="card-type">
+            <option value="avisos">Aviso</option>
+            <option value="materiais">Material</option>
+            <option value="enquetes">Enquete</option>
+        </select>
+        <input type="text" id="card-author" placeholder="Autor" required>
+        <input type="date" id="card-date" required>
+        <textarea id="card-content" placeholder="Conteúdo" required></textarea>
+        <button id="save-card">Salvar</button>
+        <button id="cancel">Cancelar</button>
+    </div>
 
     <script src="/Front-End/js/disciplina.js"></script>
 </body>
