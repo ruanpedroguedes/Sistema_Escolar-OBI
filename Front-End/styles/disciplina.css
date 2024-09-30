@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F9F9F9;
+}
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    background-color: #0037ff;
+    color: #fff;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container h1 {
+    margin-right: 10px;
+}
+
+.logo-container img {
+    height: 40px;
+}
+
+header .titulo {
+    margin-right: 10px; 
+    font-size: 40px;
+    font-family: 'Arvo', system-ui; 
+}
+
+.main-container {
+    display: flex;
+    height: calc(100vh - 80px); 
+}
+.sidebar {
+    width: 80px; 
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 20px;
+    height: 100%; 
+    position: relative;
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar .nav-button {
+    background: none;
+    border: none;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.nav-button img {
+    height: 50px;
+}
+
+.content-area {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 80px); 
+}
+
+/* Title bar */
+.title-bar {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #103ADA;
+    position: relative; 
+}
+
+.title-bar h2 {
+    flex-grow: 1; 
+    text-align: center; 
+    color: #fff; 
+    font-size: 24px;
+    margin: 0;
+}
+
+.title-bar .back-arrow {
+    margin-right: 10px; 
+}
+
+.title-bar .back-arrow img {
+    height: 24px; 
+    cursor: pointer;
+}
+
+/* Main content */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.section-column {
+    width: 30%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.section-column h2 {
+    text-align: center;
+    color: #3366FF;
+    font-size: 20px;
+}
+
+.card {
+    border: 1px solid #DDD;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: #fefefe; 
+}
+
+
+.poll {
+    display: flex;
+    flex-direction: column;
+}
+
+.poll-bar {
+    background-color: #3366FF;
+    height: 20px;
+    width: 80%;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.poll-bar-no {
+    background-color: #CCCCCC;
+    height: 20px;
+    width: 20%;
+    border-radius: 5px;
+}
+
+.poll-text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+
+.add-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3366FF;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+}
