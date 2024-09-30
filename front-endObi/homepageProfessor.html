@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Turmas</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/HomepageProfessor.css">
+    <script defer src="/js/homepageProfessor.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <p><span class="titulo">OBI</span></p>
+            <img src="/img/logoObi.png" alt="logo">
+        </div>
+    </header>
+
+    <div class="main-container">
+        <nav class="sidebar">
+            <button class="nav-button"><img src="img/semanaSelecionada.png" alt="Semana"></button>
+            <button class="nav-button active"><img src="img/carometro.png" alt="carometro"></button>
+            <button class="nav-button"><img src="img/chat.png" alt="Chat"></button>
+            <button class="nav-button"><img src="img/perfil.png" alt="Perfil"></button>
+        </nav>
+
+        <div class="content">
+            <p><span class="ola">Olá Susana,</span>
+                <br>
+                <span class="highlight">Confira as turmas</span>
+            </p>
+            <div class="filter-buttons centered">
+                <select class="filter-dropdown">
+                    <option>Unidade</option>
+                    <option>Senac Recife</option>
+                    <option>Senac Paulista</option>
+                    <option>Senac Caruaru</option>
+                </select>
+                <select class="filter-dropdown">
+                    <option>Turma</option>
+                    <option>1° Ano- A</option>
+                    <option>1° Ano- B</option>
+                    <option>1° Ano- C</option>
+                </select>
+            </div>
+
+            <main>
+                <div class="category" data-discipline="História">
+                    <p><span class="discipline">História</span></p>
+                    <p class="professor">Nome do professor</p>
+                    <div class="buttons">
+                        <button class="button blue aviso-button">Avisos</button>
+                        <button class="button material-button">Materiais</button>
+                        <button class="button enquete-button">Enquetes</button>
+                    </div>
+                </div>
+
+                <div class="category" data-discipline="Geografia">
+                    <p><span class="discipline">Geografia</span></p>
+                    <p class="professor">Nome do professor</p>
+                    <div class="buttons">
+                        <button class="button blue aviso-button">Avisos</button>
+                        <button class="button material-button">Materiais</button>
+                        <button class="button enquete-button">Enquetes</button>
+                    </div>
+                </div>
+
+                <div class="category" data-discipline="Química">
+                    <p><span class="discipline">Química</span></p>
+                    <p class="professor">Nome do professor</p>
+                    <div class="buttons">
+                        <button class="button blue aviso-button">Avisos</button>
+                        <button class="button material-button">Materiais</button>
+                        <button class="button enquete-button">Enquetes</button>
+                    </div>
+                </div>
+
+                <div class="category" data-discipline="Português">
+                    <p><span class="discipline">Português</span></p>
+                    <p class="professor">Nome do professor</p>
+                    <div class="buttons">
+                        <button class="button blue aviso-button">Avisos</button>
+                        <button class="button material-button">Materiais</button>
+                        <button class="button enquete-button">Enquetes</button>
+                    </div>
+                </div>
+
+                <div class="category" data-discipline="Matemática">
+                    <p><span class="discipline">Matemática</span></p>
+                    <p class="professor">Nome do professor</p>
+                    <div class="buttons">
+                        <button class="button blue aviso-button">Avisos</button>
+                        <button class="button material-button">Materiais</button>
+                        <button class="button enquete-button">Enquetes</button>
+                    </div>
+                </div>
+
+                <div class="category" data-discipline="Física">
+                    <p><span class="discipline">Física</span></p>
+                    <p class="professor">Nome do professor</p>
+                    <div class="buttons">
+                        <button class="button blue aviso-button">Avisos</button>
+                        <button class="button material-button">Materiais</button>
+                        <button class="button enquete-button">Enquetes</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="avisos-modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p>Aqui estão os avisos...</p>
+        </div>
+    </div>
+</body>
+</html>
