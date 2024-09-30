@@ -6,24 +6,25 @@
     <title>Cadastro</title>
     <link rel="stylesheet" href="styles/cadastroUser.css">
     <link rel="stylesheet" href="styles/fonts.css">
+
 </head>
 <body>
     <div class="form-container">
         <div class="logo-name">
             <h1>OBI</h1>
-            <img src="img/logobranca 1.png" alt="Logo" class="logo">
+            <img src="img/logobranca 1 (1).png" alt="Logo" class="logo">
         </div>
         <p class="welcome-message">Conectados para construir o seu amanhã!</p>
         
 
         <h2>Cadastre-se</h2>
         
-        <form action="/login" method="POST">
+        <form id="complaintForm" method="POST">
             <label class="nomesLabel" id="labelNome" for="">Nome completo</label>
-            <input type="text" name="username" placeholder="Insira seu nome completo" required>
+            <input id="nome" type="text" name="username" placeholder="Insira seu nome completo" required>
 
             <label id="labelEmail" for="">E-mail</label>
-            <input type="password" name="password" placeholder="Ex: plataformaobi@gmail.com" required>
+            <input id="email" type="password" name="password" placeholder="Ex: plataformaobi@gmail.com" required>
 
             <div class="cadastro-container">
                 <label for="cargo">Cadastre-se como: </label>
@@ -62,7 +63,7 @@
 
             <button type="submit" class="btn-cadastro">Cadastrar</button>
         </form>
-
+        <script src="js/login.js"></script>
         <script src="opcao.js"></script>
 </body>
 </html>
