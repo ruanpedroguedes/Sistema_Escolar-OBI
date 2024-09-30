@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const comunicadoController = require('../controllers/comunicadoController');
+const comunicadoController = require('../controllers/communicationsController');
 
 // Rota para criar um novo comunicado
 router.post('/comunicados', comunicadoController.createComunicado);
