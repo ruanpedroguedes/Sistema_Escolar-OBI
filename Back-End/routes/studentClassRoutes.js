@@ -2,25 +2,16 @@ const express = require('express');
 const router = express.Router();
 const studentClassController = require('../controllers/studentClassController');
 
-// Rota para criar uma nova associação entre aluno e classe
-router.post('/studentClass', studentClassController.createStudentClass);
+// Rota para adicionar um aluno a uma turma
+router.post('/add', studentClassController.addStudentToClass);
 
-// Rota para listar todas as associações de alunos e classes
-router.get('/studentClass', studentClassController.getStudentClasses);
+// Rota para remover um aluno de uma turma
+router.delete('/remove', studentClassController.removeStudentFromClass);
 
-// Rota para buscar uma associação de aluno e classe por ID
-router.get('/studentClass/:id', studentClassController.getStudentClassById);
+// Rota para buscar todas as turmas de um aluno
+router.get('/student/:studentId/classes', studentClassController.getClassesByStudent);
 
-// Rota para atualizar uma associação de aluno e classe por ID
-router.put('/studentClass/:id', studentClassController.updateStudentClass);
-
-// Rota para deletar uma associação de aluno e classe por ID
-router.delete('/studentClass/:id', studentClassController.deleteStudentClass);
-
-// Rota para listar todas as classes associadas a um aluno específico
-router.get('/studentClass/aluno/:alunoId', studentClassController.getClassesByStudentId);
-
-// Rota para listar todos os alunos associados a uma classe específica
-router.get('/studentClass/classe/:classId', studentClassController.getStudentsByClassId);
+// Rota para buscar todos os alunos de uma turma
+router.get('/class/:classId/students', studentClassController.getStudentsByClass);
 
 module.exports = router;
