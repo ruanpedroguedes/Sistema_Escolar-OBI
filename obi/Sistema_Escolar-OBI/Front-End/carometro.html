@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carômetro da Turma</title>
+    <link rel="stylesheet" href="styles/carometro.css">
+    <link rel="stylesheet" href="styles/fonts.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <p><span class="titulo">OBI</span></p>
+            <img src="/Front-End/img/logoObi.png" alt="logo">
+        </div>
+    </header>
+
+    <div class="main-container">
+        <nav class="sidebar">
+            <button class="nav-button"><img src="img/semana.png" alt="Agenda"></button>
+            <button class="nav-button active"><img src="img/carometroClicado.png" alt="Carômetro"></button>
+            <button class="nav-button"><img src="img/chat.png" alt="Chat"></button>
+            <button class="nav-button"><img src="img/perfil.png" alt="Perfil"></button>
+        </nav>
+
+        <div class="content">
+            <p><span class="ola">Olá Susana,</span>
+                <br>
+                <span class="highlight">Confira as turmas</span>
+            </p>
+            <div class="filter-section">
+                <select class="filter-dropdown" id="turma-dropdown">
+                    <option value="none">Turma</option>
+                    <option>1° Ano A</option>
+                    <option>1° Ano B</option>
+                    <option>1° Ano C</option>
+                </select>
+            </div>
+
+            <h3 id="turma-titulo" style="display:none;">3° ano C</h3>
+            <div class="student-cards" id="student-cards" style="display:none;">
+            </div>
+        </div>
+
+        <button class="add-button">+</button>
+    </div>
+
+    <script src="/Front-End/js/carometro.js"></script>
+</body>
+</html>
