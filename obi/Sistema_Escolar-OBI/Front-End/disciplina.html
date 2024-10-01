@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/disciplina.css">
+    <link rel="stylesheet" href="styles/fonts.css">
+    <title>Disciplina</title>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <p><span class="titulo">OBI</span></p>
+            <img src="/Front-End/img/logoObi.png" alt="logo">
+        </div>
+    </header>
+
+    <div class="main-container"> 
+        <nav class="sidebar">
+            <button class="nav-button"><img src="img/semanaSelecionada.png" alt="Semana"></button>
+            <button class="nav-button active"><img src="img/carometro.png" alt="carometro"></button>
+            <button class="nav-button"><img src="img/chat.png" alt="Chat"></button>
+            <button class="nav-button"><img src="img/perfil.png" alt="Perfil"></button>
+        </nav>
+
+        <div class="content-area"> 
+            <div class="title-bar">
+                <a href="homepageCoordenacao.html" class="back-arrow">
+                    <img src="img/seta.png" alt="Voltar" />
+                </a>
+                <h2 id="disciplina-titulo">Título da Disciplina</h2> 
+            </div>
+
+            <main class="main-content">
+                <section class="section-column" id="avisos-section">
+                    <h2>Avisos</h2>
+                    <!-- A seção começa vazia -->
+                </section>
+                <section class="section-column" id="materiais-section">
+                    <h2>Materiais</h2>
+                    <!-- A seção começa vazia -->
+                </section>
+                <section class="section-column" id="enquetes-section">
+                    <h2>Enquetes</h2>
+                    <!-- A seção começa vazia -->
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <button class="add-button">+</button>
+
+    <div id="form-container" style="display: none;">
+        <h3>Criar Novo Card</h3>
+        <select id="card-type">
+            <option value="avisos">Aviso</option>
+            <option value="materiais">Material</option>
+            <option value="enquetes">Enquete</option>
+        </select>
+        <input type="text" id="card-author" placeholder="Autor" required>
+        <input type="date" id="card-date" required>
+        <textarea id="card-content" placeholder="Conteúdo" required></textarea>
+        <button id="save-card">Salvar</button>
+        <button id="cancel">Cancelar</button>
+    </div>
+
+    <script src="/Front-End/js/disciplina.js"></script>
+</body>
+</html>
