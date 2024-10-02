@@ -232,21 +232,31 @@ body {
  
  .message-card {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color:  #103ADA; /* Cor de fundo verde */
+    top: 20px; /* Alinhado ao topo da página */
+    left: 50%; /* Centralizado horizontalmente */
+    transform: translateX(-50%); /* Ajuste para centralizar o card */
+    background: linear-gradient(135deg, #23f379, #23f379); /* Gradiente de fundo */
     color: white; /* Texto branco */
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px; /* Borda mais arredondada */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
     font-size: 18px;
     z-index: 1000; 
-    transition: opacity 0.5s ease;
-    font-family: Poppins;
+    transition: opacity 0.5s ease, transform 0.3s ease; /* Animação na transformação */
+    font-family: 'Poppins', sans-serif; /* Incluindo uma fonte padrão de backup */
     display: flex;
     align-items: center; /* Alinha verticalmente */
+    opacity: 1; /* Iniciar com opacidade total */
+    transform: translateX(-50%) scale(1); /* Escala inicial */
+    border: none;
 }
+
+
+.message-card.show {
+    opacity: 1; /* Exibe o card */
+    transform: translate(-50%, -50%) scale(1.05); /* Efeito de escala ao exibir */
+}
+
 
 img{
     width: 40px;
@@ -275,3 +285,4 @@ img{
     text-decoration: underline;
     color: #FFFFFF;
 }
+
