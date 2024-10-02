@@ -36,6 +36,7 @@ header .titulo {
     display: flex;
     height: calc(100vh - 80px); 
 }
+
 .sidebar {
     width: 80px; 
     background-color: #ffffff;
@@ -115,16 +116,22 @@ header .titulo {
 
 .card {
     border: 1px solid #DDD;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 15px;
+    border-radius: 8px; 
     margin-top: 10px;
     background-color: #fefefe; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.2s; 
 }
 
+.card:hover {
+    transform: scale(1.02); 
+}
 
 .poll {
     display: flex;
     flex-direction: column;
+    margin-top: 10px; 
 }
 
 .poll-bar {
@@ -148,7 +155,6 @@ header .titulo {
     margin-bottom: 5px;
 }
 
-
 .add-button {
     position: fixed;
     bottom: 20px;
@@ -161,4 +167,79 @@ header .titulo {
     height: 50px;
     font-size: 24px;
     cursor: pointer;
+}
+
+/* Estilos do Modal */
+#form-container {
+    display: none; 
+    position: fixed; 
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; 
+    border-radius: 8px;
+    width: 500px; /* Largura fixa */
+}
+
+.modal-content {
+    background-color: #fff; 
+    padding: 20px; 
+    border: 1px solid #888; 
+    width: 100%; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.close-button {
+    color: #aaa; 
+    float: right; 
+    font-size: 28px; 
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-content h3 {
+    text-align: center;
+    color: #3366FF;
+}
+
+.modal-content label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.form-button {
+    width: 48%; 
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #3366FF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+.form-button:hover {
+    background-color: #254fbd;
 }

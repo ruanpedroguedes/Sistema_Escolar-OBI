@@ -11,14 +11,14 @@
     <header>
         <div class="logo-container">
             <p><span class="titulo">OBI</span></p>
-            <img src="/Front-End/img/logoObi.png" alt="logo">
+            <img src="img/logobranca 1 (1).png" alt="logo">
         </div>
     </header>
 
     <div class="main-container">
         <nav class="sidebar">
             <button class="nav-button"><img src="img/semanaSelecionada.png" alt="Semana"></button>
-            <button class="nav-button active"><img src="img/carometro.png" alt="carometro"></button>
+            <button class="nav-button active"><img src="img/carometro.png" alt="Carômetro"></button>
             <button class="nav-button"><img src="img/chat.png" alt="Chat"></button>
             <button class="nav-button"><img src="img/perfil.png" alt="Perfil"></button>
         </nav>
@@ -28,81 +28,45 @@
                 <br>
                 <span class="highlight">Confira as turmas</span>
             </p>
+
             <div class="filter-buttons centered">
-                <select class="filter-dropdown">
-                    <option>Unidade</option>
-                    <option>Senac Recife</option>
-                    <option>Senac Paulista</option>
-                    <option>Senac Caruaru</option>
+                <select class="filter-dropdown" id="unidade-dropdown">
+                    <option value="">Selecione a Unidade</option>
+                    <option value="Mediotec Recife">Mediotec Recife</option>
+                    <option value="Mediotec Paulista">Mediotec Paulista</option>
+                    <option value="Mediotec Caruaru">Mediotec Caruaru</option>
+                    <option value="Mediotec Petrolina">Mediotec Petrolina</option>
                 </select>
-                <select class="filter-dropdown">
+            
+                <select class="filter-dropdown" id="curso-dropdown">
+                    <option value="">Selecione o Curso</option>
+                    <option value="Análise e Desenvolvimento de Sistemas">Análise e Desenvolvimento de Sistemas</option>
+                    <option value="Informática">Informática</option>
+                    <option value="Logística">Logística</option>
+                </select>
+            
+                <select class="filter-dropdown" id="turma-dropdown">
                     <option>Turma</option>
                     <option>1° Ano- A</option>
                     <option>1° Ano- B</option>
                     <option>1° Ano- C</option>
                 </select>
+
+                <select id="materia-dropdown" class="filter-dropdown">
+                    <option value="none">Selecione uma Matéria</option>
+                    <option value="História">História</option>
+                    <option value="Geografia">Geografia</option>
+                    <option value="Química">Química</option>
+                    <option value="Português">Português</option>
+                    <option value="Matemática">Matemática</option>
+                    <option value="Física">Física</option>
+                </select>
+
+                <button id="adicionar-materia" class="button">Adicionar Matéria</button>
             </div>
 
-            <main>
-                <div class="category" data-discipline="História">
-                    <p><span class="discipline">História</span></p>
-                    <p class="professor">Nome do professor</p>
-                    <div class="buttons">
-                        <button class="button blue aviso-button">Avisos</button>
-                        <button class="button material-button">Materiais</button>
-                        <button class="button enquete-button">Enquetes</button>
-                    </div>
-                </div>
-
-                <div class="category" data-discipline="Geografia">
-                    <p><span class="discipline">Geografia</span></p>
-                    <p class="professor">Nome do professor</p>
-                    <div class="buttons">
-                        <button class="button blue aviso-button">Avisos</button>
-                        <button class="button material-button">Materiais</button>
-                        <button class="button enquete-button">Enquetes</button>
-                    </div>
-                </div>
-
-                <div class="category" data-discipline="Química">
-                    <p><span class="discipline">Química</span></p>
-                    <p class="professor">Nome do professor</p>
-                    <div class="buttons">
-                        <button class="button blue aviso-button">Avisos</button>
-                        <button class="button material-button">Materiais</button>
-                        <button class="button enquete-button">Enquetes</button>
-                    </div>
-                </div>
-
-                <div class="category" data-discipline="Português">
-                    <p><span class="discipline">Português</span></p>
-                    <p class="professor">Nome do professor</p>
-                    <div class="buttons">
-                        <button class="button blue aviso-button">Avisos</button>
-                        <button class="button material-button">Materiais</button>
-                        <button class="button enquete-button">Enquetes</button>
-                    </div>
-                </div>
-
-                <div class="category" data-discipline="Matemática">
-                    <p><span class="discipline">Matemática</span></p>
-                    <p class="professor">Nome do professor</p>
-                    <div class="buttons">
-                        <button class="button blue aviso-button">Avisos</button>
-                        <button class="button material-button">Materiais</button>
-                        <button class="button enquete-button">Enquetes</button>
-                    </div>
-                </div>
-
-                <div class="category" data-discipline="Física">
-                    <p><span class="discipline">Física</span></p>
-                    <p class="professor">Nome do professor</p>
-                    <div class="buttons">
-                        <button class="button blue aviso-button">Avisos</button>
-                        <button class="button material-button">Materiais</button>
-                        <button class="button enquete-button">Enquetes</button>
-                    </div>
-                </div>
+            <main id="materias-container">
+                <!-- Aqui os cards das matérias serão adicionados -->
             </main>
         </div>
     </div>
@@ -113,6 +77,6 @@
             <p>Aqui estão os avisos...</p>
         </div>
     </div>
-    <script defer src="/Front-End/js/homepageCordenacao.js"></script>
+    <script defer src="js/homepageCordenacao.js"></script>
 </body>
 </html>
