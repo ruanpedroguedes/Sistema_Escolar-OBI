@@ -258,3 +258,20 @@ img{
 .hidden {
     display: none; 
 }
+
+#msgLogin{
+    color: #FFFFFF;
+    font-family: "Poppins", system-ui;  
+    font-size: 20px;
+}
+
+
+#msgLogin a{
+    text-decoration: none;
+    color: #4b6fff;
+}
+
+#msgLogin a:hover {
+    text-decoration: underline;
+    color: #FFFFFF;
+}
