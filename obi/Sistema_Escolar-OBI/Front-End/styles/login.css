@@ -208,40 +208,4 @@ background-color: white;
 text-decoration: underline;
 }
       
-
-.signup-message {
-margin-top: 20px;
-font-size: 14px;
-}
-      
-.signup-message a {
-color: #007bff;
-text-decoration: none;
-}
-      
-.signup-message{
-color: white;
-font-family: Poppins;
-font-size: 15px;
-font-weight: 400;
-line-height: 22.5px;
-text-align: center;
-width: 278px;
-height: 23px;
-top: 709px;
-left: 56px;
-gap: 0px;
-opacity: 0px;
-}      
-.signup-message a:hover {
-color: white;
-text-decoration: underline;
-font-family: Poppins;
-font-size: 15px;
-font-weight: 400;
-line-height: 22.5px;
-text-align: center;
-}
-
-
       
