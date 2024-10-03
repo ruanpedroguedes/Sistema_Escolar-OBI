@@ -29,54 +29,62 @@
                 <span class="highlight">Confira as turmas</span>
             </p>
 
+            <!-- Dropdowns para seleção -->
             <div class="filter-buttons centered">
-                <select class="filter-dropdown" id="unidade-dropdown">
-                    <option value="">Selecione a Unidade</option>
-                    <option value="Mediotec Recife">Mediotec Recife</option>
-                    <option value="Mediotec Paulista">Mediotec Paulista</option>
-                    <option value="Mediotec Caruaru">Mediotec Caruaru</option>
-                    <option value="Mediotec Petrolina">Mediotec Petrolina</option>
-                </select>
-            
-                <select class="filter-dropdown" id="curso-dropdown">
-                    <option value="">Selecione o Curso</option>
-                    <option value="Análise e Desenvolvimento de Sistemas">Análise e Desenvolvimento de Sistemas</option>
-                    <option value="Informática">Informática</option>
-                    <option value="Logística">Logística</option>
-                </select>
-            
-                <select class="filter-dropdown" id="turma-dropdown">
-                    <option>Turma</option>
-                    <option>1° Ano- A</option>
-                    <option>1° Ano- B</option>
-                    <option>1° Ano- C</option>
+                <select id="unidade-dropdown" class="filter-dropdown">
+                    <option value="none">Selecione a Unidade</option>
+                    <option>Mediotec Recife</option>
+                    <option>Mediotec Paulista</option>
+                    <option>Mediotec Caruaru</option>
+                    <option>Mediotec Petrolina</option>
                 </select>
 
-                <select id="materia-dropdown" class="filter-dropdown">
-                    <option value="none">Selecione uma Matéria</option>
-                    <option value="História">História</option>
-                    <option value="Geografia">Geografia</option>
-                    <option value="Química">Química</option>
-                    <option value="Português">Português</option>
-                    <option value="Matemática">Matemática</option>
-                    <option value="Física">Física</option>
+                <select id="curso-dropdown" class="filter-dropdown">
+                    <option value="none">Selecione o Curso</option>
+                    <option>Análise e Desenvolvimento de Sistemas</option>
+                    <option>Informática</option>
+                    <option>Logística</option>
                 </select>
 
-                <button id="adicionar-materia" class="button">Adicionar Matéria</button>
+                <select id="turma-dropdown" class="filter-dropdown">
+                    <option value="none">Selecione a Turma</option>
+                    <option value="1A">1° Ano - A</option>
+                    <option value="1B">1° Ano - B</option>
+                    <option value="1C">1° Ano - C</option>
+                </select>
             </div>
 
+            <!-- Exibição da turma selecionada -->
+            <h2 id="turma-titulo" class="turma-titulo" style="display:none;"></h2>
+
+            <!-- Botão de adicionar matéria -->
+            <button id="add-materia-button" class="add-button" style="display:none;">+</button>
+
             <main id="materias-container">
-                <!-- Aqui os cards das matérias serão adicionados -->
+                <!-- Os cards das matérias serão inseridos dinamicamente aqui -->
             </main>
         </div>
     </div>
 
-    <div id="avisos-modal" style="display: none;">
+    <!-- Modal para adicionar nova matéria -->
+    <div id="add-materia-modal" class="modal" style="display:none;">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <p>Aqui estão os avisos...</p>
+            <h3>Adicionar Matéria</h3>
+            
+            <label for="imagem-materia">Selecione uma imagem:</label>
+            <input type="file" id="imagem-materia" accept="image/*" />
+    
+            <label for="materia-nome">Nome da Matéria:</label>
+            <input type="text" id="materia-nome" placeholder="Digite o nome da matéria">
+            
+            <label for="professor-nome">Nome do Professor:</label>
+            <input type="text" id="professor-nome" placeholder="Digite o nome do professor">
+            
+            <button id="salvar-materia-button">Salvar</button>
         </div>
     </div>
+
     <script defer src="js/homepageCordenacao.js"></script>
 </body>
 </html>
