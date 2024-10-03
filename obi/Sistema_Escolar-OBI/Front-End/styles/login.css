@@ -81,6 +81,7 @@ background-color: #E2E2E2;
 border-radius: 99px;
 }
 
+
 input[type="text"]::placeholder {
 color: #9CA3AF; 
 font-style: italic; 
@@ -111,7 +112,8 @@ font-weight: 400;
 line-height: 22.5px;
 text-align: left;
 color: #FFFFFF;
-padding-right: 80px;             
+padding-right: 80px;
+margin-right: 90px;             
 }
 
 #labelSenha{
@@ -240,4 +242,6 @@ font-weight: 400;
 line-height: 22.5px;
 text-align: center;
 }
+
+
       

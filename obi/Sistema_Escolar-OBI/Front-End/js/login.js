@@ -10,6 +10,7 @@ document.getElementById('complaintForm').addEventListener('submit', async (e) =>
     const password = document.querySelector('input[name="password"]').value; 
     //const confirmarSenha = document.querySelectorAll('confirmaSenha"')[1].value; 
 
+
     // Enviando os dados para a API
     const response = await fetch(API_URL, {
         method: "POST",
