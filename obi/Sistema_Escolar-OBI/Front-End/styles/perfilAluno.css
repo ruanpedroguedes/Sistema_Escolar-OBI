@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    background-color: #0037ff;
+    color: #fff;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container h1 {
+    margin-right: 10px;
+}
+
+.logo-container img {
+    height: 40px;
+}
+
+header .titulo {
+    margin-right: 10px; 
+    font-size: 40px;
+    font-family: 'Arvo', system-ui; 
+}
+
+.main-container {
+    display: flex;
+    height: calc(100vh - 80px); 
+}
+
+.sidebar {
+    width: 80px; 
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 20px;
+    height: 100%; 
+    position: relative;
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar .nav-button {
+    background: none;
+    border: none;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.nav-button img {
+    height: 50px;
+}
+
+.nav-button.active img {
+    border: 2px solid #036AC9;
+    border-radius: 50%;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.breadcrumb {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.perfil-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px);
+    flex-direction: column;
+}
+
+.perfil-info {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    width: 300px; /* Define uma largura fixa */
+}
+
+.perfil-info h2,
+.perfil-info p {
+    margin: 10px 0;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #0037ff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0022cc;
+}

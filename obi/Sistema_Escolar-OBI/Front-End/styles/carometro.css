@@ -5,48 +5,49 @@ body {
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
-    header {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        padding: 20px;
-        background-color: #0037ff;
-        color: #fff;
-    }
-    
-    .logo-container {
-        display: flex;
-        align-items: center;
-    }
-    
-    .logo-container h1 {
-        margin-right: 10px;
-    }
-    
-    .logo-container img {
-        height: 40px;
-    }
-    
-    header .titulo {
-        margin-right: 10px; 
-        font-size: 40px;
-        font-family: 'Arvo', system-ui; 
-    }
-    
-    .main-container {
-        display: flex;
-        height: calc(100vh - 80px); 
-    }
 
-    .ola {
-        font-size: 30px;
-    }
-    
-    .highlight {
-        font-size: 35px; 
-        color: #007bff;  
-        font-weight: normal; 
-    }
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    background-color: #0037ff;
+    color: #fff;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container h1 {
+    margin-right: 10px;
+}
+
+.logo-container img {
+    height: 40px;
+}
+
+header .titulo {
+    margin-right: 10px; 
+    font-size: 40px;
+    font-family: 'Arvo', system-ui; 
+}
+
+.main-container {
+    display: flex;
+    height: calc(100vh - 80px); 
+}
+
+.ola {
+    font-size: 30px;
+}
+
+.highlight {
+    font-size: 35px; 
+    color: #007bff;  
+    font-weight: normal; 
+}
 
 .sidebar {
     width: 80px; 
@@ -120,34 +121,77 @@ h3 {
 }
 
 .student-card {
-    background-color: #f8f8f8;
-    border-radius: 10px;
-    padding: 15px;
-    width: calc(25% - 20px);    
-    min-width: 200px;            
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    padding: 15px; 
+    width: 400px; 
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: center; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    position: relative; 
+}
+
+.student-card .student-image {
+    margin-right: 15px; 
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
+    align-items: center; /* Alinha verticalmente ao centro */
 }
 
 .student-card img {
-    border-radius: 50%;
-    height: 80px;
-    margin-bottom: 10px;
+    border-radius: 50%; 
+    height: 60px; /* Tamanho maior para destacar */
+    width: 60px; 
+}
+
+.student-card .info {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; /* Centraliza verticalmente */
+    max-width: calc(100% - 70px); 
+}
+
+.student-card .name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px; 
+}
+
+.student-card .turma,
+.student-card .matricula,
+.student-card .data-nascimento {
+    font-size: 12px; 
+    margin-bottom: 3px; 
+}
+
+.student-card .details span {
+    color: #000; 
 }
 
 .details-button {
-    background-color: transparent;
+    background-color: #0037ff; 
+    color: white; 
     border: none;
-    font-size: 20px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    border-radius: 0 10px 10px 0; 
+    width: 40px; 
+    height: 100%; 
+    font-size: 18px;
+    position: absolute; 
+    top: 0;
+    right: 0;
     cursor: pointer;
-    color: #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.details-button:after {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.details-button:hover {
+    background-color: #0022cc; /* Muda a cor ao passar o mouse */
 }
 
 .add-button {
