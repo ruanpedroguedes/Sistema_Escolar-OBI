@@ -5,7 +5,7 @@ const UserSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
     useremail: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    usertype: { type: String, enum: ['Aluno', 'Professor', 'Coordenação'], required: true },
+    usertype: { type: String, enum: ['aluno', 'professor', 'coordenacao'], required: true },
     dateOfBirth: { type: Date, required: true }, // Data de nascimento
     curso: { type: String }, // Campo específico para alunos
     turma: { type: String }, // Campo específico para alunos

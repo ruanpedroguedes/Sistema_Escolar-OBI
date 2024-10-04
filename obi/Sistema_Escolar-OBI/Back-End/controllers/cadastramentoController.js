@@ -7,12 +7,12 @@ exports.registerUser = async (req, res) => {
         let userFields = { username, useremail, password, usertype, dateOfBirth };
 
         // Verificação de campos específicos com base no tipo de usuário
-        if (usertype === 'Aluno') {
+        if (usertype === 'aluno') {
             userFields.curso = curso;
             userFields.turma = turma;
-        } else if (usertype === 'Professor') {
+        } else if (usertype === 'professor') {
             userFields.materia = materia;
-        } else if (usertype === 'Coordenação') {
+        } else if (usertype === 'coordenacao') {
             userFields.funcao = funcao;
         }
 

@@ -23,6 +23,9 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
         funcao = document.getElementById('funcao').value;
     }
 
+
+    console.log(username)
+
     // Enviando os dados para a API
     const response = await fetch(API_URL, {
         method: "POST",
