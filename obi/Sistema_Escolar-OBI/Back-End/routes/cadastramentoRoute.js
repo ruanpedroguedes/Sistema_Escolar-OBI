@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { registerUser } = require('../controllers/cadastroController');
-
+const { registerUser } = require('../controllers/cadastramentoController'); // Renomeei o controller
 
 router.post('/register', registerUser);
 

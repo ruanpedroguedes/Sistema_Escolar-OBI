@@ -9,8 +9,8 @@ const disciplineRoute = require('./routes/disciplineRoutes');
 const comunicationsRoute = require('./routes/communicationsRoutes');
 const classRoute = require('./routes/classRoutes');
 const classDisciplineRoute = require('./routes/classDiciplineRoutes');
-const cadastroRoute = require('./routes/cadastroRoute')
 const loginRoute = require('./routes/loginRoute');
+const cadastramentoRoute = require('./routes/cadastramentoRoute');
 
 dotenv.config();
 
@@ -30,8 +30,8 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 // Definindo as rotas
+app.use('/api/cadastramentoRoute', cadastramentoRoute);
 app.use('/api/login', loginRoute);
-app.use('/api/cadastroRoute', cadastroRoute);
 app.use('/api/users', userRoute);
 app.use('/api/professors', professorDisciplineRoute);
 app.use('/api/students', studentClassRoute);

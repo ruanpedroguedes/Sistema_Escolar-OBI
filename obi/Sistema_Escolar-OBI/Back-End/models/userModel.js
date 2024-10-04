@@ -5,7 +5,12 @@ const UserSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
     useremail: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    usertype: { type: String, enum: ['Aluno', 'Professor', 'Coordenação'], required: true }
+    usertype: { type: String, enum: ['Aluno', 'Professor', 'Coordenação'], required: true },
+    dateOfBirth: { type: Date, required: true }, // Data de nascimento
+    curso: { type: String }, // Campo específico para alunos
+    turma: { type: String }, // Campo específico para alunos
+    materia: { type: String }, // Campo específico para professores
+    funcao: { type: String } // Campo específico para coordenação
 });
 
 // Hook para hash da senha antes de salvar
@@ -22,3 +27,4 @@ UserSchema.methods.comparePassword = async function(password) {
 };
 
 module.exports = mongoose.model("User", UserSchema);
+
