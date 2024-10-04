@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Cadastramento</title>
+   <link rel="stylesheet" href="styles/fonts.css">
+   <link rel="stylesheet" href="styles/cadastramento.css">
+</head>
+<body>
+ 
+   <!-- Header com logo e nome -->
+   <header>
+        <h1>obi</h1>
+        <img src="img/logobranca 1 (1).png" alt="Logo">
+    </header>
+
+    <!-- Menu lateral -->
+    <div class="sidebar">
+        <a href="#link1"><img src="img/semanaSelecionada.png" alt="semana"></a>
+        <a href="#link2"><img src="img/carometro.png" alt="carometro"></a>
+        <a href="#link3"><img src="img/chat.png" alt="chat"></a>
+        <a href="perfilCoordenacao.html"><img src="img/perfil.png" alt="perfil"></a>
+    </div>
+
+    <div class="form-container">
+        <h1>Cadastramento</h1>
+        <form id="cadastroForm">
+          <div class="input-group">
+            <label for="tipoUsuario">Tipo de Usuário:</label>
+            <select id="tipoUsuario" onchange="atualizarCampos()">
+              <option value="">Selecione</option>
+              <option value="aluno">Aluno</option>
+              <option value="professor">Professor</option>
+              <option value="coordenacao">Coordenação</option>
+            </select>
+          </div>
+    
+          <!-- Campos comuns -->
+          <div class="input-group">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome">
+          </div>
+    
+          <div class="input-group">
+            <label for="dataNascimento">Data de Nascimento:</label>
+            <input type="date" id="dataNascimento" name="dataNascimento">
+          </div>
+    
+          <!-- Campos específicos -->
+          <div id="alunoCampos" class="campos-especificos" style="display: none;">
+            <div class="input-group">
+              <label for="curso">Curso:</label>
+              <select id="curso">
+                <option value="informatica">Informática</option>
+                <option value="ads">ADS</option>
+                <option value="logistica">Logística</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="turma">Turma:</label>
+              <select id="turma">
+                <option value="1A">1A</option>
+                <option value="2A">2A</option>
+                <option value="3A">3A</option>
+              </select>
+            </div>
+          </div>
+    
+          <div id="professorCampos" class="campos-especificos" style="display: none;">
+            <div class="input-group">
+              <label for="materia">Matéria:</label>
+              <input type="text" id="materia" name="materia">
+            </div>
+          </div>
+    
+          <div id="coordenacaoCampos" class="campos-especificos" style="display: none;">
+            <div class="input-group">
+              <label for="funcao">Função:</label>
+              <input type="text" id="funcao" name="funcao">
+            </div>
+          </div>
+    
+          <!-- Campos comuns -->
+          <div class="input-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email">
+          </div>
+    
+          <div class="input-group">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha">
+          </div>
+    
+          <button type="submit">Cadastrar</button>
+        </form>
+      </div>
+      <script src="js/cadastramento.js"></script>                     
+</body>
+</html>
