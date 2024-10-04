@@ -83,6 +83,7 @@ header .titulo {
 h1 {
     font-size: 30px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .student-profile {
@@ -122,6 +123,12 @@ h1 {
     margin: 5px 0;
 }
 
+.setaAluno {
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+}
+
 .title {
     color: #103ADA; /* Cor azul para os títulos */
     font-weight: bold;
@@ -151,12 +158,14 @@ h1 {
 button {
     padding: 10px 20px;
     border: none;
-    background-color: #0037ff;
-    color: white;
-    border-radius: 5px;
+    background-color: #ffffff;
+    font-size: 20px;
+    color:#103ADA;
+    border-color:#103ADA ;
+    border-radius: 45px;
+    border: 0.5px solid #007bff;
     cursor: pointer;
 }
-
 
 .back-button {
     background: none;
@@ -165,6 +174,24 @@ button {
     font-size: 30px;
     cursor: pointer;
     margin-bottom: 20px;
+    display: inline-block; /* Garante que o botão ocupe apenas o espaço necessário */
+    padding: 5px; /* Adiciona um pouco de espaço ao redor da seta */
+}
+
+.imgLapis {
+    width: 20px;
+    height: 20px;
+}
+
+.edit-icon {
+    margin-left: 10px;
+    cursor: pointer;
+    display: none; /* Esconde os ícones de edição por padrão */
+}
+
+.edit-icon img {
+    width: 16px;
+    height: 16px;
 }
 
 .edit-form {

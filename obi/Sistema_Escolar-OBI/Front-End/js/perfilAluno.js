@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Pega os detalhes do aluno do localStorage
+    
     const alunoSelecionado = JSON.parse(localStorage.getItem('alunoSelecionado'));
 
     if (alunoSelecionado) {
@@ -8,17 +8,17 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('student-dob').innerHTML = `<span class="title">Data de Nascimento:</span><br><span class="info">${alunoSelecionado.dataNascimento}</span>`;
         document.getElementById('student-class').innerHTML = `<span class="title">Turma:</span><br><span class="info">${alunoSelecionado.turma}</span>`;
         
-        // Calcula a idade do aluno com base na data de nascimento
+        
         const idade = calcularIdade(alunoSelecionado.dataNascimento);
         document.getElementById('student-age').innerHTML = `<span class="title">Idade:</span><br><span class="info">${idade} anos</span>`;
 
-        // Preenche o formulário de edição com os dados do aluno
+        
         document.getElementById('edit-name').value = alunoSelecionado.nome;
         document.getElementById('edit-id').value = alunoSelecionado.matricula;
         document.getElementById('edit-dob').value = alunoSelecionado.dataNascimento;
         document.getElementById('edit-class').value = alunoSelecionado.turma;
 
-        // Preenche os campos de edição dos responsáveis e observações
+        
         document.getElementById('edit-mother-name').value = alunoSelecionado.motherName || '';
         document.getElementById('edit-mother-phone').value = alunoSelecionado.motherPhone || '';
         document.getElementById('edit-mother-email').value = alunoSelecionado.motherEmail || '';
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// Função para calcular a idade com base na data de nascimento
+
 function calcularIdade(dataNascimento) {
     const [dia, mes, ano] = dataNascimento.split('/');
     const dataNasc = new Date(`${ano}-${mes}-${dia}`);
@@ -45,17 +45,27 @@ function calcularIdade(dataNascimento) {
     return idade;
 }
 
-// Função para alternar a exibição do formulário de edição
+
 function toggleEditForm() {
     const editForm = document.getElementById('edit-form');
+    const editIcons = document.querySelectorAll('.edit-icon');
     if (editForm.style.display === 'none' || editForm.style.display === '') {
         editForm.style.display = 'block';
+        editIcons.forEach(icon => icon.style.display = 'inline'); 
     } else {
         editForm.style.display = 'none';
+        editIcons.forEach(icon => icon.style.display = 'none'); 
     }
 }
 
-// Função para salvar as alterações feitas no formulário de edição
+
+function editField(fieldId) {
+    const field = document.getElementById(fieldId).querySelector('.info');
+    field.setAttribute('contenteditable', 'true');
+    field.focus();
+}
+
+
 function saveChanges() {
     const nome = document.getElementById('edit-name').value;
     const matricula = document.getElementById('edit-id').value;
@@ -71,7 +81,7 @@ function saveChanges() {
     const studentEmail = document.getElementById('edit-student-email').value;
     const observations = document.getElementById('edit-observations').value;
 
-    // Atualiza os dados do aluno no localStorage
+    
     const alunoAtualizado = {
         nome: nome,
         matricula: matricula,
@@ -89,7 +99,7 @@ function saveChanges() {
 
     localStorage.setItem('alunoSelecionado', JSON.stringify(alunoAtualizado));
 
-    // Atualiza a exibição dos dados do aluno
+    
     document.getElementById('student-name').innerText = nome;
     document.getElementById('student-id').innerHTML = `<span class="title">Matrícula:</span><br><span class="info">${matricula}</span>`;
     document.getElementById('student-dob').innerHTML = `<span class="title">Data de Nascimento:</span><br><span class="info">${dataNascimento}</span>`;
@@ -104,7 +114,7 @@ function saveChanges() {
     document.getElementById('student-email').innerText = `Email: ${studentEmail}`;
     document.getElementById('observations').innerText = observations;
 
-    // Atualiza a foto do aluno se uma nova foto for selecionada
+    
     if (foto) {
         const reader = new FileReader();
         reader.onload = function (e) {
@@ -113,6 +123,6 @@ function saveChanges() {
         reader.readAsDataURL(foto);
     }
 
-    // Esconde o formulário de edição
+   
     toggleEditForm();
 }

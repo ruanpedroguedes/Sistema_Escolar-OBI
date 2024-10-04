@@ -227,4 +227,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('professor-nome').value = '';
         imagemInput.value = ''; // Limpa o campo de imagem
     }
+    document.querySelectorAll('.nav-button').forEach(button => {
+        button.addEventListener('click', () => {
+            if (button.querySelector('img').alt === 'Agenda') {
+                window.location.href = 'homepageCoordenacao.html';
+            } else if (button.querySelector('img').alt === 'Carômetro') {
+                window.location.href = 'carometro.html';
+            }
+        });
+    });
 });
+

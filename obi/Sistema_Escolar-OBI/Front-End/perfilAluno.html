@@ -19,17 +19,13 @@
         <nav class="sidebar">
             <button class="nav-button"><img src="img/semana.png" alt="Agenda"></button>
             <button class="nav-button active"><img src="img/carometroClicado.png" alt="Carômetro"></button>
-            <button class="nav-button"><img src="img/chat.png" alt="Chat"></button>
+            <button class="nav-button"><img src="img/agenda.png" alt="Chat"></button>
             <button class="nav-button"><img src="img/perfil.png" alt="Perfil"></button>
         </nav>
 
         <div class="content">
-            <div class="breadcrumb">
-                <span>OBI</span>
-                <span>Carômetro</span>
-            </div>
-            <h1>Perfil do Aluno</h1>
-            <button class="back-button" onclick="history.back()"><</button>
+            <a href="carometro.html"><img src="img/setaPerfilAluno.png" class="setaAluno" alt=""></a>
+            <h1>Carômetro</h1>
             <div class="student-profile">
                 <div class="profile-header">
                     <img src="img/avatar.png" alt="Foto do Aluno" class="profile-photo" id="profile-photo">
@@ -38,10 +34,26 @@
                     </div>
                 </div>
                 <div class="student-details">
-                    <p class="student-class" id="student-class"><span class="title">Turma:</span><br><span class="info"></span></p>
-                    <p class="student-id" id="student-id"><span class="title">Matrícula:</span><br><span class="info"></span></p>
-                    <p class="student-dob" id="student-dob"><span class="title">Data de Nascimento:</span><br><span class="info"></span></p>
-                    <p class="student-age" id="student-age"><span class="title">Idade:</span><br><span class="info"></span></p>
+                    <p class="student-class" id="student-class">
+                        <span class="title">Turma:</span><br>
+                        <span class="info"></span>
+                        <a href="#" class="edit-icon"><img src="img/lapis.png" alt="Editar"></a>
+                    </p>
+                    <p class="student-id" id="student-id">
+                        <span class="title">Matrícula:</span><br>
+                        <span class="info"></span>
+                        <a href="#" class="edit-icon"><img src="img/lapis.png" alt="Editar"></a>
+                    </p>
+                    <p class="student-dob" id="student-dob">
+                        <span class="title">Data de Nascimento:</span><br>
+                        <span class="info"></span>
+                        <a href="#" class="edit-icon"><img src="img/lapis.png" alt="Editar"></a>
+                    </p>
+                    <p class="student-age" id="student-age">
+                        <span class="title">Idade:</span><br>
+                        <span class="info"></span>
+                        <a href="#" class="edit-icon"><img src="img/lapis.png" alt="Editar"></a>
+                    </p>
                 </div>
                 <div class="contact-info">
                     <h3 class="section-title">Responsáveis</h3>
@@ -59,8 +71,8 @@
                     <p id="observations">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
                 <div class="profile-buttons">
-                    <button class="edit-button" onclick="toggleEditForm()">Editar</button>
                     <button class="pdi-button">Acessar PDI</button>
+                    <button class="edit-button" onclick="toggleEditForm()">Editar <img src="img/lapis.png" class="imgLapis" alt=""></button>
                 </div>
             </div>
 
