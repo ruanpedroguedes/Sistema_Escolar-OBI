@@ -126,7 +126,6 @@ h3 {
     padding: 15px; 
     width: 400px; 
     display: flex; 
-    justify-content: flex-start; 
     align-items: center; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     position: relative; 
@@ -135,19 +134,19 @@ h3 {
 .student-card .student-image {
     margin-right: 15px; 
     display: flex;
-    align-items: center; /* Alinha verticalmente ao centro */
+    align-items: center;
 }
 
 .student-card img {
     border-radius: 50%; 
-    height: 60px; /* Tamanho maior para destacar */
+    height: 60px; 
     width: 60px; 
 }
 
 .student-card .info {
     display: flex;
     flex-direction: column; 
-    justify-content: center; /* Centraliza verticalmente */
+    justify-content: center; 
     max-width: calc(100% - 70px); 
 }
 
@@ -157,15 +156,27 @@ h3 {
     margin-bottom: 5px; 
 }
 
-.student-card .turma,
+.student-card .turma {
+    font-size: 14px;
+    color: #000000; 
+    margin-bottom: 10px;
+}
+
+.student-card .details {
+    display: flex;
+    flex-direction: column;
+}
+
 .student-card .matricula,
 .student-card .data-nascimento {
     font-size: 12px; 
+    color: #007bff;
     margin-bottom: 3px; 
 }
 
-.student-card .details span {
-    color: #000; 
+.student-card .matricula span,
+.student-card .data-nascimento span {
+    color: #000000;
 }
 
 .details-button {
@@ -185,13 +196,8 @@ h3 {
     justify-content: center;
 }
 
-.details-button:after {
-    color: #ffffff;
-    font-size: 20px;
-}
-
 .details-button:hover {
-    background-color: #0022cc; /* Muda a cor ao passar o mouse */
+    background-color: #0022cc;
 }
 
 .add-button {

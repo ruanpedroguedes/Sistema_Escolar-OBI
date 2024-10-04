@@ -85,29 +85,113 @@ h1 {
     margin-bottom: 20px;
 }
 
-.perfil-container {
+.student-profile {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 80px);
     flex-direction: column;
+    align-items: flex-start; /* Alinha os itens à esquerda */
 }
 
-.perfil-info {
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: left;
-    width: 300px; /* Define uma largura fixa */
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.perfil-info h2,
-.perfil-info p {
-    margin: 10px 0;
+.profile-photo {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    margin-right: 20px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha os itens à esquerda */
+}
+
+.student-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha os itens à esquerda */
+}
+
+.profile-info h2,
+.profile-info p,
+.student-details p {
+    margin: 5px 0;
+}
+
+.title {
+    color: #103ADA; /* Cor azul para os títulos */
+    font-weight: bold;
+}
+
+.info {
+    color: #000000; /* Cor preta para as informações */
+}
+
+.contact-info,
+.observations {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.contact-info h3,
+.observations h3 {
+    color: #103ADA; /* Cor azul para os títulos das seções */
+}
+
+.profile-buttons {
+    display: flex;
+    gap: 10px;
 }
 
 button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #0037ff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.back-button {
+    background: none;
+    border: none;
+    color: black; /* Cor da seta preta */
+    font-size: 30px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.edit-form label {
+    margin-top: 10px;
+}
+
+.edit-form input,
+.edit-form textarea {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.edit-form button {
     margin-top: 20px;
     padding: 10px 20px;
     border: none;
@@ -117,6 +201,6 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.edit-form button:hover {
     background-color: #0022cc;
 }

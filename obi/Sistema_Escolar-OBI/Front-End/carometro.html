@@ -28,12 +28,27 @@
                 <br>
                 <span class="highlight">Confira as turmas</span>
             </p>
-            <div class="filter-section">
-                <select class="filter-dropdown" id="turma-dropdown">
-                    <option value="none">Turma</option>
-                    <option>1° Ano A</option>
-                    <option>1° Ano B</option>
-                    <option>1° Ano C</option>
+            <div class="filter-buttons centered">
+                <select id="unidade-dropdown" class="filter-dropdown">
+                    <option value="none">Selecione a Unidade</option>
+                    <option>Mediotec Recife</option>
+                    <option>Mediotec Paulista</option>
+                    <option>Mediotec Caruaru</option>
+                    <option>Mediotec Petrolina</option>
+                </select>
+
+                <select id="curso-dropdown" class="filter-dropdown">
+                    <option value="none">Selecione o Curso</option>
+                    <option>Análise e Desenvolvimento de Sistemas</option>
+                    <option>Informática</option>
+                    <option>Logística</option>
+                </select>
+
+                <select id="turma-dropdown" class="filter-dropdown">
+                    <option value="none">Selecione a Turma</option>
+                    <option value="1A">1° Ano - A</option>
+                    <option value="1B">1° Ano - B</option>
+                    <option value="1C">1° Ano - C</option>
                 </select>
             </div>
 
@@ -42,17 +57,19 @@
                 <!-- Exemplo de card de aluno -->
                 <div class="student-card">
                     <div class="student-image">
-                        <img src="img/avatar.png" alt="Foto do Aluno">
+                        <img src="img/aluno.png" alt="Foto do Aluno">
                     </div>
                     <div class="info">
                         <div class="name">Nome do Aluno</div>
-                        <div class="turma">Turma: 1º Ano A</div>
-                        <div class="matricula">Matrícula: 123456</div>
-                        <div class="data-nascimento">Data de Nascimento: 01/01/2000</div>
+                        <div class="details">
+                            <div class="turma"> 1º Ano A </div>
+                            <div class="matricula">Matrícula: <span>123456</span></div>
+                            <div class="data-nascimento">Data de Nascimento: <span>01/01/2000</span></div>
+                        </div>
                     </div>
                     <button class="details-button">></button>
                 </div>
-                <!-- Adicione mais cards conforme necessário -->
+                
             </div>
         </div>
 

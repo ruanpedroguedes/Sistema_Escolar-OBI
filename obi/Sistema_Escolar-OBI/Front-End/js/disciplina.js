@@ -7,9 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
     formContainer.style.display = 'none';
 
     addButton.addEventListener('click', function () {
-        const formContainer = document.getElementById('form-container');
-        formContainer.style.display = 'flex'; // Muda o display para flex
-        resetForm(); // Limpa o formulário
+        formContainer.style.display = 'flex';
+        resetForm();
     });
 
     cancelButton.addEventListener('click', function () {
@@ -131,13 +130,28 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('poll-option3-container').style.display = 'none';
     }
 
+    // Obtém o parâmetro 'nome' da URL e define o título da disciplina
     const urlParams = new URLSearchParams(window.location.search);
-    const disciplinaNome = urlParams.get('nome'); 
+    const disciplinaNome = urlParams.get('nome');
     const titulo = document.getElementById('disciplina-titulo');
 
     if (disciplinaNome) {
-        titulo.innerText = disciplinaNome; 
+        titulo.innerText = disciplinaNome;
     } else {
         titulo.innerText = 'Título da Disciplina';
     }
+
+    // Redirecionamento de navegação
+    const navButtons = document.querySelectorAll('.nav-button');
+    navButtons[0].addEventListener('click', () => {
+        window.location.href = 'homepageCoordenacao.html';
+    });
+
+    navButtons[1].addEventListener('click', () => {
+        window.location.href = 'disciplinas.html';
+    });
+
+    navButtons[2].addEventListener('click', () => {
+        window.location.href = 'perfilCoordenacao.html';
+    });
 });

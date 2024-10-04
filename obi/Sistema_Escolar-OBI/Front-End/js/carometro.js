@@ -1,13 +1,90 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const unidadeDropdown = document.getElementById('unidade-dropdown');
+    const cursoDropdown = document.getElementById('curso-dropdown');
     const turmaDropdown = document.getElementById('turma-dropdown');
     const turmaTitulo = document.getElementById('turma-titulo');
     const studentCards = document.getElementById('student-cards');
 
-    const turmaCards = {
-        "1° Ano A": [],
-        "1° Ano B": [],
-        "1° Ano C": []
+    const materiasData = {
+        'Mediotec Recife': {
+            'Análise e Desenvolvimento de Sistemas': {
+                '1A': [],
+                '1B': [],
+                '1C': []
+            },
+            'Informática': {
+                '1A': [],
+                '1B': [],
+                '1C': []
+            },
+            'Logística': {
+                '1A': [],
+                '1B': [],
+                '1C': []
+            }
+        },
+        'Mediotec Paulista': {
+            'Análise e Desenvolvimento de Sistemas': {
+                '1A': [],
+                '1B': [],
+                '1C': []
+            },
+            'Informática': {
+                '1A': [],
+                '1B': [],
+                '1C': []
+            },
+            'Logística': {
+                '1A': [],
+                '1B': [],
+                '1C': []
+            }
+        },
+        'Mediotec Caruaru': {
+            'Análise e Desenvolvimento de Sistemas': {
+                '1A': [],
+                '1B': [],
+                '1C': []
+            },
+            'Informática': {
+                '1A': [],
+                '1B': [],
+                '1C': []
+            },
+            'Logística': {
+                '1A': [],
+                '1B': [],
+                '1C': []
+            }
+        },
+        'Mediotec Petrolina': {
+            'Análise e Desenvolvimento de Sistemas': {
+                '1A': [],
+                '1B': [],
+                '1C': []
+            },
+            'Informática': {
+                '1A': [],
+                '1B': [],
+                '1C': []
+            },
+            'Logística': {
+                '1A': [],
+                '1B': [],
+                '1C': []
+            }
+        }
     };
+
+    unidadeDropdown.addEventListener('change', function () {
+        clearSelection();
+        updateTurmaDisplay();
+    });
+
+    cursoDropdown.addEventListener('change', function () {
+        clearSelection();
+        updateTurmaDisplay();
+    });
 
     turmaDropdown.addEventListener('change', function () {
         const selectedTurma = turmaDropdown.value;
@@ -15,85 +92,145 @@ document.addEventListener('DOMContentLoaded', function () {
         if (selectedTurma === "none") {
             turmaTitulo.style.display = "none";
             studentCards.style.display = "none";
-            studentCards.innerHTML = ''; 
+            studentCards.innerHTML = ''; // Limpa os cards ao trocar para "none"
         } else {
             turmaTitulo.style.display = "block";
-            turmaTitulo.innerText = selectedTurma;
-            studentCards.style.display = "flex"; 
+            turmaTitulo.innerText = `Turma: ${formatTurma(selectedTurma)}`; // Formata a turma
+            studentCards.style.display = "flex"; // Mostra os cards
+            updateStudentCardsDisplay(); // Atualiza a exibição dos cards
+        }
+    });
 
-            studentCards.innerHTML = '';
+    // Função para formatar a turma
+    function formatTurma(turma) {
+        const ano = turma.charAt(0); // Obtém o primeiro caractere (1, 2 ou 3)
+        const letra = turma.charAt(1); // Obtém a letra da turma (A, B ou C)
+        return `${ano}° Ano - ${letra.toUpperCase()}`; // Formata a string
+    }
 
-            turmaCards[selectedTurma].forEach(cardHTML => {
+    // Função para atualizar a exibição dos cards dos alunos
+    function updateStudentCardsDisplay() {
+        const unidadeSelecionada = unidadeDropdown.value;
+        const cursoSelecionado = cursoDropdown.value;
+        const turmaSelecionada = turmaDropdown.value;
+
+        studentCards.innerHTML = ''; // Limpa o conteúdo atual
+
+        // Verifica se a unidade, curso e turma estão selecionados
+        if (unidadeSelecionada && cursoSelecionado && turmaSelecionada) {
+            materiasData[unidadeSelecionada][cursoSelecionado][turmaSelecionada].forEach(aluno => {
                 const newCard = document.createElement('div');
                 newCard.classList.add('student-card');
-                newCard.innerHTML = cardHTML; 
-                studentCards.appendChild(newCard);
+                newCard.innerHTML = `
+                    <div class="student-image">
+                        <img src="img/aluno.png" alt="Foto do Aluno">
+                    </div>
+                    <div class="info">
+                        <div class="name">${aluno.nome}</div>
+                        <div class="details">
+                            <div class="turma">Turma: <span>${aluno.turma}</span></div>
+                            <div class="matricula">Matrícula: <span>${aluno.matricula}</span></div>
+                            <div class="data-nascimento">Data de Nascimento: <span>${aluno.dataNascimento}</span></div>
+                        </div>
+                    </div>
+                    <button class="details-button">></button>
+                `;
 
                 // Adiciona evento de clique para redirecionar para a página de perfil
                 newCard.querySelector('.details-button').addEventListener('click', function () {
-                    const aluno = {
-                        nome: newCard.querySelector('.name strong').innerText,
-                        turma: newCard.querySelector('.details span').innerText,
-                        matricula: newCard.querySelector('.details span:nth-child(2)').innerText,
-                        dataNascimento: newCard.querySelector('.details span:nth-child(3)').innerText
-                    };
                     localStorage.setItem('alunoSelecionado', JSON.stringify(aluno));
                     window.location.href = 'perfilAluno.html';
                 });
+
+                studentCards.appendChild(newCard);
             });
         }
-    });
+    }
+
+    function clearSelection() {
+        turmaDropdown.value = "none";
+        turmaTitulo.style.display = "none";
+        studentCards.style.display = "none";
+        studentCards.innerHTML = ''; // Limpa os cards ao trocar para "none"
+    }
+
+    function updateTurmaDisplay() {
+        const unidadeSelecionada = unidadeDropdown.value;
+        const cursoSelecionado = cursoDropdown.value;
+        const turmaSelecionada = turmaDropdown.value;
+
+        if (unidadeSelecionada !== "none" && cursoSelecionado !== "none" && turmaSelecionada !== "none") {
+            turmaTitulo.style.display = "block";
+            turmaTitulo.innerText = `Turma: ${formatTurma(turmaSelecionada)}`;
+            studentCards.style.display = "flex";
+            updateStudentCardsDisplay();
+        } else {
+            turmaTitulo.style.display = "none";
+            studentCards.style.display = "none";
+            studentCards.innerHTML = '';
+        }
+    }
 
     const addButton = document.querySelector('.add-button');
     addButton.addEventListener('click', function () {
         const nome = prompt("Qual é o nome do aluno?");
-        const ano = turmaDropdown.value; 
+        const unidade = unidadeDropdown.value;
+        const curso = cursoDropdown.value;
+        const turma = turmaDropdown.value;
         const matricula = prompt("Qual é a matrícula do aluno?");
         const dataNascimento = prompt("Qual é a data de nascimento do aluno?");
 
-        if (nome && ano && matricula && dataNascimento && ano !== "none") {
-            const cardHTML = `
-                <img src="img/aluno.png" alt="Foto do Aluno">
-                <div class="info">
-                    <p class="name"><strong>${nome}</strong></p>
-                    <p class="details">Turma: <span>${ano}</span></p>
-                    <p class="details">Matrícula: <span>${matricula}</span></p>
-                    <p class="details">Data de Nascimento: <span>${dataNascimento}</span></p>
-                </div>
-                <button class="details-button">></button>
-            `;
+        if (nome && unidade !== "none" && curso !== "none" && turma !== "none" && matricula && dataNascimento) {
+            const aluno = {
+                nome: nome,
+                turma: formatTurma(turma),
+                matricula: matricula,
+                dataNascimento: dataNascimento
+            };
 
-            turmaCards[ano].push(cardHTML);
+            materiasData[unidade][curso][turma].push(aluno);
 
-            if (turmaDropdown.value === ano) {
+            if (turmaDropdown.value === turma) {
                 const newCard = document.createElement('div');
                 newCard.classList.add('student-card');
-                newCard.innerHTML = cardHTML; 
+                newCard.innerHTML = `
+                    <div class="student-image">
+                        <img src="img/aluno.png" alt="Foto do Aluno">
+                    </div>
+                    <div class="info">
+                        <div class="name">${nome}</div>
+                        <div class="details">
+                            <div class="turma">Turma: <span>${formatTurma(turma)}</span></div>
+                            <div class="matricula">Matrícula: <span>${matricula}</span></div>
+                            <div class="data-nascimento">Data de Nascimento: <span>${dataNascimento}</span></div>
+                        </div>
+                    </div>
+                    <button class="details-button">></button>
+                `;
+
                 studentCards.appendChild(newCard);
 
                 // Adiciona evento de clique para redirecionar para a página de perfil
                 newCard.querySelector('.details-button').addEventListener('click', function () {
-                    const aluno = {
-                        nome: newCard.querySelector('.name strong').innerText,
-                        turma: newCard.querySelector('.details span').innerText,
-                        matricula: newCard.querySelector('.details span:nth-child(2)').innerText,
-                        dataNascimento: newCard.querySelector('.details span:nth-child(3)').innerText
-                    };
                     localStorage.setItem('alunoSelecionado', JSON.stringify(aluno));
                     window.location.href = 'perfilAluno.html';
                 });
             }
         } else {
-            alert("Por favor, preencha todos os campos e selecione uma turma válida.");
+            alert("Por favor, preencha todos os campos e selecione uma unidade, curso e turma válidos.");
         }
     });
 
-    document.querySelectorAll('.nav-button')[0].addEventListener('click', () => {
-        window.location.href = 'homepageCoordenacao.html'; 
+    document.querySelectorAll('.nav-button').forEach(button => {
+        button.addEventListener('click', () => {
+            window.location.href = 'homepageCoordenacao.html'; 
+        });
     });
 
-    document.querySelectorAll('.nav-button')[1].addEventListener('click', () => {
-        window.location.href = 'carometro.html'; 
+    document.querySelectorAll('.nav-button').forEach(button => {
+        button.addEventListener('click', () => {
+            window.location.href = 'carometro.html'; 
+        });
     });
 
     const carometroButton = document.querySelector('.nav-button.active');
@@ -102,10 +239,9 @@ document.addEventListener('DOMContentLoaded', function () {
         imgElement.src = imgElement.src.includes('carometro.png') ? 'img/carometroClicado.png' : 'img/carometro.png';
     });
 
-    
     function adicionarAluno(turma, aluno) {
-        if (turmaCards[turma]) {
-            turmaCards[turma].push(aluno);
+        if (materiasData[turma]) {
+            materiasData[turma].push(aluno);
         }
     }
 });
