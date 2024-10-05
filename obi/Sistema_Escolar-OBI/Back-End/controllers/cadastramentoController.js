@@ -1,10 +1,10 @@
 const User = require('../models/userModel');
 
 exports.registerUser = async (req, res) => {
-    const { username, useremail, password, usertype, dateOfBirth, curso, turma, materia, funcao } = req.body;
+    const { username, useremail, password, usertype, dateOfBirth, curso, turma, materia, funcao, local } = req.body; // Adicione 'local' aqui
     
     try {
-        let userFields = { username, useremail, password, usertype, dateOfBirth };
+        let userFields = { username, useremail, password, usertype, dateOfBirth, local }; // Inclua 'local' nos campos do usuário
 
         // Verificação de campos específicos com base no tipo de usuário
         if (usertype === 'aluno') {

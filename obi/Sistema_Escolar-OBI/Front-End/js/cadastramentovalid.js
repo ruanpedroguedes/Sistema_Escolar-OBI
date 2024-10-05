@@ -11,7 +11,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
     const password = document.getElementById('senha').value;
 
     // Variáveis específicas
-    let curso, turma, materia, funcao;
+    let curso, turma, materia, funcao, local;
 
     // Capturando campos específicos com base no tipo de usuário
     if (usertype === 'aluno') {
@@ -19,9 +19,12 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
         turma = document.getElementById('turma').value;
     } else if (usertype === 'professor') {
         materia = document.getElementById('materia').value;
+        local = document.getElementById('local').value; // Novo campo
     } else if (usertype === 'coordenacao') {
         funcao = document.getElementById('funcao').value;
+        local = document.getElementById('local').value; // Novo campo
     }
+
 
 
     console.log(username)

@@ -10,7 +10,8 @@ const UserSchema = new mongoose.Schema({
     curso: { type: String }, // Campo específico para alunos
     turma: { type: String }, // Campo específico para alunos
     materia: { type: String }, // Campo específico para professores
-    funcao: { type: String } // Campo específico para coordenação
+    funcao: { type: String }, // Campo específico para coordenação
+    local: { type: String } // Campo específico para local
 });
 
 // Hook para hash da senha antes de salvar
