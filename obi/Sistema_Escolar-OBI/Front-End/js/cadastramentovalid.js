@@ -11,7 +11,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
     const password = document.getElementById('senha').value;
 
     // Variáveis específicas
-    let curso, turma, materia, funcao, local;
+    let curso, turma, materia, funcao;
 
     // Capturando campos específicos com base no tipo de usuário
     if (usertype === 'aluno') {
@@ -19,15 +19,9 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
         turma = document.getElementById('turma').value;
     } else if (usertype === 'professor') {
         materia = document.getElementById('materia').value;
-        local = document.getElementById('local').value; // Novo campo
     } else if (usertype === 'coordenacao') {
         funcao = document.getElementById('funcao').value;
-        local = document.getElementById('local').value; // Novo campo
     }
-
-
-
-    console.log(username)
 
     // Enviando os dados para a API
     const response = await fetch(API_URL, {
@@ -38,6 +32,10 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
         body: JSON.stringify({ username, useremail, password, usertype, dateOfBirth, curso, turma, materia, funcao })
     });
 
+    const messageDiv = document.getElementById('message');
+    const messageText = document.getElementById('messageText');
+    const messageImg = document.getElementById('messageImg');
+
     if (response.ok) {
         const user = await response.json();
         console.log('Usuário cadastrado:', user);
@@ -46,11 +44,22 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
         document.getElementById('cadastroForm').reset();
 
         // Mostrar mensagem de sucesso
-        alert('Usuário cadastrado com sucesso!');
+        messageImg.src = 'img/check.png'; // Substitua pelo caminho da sua imagem de sucesso
+        messageText.textContent = 'Cadastramento bem-sucedido!';
+        messageDiv.style.display = 'block';
+
     } else {
         const error = await response.json();
         console.error('Erro no cadastro:', error);
-        alert('Erro ao cadastrar. Tente novamente.');
+        
+        // Mostrar mensagem de erro
+        messageImg.src = 'img/erro.png'; // Substitua pelo caminho da sua imagem de erro
+        messageText.textContent = 'Cadastramento mal-sucedido!';
+        messageDiv.style.display = 'block';
     }
-});
 
+    // Esconder a mensagem após 3 segundos
+    setTimeout(() => {
+        messageDiv.style.display = 'none';
+    }, 3000);
+});
