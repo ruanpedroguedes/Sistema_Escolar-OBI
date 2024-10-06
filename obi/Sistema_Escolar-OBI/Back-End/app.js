@@ -14,6 +14,7 @@ const classDisciplineRoute = require('./routes/classDiciplineRoutes');
 const loginRoute = require('./routes/loginRoute');
 const alunoPostRoute = require('./routes/alunoPostRoute')
 const alunoGetRoute = require('./routes/alunoGetRoute')
+const responsaveisRoute = require('./routes/responsaveisRoute'); // Certifique-se de que este caminho está correto
 
 dotenv.config();
 
@@ -32,6 +33,7 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 // Definindo as rotas
+app.use('/api/responsaveis', responsaveisRoute); // Adicione esta linha
 app.use('/api/alunoGet', alunoGetRoute)
 app.use('/api/alunosPost', alunoPostRoute)
 app.use('/api/alunos', alunoRoute);

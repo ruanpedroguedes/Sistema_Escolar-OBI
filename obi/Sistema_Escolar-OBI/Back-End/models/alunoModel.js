@@ -8,7 +8,20 @@ const AlunoSchema = new mongoose.Schema({
     dateOfBirth: { type: Date, required: true }, // Data de nascimento
     curso: { type: String, required: true },
     turma: { type: String, required: true },
-    local: { type: String } 
+    local: { type: String },
+     // Adicionando campos dos responsáveis
+     responsaveis: {
+        mae: {
+            nome: { type: String },
+            telefone: { type: String },
+            email: { type: String }
+        },
+        pai: {
+            nome: { type: String },
+            telefone: { type: String },
+            email: { type: String }
+        }
+    }
 });
 
 // Hook para hash da senha antes de salvar
