@@ -1,5 +1,3 @@
-let API_URL;
-
 document.getElementById('cadastroForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -11,8 +9,9 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
     const password = document.getElementById('senha').value;
 
     // Definindo a URL da API com base no tipo de usuário
+    let API_URL;
     if (usertype === 'aluno') {
-        API_URL = 'http://localhost:3000/api/alunos/register';
+        API_URL = 'http://localhost:3000/api/alunosPost/register';
     } else if (usertype === 'professor') {
         API_URL = 'http://localhost:3000/api/professores/register';
     } else if (usertype === 'coordenacao') {
