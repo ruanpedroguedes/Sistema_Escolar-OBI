@@ -2,7 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors'); // Importa o middleware cors
-const userRoute = require('./routes/userRoutes');
+const alunoRoute = require('./routes/alunoRoute');
+const professorRoute = require('./routes/professorRoute');
+const coordenacaoRoute = require('./routes/coordenacaoRoute');
 const professorDisciplineRoute = require('./routes/professorDisciplineRoutes');
 const studentClassRoute = require('./routes/studentClassRoutes');
 const disciplineRoute = require('./routes/disciplineRoutes');
@@ -10,14 +12,12 @@ const comunicationsRoute = require('./routes/communicationsRoutes');
 const classRoute = require('./routes/classRoutes');
 const classDisciplineRoute = require('./routes/classDiciplineRoutes');
 const loginRoute = require('./routes/loginRoute');
-const cadastramentoRoute = require('./routes/cadastramentoRoute');
 
 dotenv.config();
 
 const app = express();
 
 app.use(cors());
-
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, {
@@ -30,9 +30,10 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 // Definindo as rotas
-app.use('/api/cadastramentoRoute', cadastramentoRoute);
+app.use('/api/alunos', alunoRoute);
+app.use('/api/professores', professorRoute);
+app.use('/api/coordenacao', coordenacaoRoute);
 app.use('/api/login', loginRoute);
-app.use('/api/users', userRoute);
 app.use('/api/professors', professorDisciplineRoute);
 app.use('/api/students', studentClassRoute);
 app.use('/api/discipline', disciplineRoute);

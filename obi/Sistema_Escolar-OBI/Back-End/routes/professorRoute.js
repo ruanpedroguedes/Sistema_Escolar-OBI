@@ -5,4 +5,3 @@ const { registerUser } = require('../controllers/cadastramentoController');
 router.post('/register', registerUser);
 
 module.exports = router;
-

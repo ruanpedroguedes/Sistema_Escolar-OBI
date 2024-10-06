@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/api/cadastramentoRoute/register';
+let API_URL;
 
 document.getElementById('cadastroForm').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -10,8 +10,17 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
     const dateOfBirth = document.getElementById('dataNascimento').value;
     const password = document.getElementById('senha').value;
 
+    // Definindo a URL da API com base no tipo de usuário
+    if (usertype === 'aluno') {
+        API_URL = 'http://localhost:3000/api/alunos/register';
+    } else if (usertype === 'professor') {
+        API_URL = 'http://localhost:3000/api/professores/register';
+    } else if (usertype === 'coordenacao') {
+        API_URL = 'http://localhost:3000/api/coordenacao/register';
+    }
+
     // Variáveis específicas
-    let curso, turma, materia, funcao;
+    let curso, turma, materia, funcao, local;
 
     // Capturando campos específicos com base no tipo de usuário
     if (usertype === 'aluno') {
@@ -19,8 +28,10 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
         turma = document.getElementById('turma').value;
     } else if (usertype === 'professor') {
         materia = document.getElementById('materia').value;
+        local = document.getElementById('local').value;
     } else if (usertype === 'coordenacao') {
         funcao = document.getElementById('funcao').value;
+        local = document.getElementById('local').value;
     }
 
     // Enviando os dados para a API
@@ -29,7 +40,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ username, useremail, password, usertype, dateOfBirth, curso, turma, materia, funcao })
+        body: JSON.stringify({ username, useremail, password, usertype, dateOfBirth, curso, turma, materia, funcao, local })
     });
 
     const messageDiv = document.getElementById('message');

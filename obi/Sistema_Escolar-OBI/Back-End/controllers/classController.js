@@ -1,5 +1,5 @@
 const Class = require('../models/classModel');
-const User = require('../models/userModel');
+const User = require('../models/professorModel');
 const StudentClass = require('../models/studentClassModel');
 
 // Criar uma nova classe e associar a professor, disciplina e alunos
