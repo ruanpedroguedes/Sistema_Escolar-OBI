@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
+    <link rel="stylesheet" href="styles/agendaCoordenacao.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <p><span class="titulo">OBI</span></p>
+            <img src="img/logobranca 1 (1).png" alt="logo">
+        </div>
+    </header>
+
+    <div class="main-container">
+        <nav class="sidebar">
+            <button class="nav-button"><img src="img/semana.png" alt="Agenda"></button>
+            <button class="nav-button"><img src="img/carometro.png" alt="Carômetro"></button>
+            <button class="nav-button active"><img src="img/agendaClicada.png" alt="Agenda"></button>
+            <button class="nav-button"><img src="img/perfil.png" alt="Perfil"></button>
+        </nav>
+
+        <div class="content">
+            <p>
+                <span class="ola">Olá Susana,</span>
+                <br>
+                <span class="highlight">Veja sua programação dos próximos dias!</span>
+            </p>
+            <div class="filter-buttons centered">
+                <select id="unidade-dropdown" class="filter-dropdown">
+                    <option value="none">Selecione a Unidade</option>
+                    <option>Mediotec Recife</option>
+                    <option>Mediotec Paulista</option>
+                    <option>Mediotec Caruaru</option>
+                    <option>Mediotec Petrolina</option>
+                </select>
+
+                <select id="curso-dropdown" class="filter-dropdown">
+                    <option value="none">Selecione o Curso</option>
+                    <option>Análise e Desenvolvimento de Sistemas</option>
+                    <option>Informática</option>
+                    <option>Logística</option>
+                </select>
+
+                <select id="turma-dropdown" class="filter-dropdown">
+                    <option value="none">Selecione a Turma</option>
+                    <option value="1A">1° Ano - A</option>
+                    <option value="1B">1° Ano - B</option>
+                    <option value="1C">1° Ano - C</option>
+                </select>
+
+                <select id="mes-dropdown" class="filter-dropdown">
+                    <option value="none">Selecione o Mês</option>
+                    <option>Janeiro</option>
+                    <option>Fevereiro</option>
+                    <option>Março</option>
+                    <option>Abril</option>
+                    <option>Maio</option>
+                    <option>Junho</option>
+                    <option>Julho</option>
+                    <option>Agosto</option>
+                    <option>Setembro</option>
+                    <option>Outubro</option>
+                    <option>Novembro</option>
+                    <option>Dezembro</option>
+                </select>
+            </div>
+
+            <div id="turma-titulo" class="turma-titulo" style="display: none;"></div> <!-- Exibe a turma selecionada -->
+            <div id="agenda-container" class="agenda-container">
+                <!-- Conteúdo da agenda será atualizado aqui -->
+            </div>
+        </div>
+    </div>
+
+    <button id="add-agenda-button" class="add-button">+</button>
+
+    <!-- Modal para adicionar nova tarefa -->
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Criar nova tarefa</h2>
+            <form id="task-form">
+                <div class="form-group">
+                    <label for="task-title">Título</label>
+                    <input type="text" id="task-title" placeholder="Digite o nome da tarefa">
+                </div>
+                <div class="form-group">
+                    <label for="task-description">Descrição</label>
+                    <textarea id="task-description" placeholder="Do que se trata sua tarefa?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="task-date">Data</label>
+                    <input type="text" id="task-date" placeholder="DD/MM/AAAA">
+                </div>
+                <div class="form-group">
+                    <label for="category-input">Adicionar categoria</label>
+                    <input type="text" id="category-input" placeholder="Ex: Prova">
+                    <button type="button" id="add-category-button" class="add-category-btn">+</button>
+                </div>
+                <div id="category-container" class="category-container">
+                    <!-- Categorias adicionadas serão exibidas aqui -->
+                </div>
+                <button type="button" id="create-task-button" class="create-button">Criar Tarefa</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/agendaCoordenacao.js"></script>
+</body>
+</html>

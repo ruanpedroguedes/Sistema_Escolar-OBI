@@ -1,0 +1,186 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    background-color: #0037ff;
+    color: #fff;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container img {
+    height: 40px;
+}
+
+header .titulo {
+    margin-right: 10px; 
+    font-size: 40px;
+}
+
+.main-container {
+    display: flex;
+    height: calc(100vh - 80px); 
+}
+
+.sidebar {
+    width: 80px; 
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 20px;
+    height: 100%;
+    position: relative;
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar .nav-button {
+    background: none;
+    border: none;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.nav-button img {
+    height: 50px;
+}
+
+.content {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.ola {
+    font-size: 30px;
+}
+
+.highlight {
+    font-size: 35px; 
+    color: #0037ff;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.filter-dropdown {
+    padding: 10px;
+    border: 1px solid #007bff;
+    border-radius: 20px;
+    background: transparent;
+    color: #000000;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.agenda-container {
+    margin-top: 30px;
+}
+
+.agenda-item {
+    background: #f4f4f4;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Estilos do Modal */
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fundo escuro com transparência */
+}
+
+.modal-content {
+    background: #fff;
+    margin: 50px auto; /* Centraliza verticalmente */
+    padding: 20px;
+    width: 400px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+}
+
+.form-group {
+    margin: 15px 0;
+}
+
+textarea {
+    width: calc(100% - 20px);
+    height: 80px;
+    padding: 10px;
+    resize: none;
+}
+
+.category-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.category-item {
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: #d2e1fa;
+}
+
+.create-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.add-category-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 5px;
+}

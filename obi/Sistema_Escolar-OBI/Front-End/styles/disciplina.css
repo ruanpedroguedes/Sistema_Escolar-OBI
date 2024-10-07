@@ -108,18 +108,16 @@ header .titulo {
 }
 
 .tab-button {
-    background-color: #f1f1f1;
+    background-color: #F9F9F9;
     border: none;
-    padding: 10px 20px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 35px;
     border-radius: 5px 5px 0 0;
     transition: background-color 0.3s;
 }
 
 .tab-button.active {
-    background-color: #3366FF;
-    color: white;
+    background-color: #F9F9F9;
     border-bottom: 2px solid #3366FF;
 }
 
@@ -127,7 +125,7 @@ header .titulo {
     display: none;
 }
 .button.active {
-    background-color: blue; /* Cor azul */
+    background-color: rgb(78, 199, 22); /* Cor azul */
     color: white; /* Texto em branco */
 }
 .tab-content.active {
@@ -225,8 +223,6 @@ header .titulo {
     top: 50%; 
     left: 50%;
     transform: translate(-50%, -50%); 
-    background-color: #fff;
-    padding: 20px;
     border: 1px solid #ddd;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000; 
@@ -333,7 +329,7 @@ header .titulo {
 
 /* Estilo para o textarea no modal */
 textarea#post-content {
-    width: 100%;
+    width: 95%;
     height: 100px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -357,7 +353,6 @@ textarea#post-content {
     border-radius: 10px;
     padding: 15px;
     margin-bottom: 15px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -411,6 +406,7 @@ textarea#post-content {
 }
 .materials-card {
     background-color: #FFFFFF; /* Fundo do card */
+    
     border: 1px solid #E0E0E0; /* Borda do card */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.05); /* Sombra do card */
     padding: 15px; /* Padding geral do card */
