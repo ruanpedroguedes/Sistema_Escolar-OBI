@@ -49,8 +49,4 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-router.get('/', alunoController.getAllStudents);
-
 module.exports = router;
-
-

@@ -108,4 +108,3 @@ function toggleEditForm() {
     const form = document.getElementById('edit-form');
     form.style.display = form.style.display === 'none' ? 'block' : 'none';
 }
-

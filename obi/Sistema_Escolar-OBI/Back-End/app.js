@@ -15,6 +15,7 @@ const loginRoute = require('./routes/loginRoute');
 const alunoPostRoute = require('./routes/alunoPostRoute')
 const alunoGetRoute = require('./routes/alunoGetRoute')
 const responsaveisRoute = require('./routes/responsaveisRoute'); // Certifique-se de que este caminho está correto
+const cadastramentoRoute = require('./routes/cadastramentoRoute');
 
 dotenv.config();
 
@@ -32,10 +33,10 @@ mongoose.connect(process.env.MONGO_URI, {
   console.error('MongoDB connection error:', err);
 });
 
-<<<<<<< HEAD
+
 
 app.use('/api/cadastramentoRoute', cadastramentoRoute);
-=======
+
 // Definindo as rotas
 app.use('/api/responsaveis', responsaveisRoute); // Adicione esta linha
 app.use('/api/alunoGet', alunoGetRoute)
@@ -43,7 +44,6 @@ app.use('/api/alunosPost', alunoPostRoute)
 app.use('/api/alunos', alunoRoute);
 app.use('/api/professores', professorRoute);
 app.use('/api/coordenacao', coordenacaoRoute);
->>>>>>> 4de325c4bdd483a436627194b222cbb1651530e7
 app.use('/api/login', loginRoute);
 app.use('/api/professors', professorDisciplineRoute);
 app.use('/api/students', studentClassRoute);
