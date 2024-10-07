@@ -11,14 +11,14 @@
     <header>
         <div class="logo-container">
             <p><span class="titulo">OBI</span></p>
-            <img src="/Front-End/img/logoObi.png" alt="logo">
+            <img src="img/logobranca 1 (1).png" alt="logo">
         </div>
     </header>
 
     <div class="main-container"> 
         <nav class="sidebar">
             <button class="nav-button"><img src="img/semanaSelecionada.png" alt="Semana"></button>
-            <button class="nav-button active"><img src="img/carometro.png" alt="carometro"></button>
+            <button class="nav-button active"><img src="img/carometro.png" alt="Carômetro"></button>
             <button class="nav-button"><img src="img/agenda.png" alt="Chat"></button>
             <button class="nav-button"><img src="img/perfil.png" alt="Perfil"></button>
         </nav>
@@ -32,13 +32,18 @@
             </div>
 
             <main class="main-content">
-                <section class="section-column" id="avisos-section">
+                <div class="tabs">
+                    <button class="tab-button" data-tab="avisos">Avisos</button>
+                    <button class="tab-button" data-tab="materiais">Materiais</button>
+                    <button class="tab-button" data-tab="enquetes">Enquetes</button>
+                </div>
+                <section class="tab-content" id="avisos-section">
                     <h2>Avisos</h2>
                 </section>
-                <section class="section-column" id="materiais-section">
+                <section class="tab-content" id="materiais-section">
                     <h2>Materiais</h2>
                 </section>
-                <section class="section-column" id="enquetes-section">
+                <section class="tab-content" id="enquetes-section">
                     <h2>Enquetes</h2>
                 </section>
             </main>
@@ -50,50 +55,40 @@
     <div id="form-container" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Criar Novo Card</h3>
+                <img src="img/iconeX.png" alt="Fechar" class="close-icon" id="closeIcon">
             </div>
-            <form>
-                <label for="card-type">Tipo de Card:</label>
-                <select id="card-type">
-                    <option value="avisos">Aviso</option>
-                    <option value="materiais">Material</option>
-                    <option value="enquetes">Enquete</option>
-                </select>
-
-                <label for="card-author">Autor:</label>
-                <input type="text" id="card-author" placeholder="Autor" required>
-
-                <label for="card-date">Data:</label>
-                <input type="date" id="card-date" required>
-
-                <label for="card-content">Conteúdo:</label>
-                <textarea id="card-content" placeholder="Conteúdo" required></textarea>
-
-                <div id="poll-options-container" style="display: none;">
-                    <label for="poll-option-count">Número de opções:</label>
-                    <select id="poll-option-count">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-
-                    <div id="poll-option1-container">
-                        <input type="text" id="poll-option1" placeholder="Opção 1" required>
-                    </div>
-                    <div id="poll-option2-container" style="display: none;">
-                        <input type="text" id="poll-option2" placeholder="Opção 2" required>
-                    </div>
-                    <div id="poll-option3-container" style="display: none;">
-                        <input type="text" id="poll-option3" placeholder="Opção 3" required>
-                    </div>
+            <label for="card-author">Autor:</label>
+            <input type="text" id="card-author" placeholder="Autor">
+            
+            <label for="card-date">Data:</label>
+            <input type="date" id="card-date">
+    
+            <label for="post-content">Conteúdo:</label>
+            <textarea id="post-content" placeholder="Escreva algo"></textarea>
+    
+            <div class="modal-footer">
+                <div class="icon-container">
+                    <a href="#avisos-section"><img src="img/avisos.png" alt="Aviso" class="small-icon" title="Avisos"></a>
+                    <a href="#materiais-section"><img src="img/materiais.png" alt="Materiais" class="small-icon" title="Materiais"></a>
+                    <a href="#enquetes-section"><img src="img/enquetes.png" alt="Enquetes" class="small-icon" title="Enquetes"></a>
                 </div>
-                
-                <div class="button-container">
-                    <button type="button" class="form-button" id="save-card">Salvar</button>
-                    <button type="button" class="form-button" id="cancel">Cancelar</button>
-                </div>
-            </form>
+                <button id="create-post" class="create-post-button">Criar Post</button>
+            </div>
         </div>
+    </div>
+
+    <!-- Card de Materiais -->
+    <div id="materials-card" class="card materials" style="display: none;">
+        <div class="card-header">
+            <img src="img/iconeX.png" alt="Fechar" class="close-icon" id="closeMaterialsCard">
+        </div>
+        <textarea placeholder="Escreva algo"></textarea>
+        <div class="icon-row">
+            <img src="img/avisos.png" alt="Aviso" class="small-icon" title="Avisos">
+            <img src="img/materiais.png" alt="Materiais" class="small-icon selected-icon" title="Materiais">
+            <img src="img/enquetes.png" alt="Enquetes" class="small-icon" title="Enquetes">
+        </div>
+        <button class="create-post-button">Criar Post</button>
     </div>
 
     <script src="js/disciplina.js"></script>

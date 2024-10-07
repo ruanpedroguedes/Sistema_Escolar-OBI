@@ -14,4 +14,6 @@ router.put('/:id', alunoController.updateStudent);
 // Delete a student
 router.delete('/:id', alunoController.deleteStudent);
 
+router.get('/', alunoController.getAllStudents);
+
 module.exports = router;

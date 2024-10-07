@@ -10,71 +10,206 @@ document.addEventListener('DOMContentLoaded', function () {
             'Análise e Desenvolvimento de Sistemas': {
                 '1A': [],
                 '1B': [],
-                '1C': []
+                '1C': [],
+                '1D': [],
+                '2A': [],
+                '2B': [],
+                '2C': [],
+                '2D': [],
+                '3A': [],
+                '3B': [],
+                '3C': [],
+                '3D': []
+
             },
             'Informática': {
                 '1A': [],
                 '1B': [],
-                '1C': []
+                '1C': [],
+                '1D': [],
+                '2A': [],
+                '2B': [],
+                '2C': [],
+                '2D': [],
+                '3A': [],
+                '3B': [],
+                '3C': [],
+                '3D': []
             },
             'Logística': {
                 '1A': [],
                 '1B': [],
-                '1C': []
+                '1C': [],
+                '1D': [],
+                '2A': [],
+                '2B': [],
+                '2C': [],
+                '2D': [],
+                '3A': [],
+                '3B': [],
+                '3C': [],
+                '3D': []
             }
         },
         'Mediotec Paulista': {
             'Análise e Desenvolvimento de Sistemas': {
                 '1A': [],
                 '1B': [],
-                '1C': []
+                '1C': [],
+                '1D': [],
+                '2A': [],
+                '2B': [],
+                '2C': [],
+                '2D': [],
+                '3A': [],
+                '3B': [],
+                '3C': [],
+                '3D': []
             },
             'Informática': {
                 '1A': [],
                 '1B': [],
-                '1C': []
+                '1C': [],
+                '1D': [],
+                '2A': [],
+                '2B': [],
+                '2C': [],
+                '2D': [],
+                '3A': [],
+                '3B': [],
+                '3C': [],
+                '3D': []
             },
             'Logística': {
-                '1A': [],
+               '1A': [],
                 '1B': [],
-                '1C': []
+                '1C': [],
+                '1D': [],
+                '2A': [],
+                '2B': [],
+                '2C': [],
+                '2D': [],
+                '3A': [],
+                '3B': [],
+                '3C': [],
+                '3D': []
             }
         },
         'Mediotec Caruaru': {
             'Análise e Desenvolvimento de Sistemas': {
                 '1A': [],
                 '1B': [],
-                '1C': []
+                '1C': [],
+                '1D': [],
+                '2A': [],
+                '2B': [],
+                '2C': [],
+                '2D': [],
+                '3A': [],
+                '3B': [],
+                '3C': [],
+                '3D': []
             },
             'Informática': {
                 '1A': [],
                 '1B': [],
-                '1C': []
+                '1C': [],
+                '1D': [],
+                '2A': [],
+                '2B': [],
+                '2C': [],
+                '2D': [],
+                '3A': [],
+                '3B': [],
+                '3C': [],
+                '3D': []
             },
             'Logística': {
                 '1A': [],
                 '1B': [],
-                '1C': []
+                '1C': [],
+                '1D': [],
+                '2A': [],
+                '2B': [],
+                '2C': [],
+                '2D': [],
+                '3A': [],
+                '3B': [],
+                '3C': [],
+                '3D': []
             }
         },
         'Mediotec Petrolina': {
             'Análise e Desenvolvimento de Sistemas': {
                 '1A': [],
                 '1B': [],
-                '1C': []
+                '1C': [],
+                '1D': [],
+                '2A': [],
+                '2B': [],
+                '2C': [],
+                '2D': [],
+                '3A': [],
+                '3B': [],
+                '3C': [],
+                '3D': []
             },
             'Informática': {
                 '1A': [],
                 '1B': [],
-                '1C': []
+                '1C': [],
+                '1D': [],
+                '2A': [],
+                '2B': [],
+                '2C': [],
+                '2D': [],
+                '3A': [],
+                '3B': [],
+                '3C': [],
+                '3D': []
             },
             'Logística': {
                 '1A': [],
                 '1B': [],
-                '1C': []
+                '1C': [],
+                '1D': [],
+                '2A': [],
+                '2B': [],
+                '2C': [],
+                '2D': [],
+                '3A': [],
+                '3B': [],
+                '3C': [],
+                '3D': []
             }
         }
     };
+
+    // Fetch students data from the backend and populate materiasData
+    function fetchStudentsFromBackend() {
+        fetch('http://localhost:3000/api/students')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(aluno => {
+                    const unidade = 'Mediotec Recife'; // Ajuste de acordo com a unidade do aluno, se disponível no backend
+                    const curso = 'Análise e Desenvolvimento de Sistemas'; // Ajuste de acordo com o curso do aluno, se disponível no backend
+                    const turma = aluno.turma;
+
+                    if (materiasData[unidade] && materiasData[unidade][curso] && materiasData[unidade][curso][turma]) {
+                        materiasData[unidade][curso][turma].push({
+                            nome: aluno.numeroMatricula,
+                            turma: turma,
+                            matricula: aluno.numeroMatricula,
+                            dataNascimento: aluno.idade,
+                            foto: aluno.foto || 'img/aluno.png'
+                        });
+                    }
+                });
+            })
+            .catch(error => console.error('Erro ao buscar alunos:', error));
+    }
+
+    fetchStudentsFromBackend();
 
     unidadeDropdown.addEventListener('change', function () {
         clearSelection();
@@ -101,14 +236,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Função para formatar a turma
     function formatTurma(turma) {
         const ano = turma.charAt(0); // Obtém o primeiro caractere (1, 2 ou 3)
         const letra = turma.charAt(1); // Obtém a letra da turma (A, B ou C)
         return `${ano}° Ano - ${letra.toUpperCase()}`; // Formata a string
     }
 
-    // Função para atualizar a exibição dos cards dos alunos
     function updateStudentCardsDisplay() {
         const unidadeSelecionada = unidadeDropdown.value;
         const cursoSelecionado = cursoDropdown.value;
@@ -116,14 +249,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         studentCards.innerHTML = ''; // Limpa o conteúdo atual
 
-        // Verifica se a unidade, curso e turma estão selecionados
         if (unidadeSelecionada && cursoSelecionado && turmaSelecionada) {
             materiasData[unidadeSelecionada][cursoSelecionado][turmaSelecionada].forEach(aluno => {
                 const newCard = document.createElement('div');
                 newCard.classList.add('student-card');
                 newCard.innerHTML = `
                     <div class="student-image">
-                        <img src="img/aluno.png" alt="Foto do Aluno">
+                        <img src="${aluno.foto}" alt="Foto do Aluno">
                     </div>
                     <div class="info">
                         <div class="name">${aluno.nome}</div>
@@ -136,7 +268,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     <button class="details-button">></button>
                 `;
 
-                // Adiciona evento de clique para redirecionar para a página de perfil
                 newCard.querySelector('.details-button').addEventListener('click', function () {
                     localStorage.setItem('alunoSelecionado', JSON.stringify(aluno));
                     window.location.href = 'perfilAluno.html';
@@ -210,7 +341,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 studentCards.appendChild(newCard);
 
-                // Adiciona evento de clique para redirecionar para a página de perfil
                 newCard.querySelector('.details-button').addEventListener('click', function () {
                     localStorage.setItem('alunoSelecionado', JSON.stringify(aluno));
                     window.location.href = 'perfilAluno.html';
@@ -236,10 +366,4 @@ document.addEventListener('DOMContentLoaded', function () {
         const imgElement = carometroButton.querySelector('img');
         imgElement.src = imgElement.src.includes('carometro.png') ? 'img/carometroClicado.png' : 'img/carometro.png';
     });
-
-    function adicionarAluno(turma, aluno) {
-        if (materiasData[turma]) {
-            materiasData[turma].push(aluno);
-        }
-    }
 });

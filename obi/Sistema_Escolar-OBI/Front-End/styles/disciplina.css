@@ -96,12 +96,45 @@ header .titulo {
 /* Main content */
 .main-content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     padding: 20px;
 }
 
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+.tab-button {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px 5px 0 0;
+    transition: background-color 0.3s;
+}
+
+.tab-button.active {
+    background-color: #3366FF;
+    color: white;
+    border-bottom: 2px solid #3366FF;
+}
+
+.tab-content {
+    display: none;
+}
+.button.active {
+    background-color: blue; /* Cor azul */
+    color: white; /* Texto em branco */
+}
+.tab-content.active {
+    display: block;
+}
+
 .section-column {
-    width: 30%;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -114,45 +147,61 @@ header .titulo {
     font-size: 20px;
 }
 
+/* Estilo do Card */
 .card {
-    border: 1px solid #DDD;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
     padding: 15px;
-    border-radius: 8px; 
-    margin-top: 10px;
-    background-color: #fefefe; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.2s; 
+    margin-bottom: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card h3 {
+    color: #3366FF;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #333;
+    margin: 5px 0;
 }
 
 .card:hover {
-    transform: scale(1.02); 
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
 }
 
+/* Estilos para Enquetes */
 .poll {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px; 
-}
-
-.poll-bar {
-    background-color: #3366FF;
-    height: 20px;
-    width: 80%;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
-
-.poll-bar-no {
-    background-color: #CCCCCC;
-    height: 20px;
-    width: 20%;
-    border-radius: 5px;
+    margin-top: 10px;
 }
 
 .poll-text {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.poll-bar {
+    background-color: #3366FF;
+    height: 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.poll-bar-no {
+    background-color: #CCCCCC;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.poll-votes {
+    font-weight: bold;
+    color: #666;
 }
 
 .add-button {
@@ -242,4 +291,134 @@ header .titulo {
 
 .form-button:hover {
     background-color: #254fbd;
+}
+
+/* Estilos para o card de aviso */
+.icon-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.icon-row .icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-row .icons img {
+    width: 10px;  /* Ajuste para 10 pixels */
+    height: 10px; /* Ajuste para 10 pixels */
+    cursor: pointer;
+}
+
+.icon-container .small-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.create-post-button {
+    background-color: #3366FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.create-post-button:hover {
+    background-color: #254fbd;
+}
+
+/* Estilo para o textarea no modal */
+textarea#post-content {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    resize: none;
+    margin-top: 10px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Estilos específicos para o segundo card de "Materiais" */
+.card.materials {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+    font-family: 'Poppins', sans-serif;
+}
+
+.card.materials .icon-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.card.materials .icon-row img {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+}
+
+.card.materials .icon-row .selected-icon {
+    color: #3366FF; /* Muda a cor do ícone selecionado */
+}
+
+.card.materials .icon-row .icon-text {
+    font-size: 10px; /* Tamanho do texto dos ícones */
+    color: #333;
+}
+
+.card.materials textarea {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    resize: none;
+    margin-top: 10px;
+}
+
+.card.materials .create-post-button {
+    background-color: #3366FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.card.materials .create-post-button:hover {
+    background-color: #254fbd;
+}
+.materials-card {
+    background-color: #FFFFFF; /* Fundo do card */
+    border: 1px solid #E0E0E0; /* Borda do card */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05); /* Sombra do card */
+    padding: 15px; /* Padding geral do card */
+    margin-bottom: 15px; /* Margem inferior do card */
+}
+
+/* Ajustes no campo de texto para o card de Materiais */
+.materials-card #post-content {
+    font-style: italic; /* Estilo em itálico */
+    color: #004d4d; /* Cor do texto */
 }

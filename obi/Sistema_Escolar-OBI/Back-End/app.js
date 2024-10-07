@@ -29,7 +29,7 @@ mongoose.connect(process.env.MONGO_URI, {
   console.error('MongoDB connection error:', err);
 });
 
-// Definindo as rotas
+
 app.use('/api/cadastramentoRoute', cadastramentoRoute);
 app.use('/api/login', loginRoute);
 app.use('/api/users', userRoute);

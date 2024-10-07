@@ -43,3 +43,12 @@ exports.deleteAluno = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+// Lista todos os alunos
+exports.getAllStudents = async (req, res) => {
+    try {
+        const alunos = await AlunoModel.find();
+        res.json(alunos);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};

@@ -142,13 +142,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Adiciona o evento de clique para cada botão
                 newCard.querySelector('.blue').addEventListener('click', () => {
-                    window.location.href = 'disciplina.html';
+                    // Redireciona para a seção de avisos da disciplina
+                    window.location.href = 'disciplina.html?section=avisos';
                 });
                 newCard.querySelector('.material-button').addEventListener('click', () => {
-                    window.location.href = 'disciplina.html';
+                    // Redireciona para a seção de materiais da disciplina
+                    window.location.href = 'disciplina.html?section=materiais';
                 });
                 newCard.querySelector('.enquete-button').addEventListener('click', () => {
-                    window.location.href = 'disciplina.html';
+                    // Redireciona para a seção de enquetes da disciplina
+                    window.location.href = 'disciplina.html?section=enquetes';
                 });
 
                 materiasContainer.appendChild(newCard);
@@ -227,6 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('professor-nome').value = '';
         imagemInput.value = ''; // Limpa o campo de imagem
     }
+
     document.querySelectorAll('.nav-button').forEach(button => {
         button.addEventListener('click', () => {
             if (button.querySelector('img').alt === 'Agenda') {
@@ -237,4 +241,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
