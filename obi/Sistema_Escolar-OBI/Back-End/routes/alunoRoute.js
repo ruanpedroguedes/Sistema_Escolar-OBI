@@ -49,4 +49,20 @@ router.put('/:id', async (req, res) => {
         res.status(500).json({ message: 'Erro ao atualizar aluno e responsáveis.', error: error.message });
     }
 });
+
+// Adicionar rota para excluir um aluno específico
+router.delete('/:id', async (req, res) => {
+    try {
+        const aluno = await Aluno.findByIdAndDelete(req.params.id);
+        if (!aluno) {
+            return res.status(404).json({ message: 'Aluno não encontrado' });
+        }
+        res.status(200).json({ message: 'Aluno excluído com sucesso!' });
+    } catch (error) {
+        res.status(500).json({ message: 'Erro ao excluir aluno.', error: error.message });
+    }
+});
+
+
+
 module.exports = router;

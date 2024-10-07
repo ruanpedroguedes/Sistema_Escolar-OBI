@@ -114,3 +114,28 @@ function toggleEditForm() {
     const form = document.getElementById('edit-form');
     form.style.display = form.style.display === 'none' ? 'block' : 'none';
 }
+
+async function deleteStudent() {
+    const alunoid = new URLSearchParams(window.location.search).get('id');
+    const API_URL = `http://localhost:3000/api/alunos/${alunoid}`;
+
+    try {
+        const response = await fetch(API_URL, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            console.log('Aluno excluído com sucesso:', result);
+            // Redirecionar ou atualizar a página após exclusão
+            window.location.href = 'carometro.html';
+        } else {
+            console.error('Erro ao excluir aluno:', result.message);
+        }
+    } catch (error) {
+        console.error('Erro na requisição:', error);
+    }
+}
