@@ -30,7 +30,7 @@ router.get('/:id', async (req, res) => {
 // Adicionar rota para atualizar um aluno específico
 router.put('/:id', async (req, res) => {
     try {
-        const { username, dateOfBirth, turma, mae, pai } = req.body;
+        const { username, dateOfBirth, turma, unidade, mae, pai } = req.body; // Adicionei "unidade"
         const aluno = await Aluno.findById(req.params.id);
         if (!aluno) {
             return res.status(404).json({ message: 'Aluno não encontrado' });
@@ -39,6 +39,7 @@ router.put('/:id', async (req, res) => {
         aluno.username = username;
         aluno.dateOfBirth = dateOfBirth;
         aluno.turma = turma;
+        aluno.unidade = unidade; // Adicionei "unidade"
         aluno.responsaveis.mae = mae;
         aluno.responsaveis.pai = pai;
 
@@ -48,5 +49,4 @@ router.put('/:id', async (req, res) => {
         res.status(500).json({ message: 'Erro ao atualizar aluno e responsáveis.', error: error.message });
     }
 });
-
 module.exports = router;

@@ -7,6 +7,9 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
     const usertype = document.getElementById('tipoUsuario').value;
     const dateOfBirth = document.getElementById('dataNascimento').value;
     const password = document.getElementById('senha').value;
+    const unidade = document.getElementById('unidade').value;
+
+
 
     // Definindo a URL da API com base no tipo de usuário
     let API_URL;
@@ -39,7 +42,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ username, useremail, password, usertype, dateOfBirth, curso, turma, materia, funcao, local })
+        body: JSON.stringify({ username, useremail, password, usertype, dateOfBirth, curso, turma,unidade, materia, funcao, local })
     });
 
     const messageDiv = document.getElementById('message');

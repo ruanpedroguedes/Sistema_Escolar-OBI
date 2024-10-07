@@ -28,6 +28,7 @@ function preencherDadosDoAluno(aluno) {
     document.getElementById('edit-id').value = aluno._id;
     document.getElementById('edit-dob').value = new Date(aluno.dateOfBirth).toISOString().split('T')[0];
     document.getElementById('edit-class').value = aluno.turma;
+    document.getElementById('edit-unidade').value = aluno.unidade || ''; // Novo campo adicionado
     document.getElementById('edit-mother-name').value = aluno.responsaveis.mae.nome || '';
     document.getElementById('edit-mother-phone').value = aluno.responsaveis.mae.telefone || '';
     document.getElementById('edit-mother-email').value = aluno.responsaveis.mae.email || '';
@@ -37,6 +38,7 @@ function preencherDadosDoAluno(aluno) {
 
     document.getElementById('student-name').textContent = aluno.username;
     document.getElementById('student-class').querySelector('.info').textContent = aluno.turma;
+    document.getElementById('student-unit').querySelector('.info').textContent = aluno.unidade; // Novo campo adicionado
     document.getElementById('student-id').querySelector('.info').textContent = aluno._id;
     document.getElementById('student-dob').querySelector('.info').textContent = new Date(aluno.dateOfBirth).toLocaleDateString();
     document.getElementById('student-email').textContent = `Email: ${aluno.useremail}`;
@@ -50,6 +52,7 @@ function preencherDadosDoAluno(aluno) {
     console.log('Dados preenchidos no formulário:', aluno);
 }
 
+
 async function saveChanges() {
     const alunoid = new URLSearchParams(window.location.search).get('id');
     const API_URL = `http://localhost:3000/api/alunos/${alunoid}`;
@@ -57,6 +60,7 @@ async function saveChanges() {
     const username = document.getElementById('edit-name').value;
     const dateOfBirth = document.getElementById('edit-dob').value;
     const turma = document.getElementById('edit-class').value;
+    const unidade = document.getElementById('edit-unidade').value; // Certifique-se de que este campo está capturando o valor correto
     const mae = {
         nome: document.getElementById('edit-mother-name').value,
         telefone: document.getElementById('edit-mother-phone').value,
@@ -68,7 +72,7 @@ async function saveChanges() {
         email: document.getElementById('edit-father-email').value
     };
 
-    console.log('Enviando dados:', { username, dateOfBirth, turma, mae, pai });
+    console.log('Enviando dados:', { username, dateOfBirth, turma, unidade, mae, pai });
 
     try {
         const response = await fetch(API_URL, {
@@ -76,7 +80,7 @@ async function saveChanges() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ username, dateOfBirth, turma, mae, pai })
+            body: JSON.stringify({ username, dateOfBirth, turma, unidade, mae, pai })
         });
 
         const result = await response.json();
@@ -103,6 +107,8 @@ async function saveChanges() {
         console.error('Erro na requisição:', error);
     }
 }
+
+
 
 function toggleEditForm() {
     const form = document.getElementById('edit-form');

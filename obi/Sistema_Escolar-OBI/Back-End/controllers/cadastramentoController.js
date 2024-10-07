@@ -3,10 +3,10 @@ const Professor = require('../models/professorModel');
 const Coordenacao = require('../models/coordenacaoModel');
 
 exports.registerUser = async (req, res) => {
-    const { username, useremail, password, usertype, dateOfBirth, curso, turma, materia, funcao, local } = req.body;
+    const { username, useremail, password, usertype, dateOfBirth, unidade, curso, turma, materia, funcao, local } = req.body;
     
     try {
-        let userFields = { username, useremail, password, dateOfBirth, local };
+        let userFields = { username, useremail, password, dateOfBirth, unidade, local }; 
 
         let newUser;
         if (usertype === 'aluno') {

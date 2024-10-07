@@ -19,7 +19,7 @@
         <nav class="sidebar">
             <button class="nav-button"><img src="img/semana.png" alt="Agenda"></button>
             <button class="nav-button active"><img src="img/carometroClicado.png" alt="Carômetro"></button>
-            <button class="nav-button"><img src="img/agenda.png" alt="Chat"></button>
+            <button class="nav-button"><img src="img/chat.png" alt="Chat"></button>
             <button class="nav-button"><img src="img/perfil.png" alt="Perfil"></button>
         </nav>
 
@@ -51,6 +51,11 @@
                     </p>
                     <p class="student-age" id="student-age">
                         <span class="title">Idade:</span><br>
+                        <span class="info"></span>
+                        <a href="#" class="edit-icon"><img src="img/lapis.png" alt="Editar"></a>
+                    </p>
+                    <p class="student-unit" id="student-unit">  <!-- Adicionando campo unidade -->
+                        <span class="title">Unidade:</span><br>
                         <span class="info"></span>
                         <a href="#" class="edit-icon"><img src="img/lapis.png" alt="Editar"></a>
                     </p>
@@ -90,7 +95,17 @@
                 
                     <label for="edit-class">Turma:</label>
                     <input type="text" id="edit-class" name="edit-class">
-                
+                    <br>
+                    <br>
+                    <label for="edit-unidade">Unidade:</label>
+                    <select id="edit-unidade" name="edit-unidade">
+                        <option class="optionmediotec" value="Mediotec Recife">Mediotec Recife</option>
+                        <option class="optionmediotec" value="Mediotec Paulista">Mediotec Paulista</option>
+                        <option class="optionmediotec" value="Mediotec Caruaru">Mediotec Caruaru</option>
+                        <option class="optionmediotec" value="Mediotec Petrolina">Mediotec Petrolina</option>
+                    </select>
+                    <br>
+                    <br>
                     <label for="edit-photo">Foto:</label>
                     <input type="file" id="edit-photo" name="edit-photo" accept="image/*">
                 
