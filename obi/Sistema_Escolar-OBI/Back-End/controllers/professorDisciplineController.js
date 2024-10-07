@@ -1,5 +1,5 @@
 const ProfessorDiscipline = require('../models/professorDisciplineModel');
-const User = require('../models/userModel');
+const User = require('../models/professorModel');
 const Discipline = require('../models/disciplineModel');
 
 

@@ -1,45 +1,40 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 
-const alunoSchema = new mongoose.Schema({
-    foto: {
-        type: String, // URL ou caminho da imagem
-        required: true
-    },
-    turma: {
-        type: String,
-        required: true
-    },
-    numeroMatricula: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    idade: {
-        type: Number,
-        required: true,
-        min: 0
-    },
-    responsavel1: {
-        nome: String,
-        telefone: String,
-        email: String
-    },
-    responsavel2: {
-        nome: String,
-        telefone: String,
-        email: String
-    },
-    emailAluno: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    observacoes: {
-        type: String,
-        default: ''
+const AlunoSchema = new mongoose.Schema({
+    username: { type: String, required: true, unique: true },
+    useremail: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    dateOfBirth: { type: Date, required: true }, // Data de nascimento
+    curso: { type: String, required: true },
+    turma: { type: String, required: true },
+    local: { type: String },
+     // Adicionando campos dos responsáveis
+     responsaveis: {
+        mae: {
+            nome: { type: String },
+            telefone: { type: String },
+            email: { type: String }
+        },
+        pai: {
+            nome: { type: String },
+            telefone: { type: String },
+            email: { type: String }
+        }
     }
 });
 
-const Aluno = mongoose.model('Aluno', alunoSchema);
+// Hook para hash da senha antes de salvar
+AlunoSchema.pre('save', async function (next) {
+    if (this.isModified('password')) {
+        this.password = await bcrypt.hash(this.password, 10);
+    }
+    next();
+});
 
-module.exports = Aluno;
+// Método para comparar senhas
+AlunoSchema.methods.comparePassword = async function(password) {
+    return await bcrypt.compare(password, this.password);
+};
+
+module.exports = mongoose.model("Aluno", AlunoSchema);

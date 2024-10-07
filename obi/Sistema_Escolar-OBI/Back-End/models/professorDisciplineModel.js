@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const ProfessorDisciplineSchema = new mongoose.Schema({
     professor_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+        ref: 'Professor',
         required: true
     },
     disciplina_id: {

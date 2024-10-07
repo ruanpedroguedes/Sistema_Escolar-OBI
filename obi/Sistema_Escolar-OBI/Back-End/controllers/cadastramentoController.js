@@ -1,24 +1,27 @@
-const User = require('../models/userModel');
+const Aluno = require('../models/alunoModel');
+const Professor = require('../models/professorModel');
+const Coordenacao = require('../models/coordenacaoModel');
 
 exports.registerUser = async (req, res) => {
-    const { username, useremail, password, usertype, dateOfBirth, curso, turma, materia, funcao, local } = req.body; // Adicione 'local' aqui
+    const { username, useremail, password, usertype, dateOfBirth, curso, turma, materia, funcao, local } = req.body;
     
     try {
-        let userFields = { username, useremail, password, usertype, dateOfBirth, local }; // Inclua 'local' nos campos do usuário
+        let userFields = { username, useremail, password, dateOfBirth, local };
 
-        // Verificação de campos específicos com base no tipo de usuário
+        let newUser;
         if (usertype === 'aluno') {
             userFields.curso = curso;
             userFields.turma = turma;
+            newUser = new Aluno(userFields);
         } else if (usertype === 'professor') {
             userFields.materia = materia;
+            newUser = new Professor(userFields);
         } else if (usertype === 'coordenacao') {
             userFields.funcao = funcao;
+            newUser = new Coordenacao(userFields);
         }
 
-        const newUser = new User(userFields);
         await newUser.save();
-
         res.status(201).json({ message: 'Usuário cadastrado com sucesso!' });
     } catch (error) {
         if (error.name === 'MongoError' && error.code === 11000) {

@@ -1,5 +1,5 @@
 const Disciplina = require("../models/disciplineModel");
-const User = require("../models/userModel");
+const User = require("../models/professorModel");
 const ProfessorDiscipline = require("../models/professorDisciplineModel");
 
 // Criação de disciplina e associação com professor

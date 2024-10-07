@@ -1,5 +1,5 @@
 const StudentClass = require('../models/studentClassModel');
-const User = require('../models/userModel');
+const User = require('../models/alunoModel');
 const Class = require('../models/classModel');
 
 // Criar uma associação entre aluno e turma

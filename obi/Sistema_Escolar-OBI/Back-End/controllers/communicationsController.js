@@ -1,5 +1,5 @@
 const Comunicado = require('../models/communicationsModel');
-const User = require('../models/userModel');
+const User = require('../models/professorModel');
 
 // Cria um novo comunicado
 exports.createComunicado = async (req, res) => {

@@ -28,7 +28,7 @@
             <h1>Carômetro</h1>
             <div class="student-profile">
                 <div class="profile-header">
-                    <img src="img/avatar.png" alt="Foto do Aluno" class="profile-photo" id="profile-photo">
+                    <img src="img/aluno.png" alt="Foto do Aluno" class="profile-photo" id="profile-photo">
                     <div class="profile-info">
                         <h2 class="student-name" id="student-name"></h2>
                     </div>
@@ -81,49 +81,42 @@
                 <form id="edit-student-form">
                     <label for="edit-name">Nome:</label>
                     <input type="text" id="edit-name" name="edit-name">
-                    
+                
                     <label for="edit-id">Matrícula:</label>
-                    <input type="text" id="edit-id" name="edit-id">
-                    
+                    <input type="text" id="edit-id" name="edit-id" disabled> <!-- Matrícula não deve ser editável -->
+                
                     <label for="edit-dob">Data de Nascimento:</label>
-                    <input type="text" id="edit-dob" name="edit-dob">
-                    
+                    <input type="date" id="edit-dob" name="edit-dob">
+                
                     <label for="edit-class">Turma:</label>
                     <input type="text" id="edit-class" name="edit-class">
-                    
+                
                     <label for="edit-photo">Foto:</label>
                     <input type="file" id="edit-photo" name="edit-photo" accept="image/*">
-                    
+                
                     <h3>Responsáveis</h3>
                     <label for="edit-mother-name">Nome da Mãe:</label>
                     <input type="text" id="edit-mother-name" name="edit-mother-name">
-                    
+                
                     <label for="edit-mother-phone">Telefone da Mãe:</label>
                     <input type="text" id="edit-mother-phone" name="edit-mother-phone">
-                    
+                
                     <label for="edit-mother-email">Email da Mãe:</label>
                     <input type="email" id="edit-mother-email" name="edit-mother-email">
-                    
+                
                     <label for="edit-father-name">Nome do Pai:</label>
                     <input type="text" id="edit-father-name" name="edit-father-name">
-                    
+                
                     <label for="edit-father-phone">Telefone do Pai:</label>
                     <input type="text" id="edit-father-phone" name="edit-father-phone">
-                    
+                
                     <label for="edit-father-email">Email do Pai:</label>
                     <input type="email" id="edit-father-email" name="edit-father-email">
-                    
-                    <h3>Contato do Aluno</h3>
-                    <label for="edit-student-email">Email do Aluno:</label>
-                    <input type="email" id="edit-student-email" name="edit-student-email">
-                    
-                    <h3>Observações</h3>
-                    <label for="edit-observations">Observações:</label>
-                    <textarea id="edit-observations" name="edit-observations"></textarea>
-                    
+                
                     <button type="button" onclick="saveChanges()">Salvar</button>
                     <button type="button" onclick="toggleEditForm()">Cancelar</button>
                 </form>
+                
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-const User = require('../models/userModel')
+const User = require('../models/alunoModel')
 
 exports.getUsers = async (req, res) => {
    try {
