@@ -75,7 +75,10 @@
         </div>
     </div>
 
-    <button id="add-agenda-button" class="add-button">+</button>
+    <button id="add-agenda-button" class="add-button">+</button> <!-- O ID foi adicionado para o JavaScript -->
+
+    <!-- Overlay para o Modal -->
+    <div class="modal-overlay" id="modal-overlay"></div>
 
     <!-- Modal para adicionar nova tarefa -->
     <div id="task-modal" class="modal">
@@ -93,7 +96,7 @@
                 </div>
                 <div class="form-group">
                     <label for="task-date">Data</label>
-                    <input type="text" id="task-date" placeholder="DD/MM/AAAA">
+                    <input type="date" id="task-date" placeholder="DD/MM/AAAA">
                 </div>
                 <div class="form-group">
                     <label for="category-input">Adicionar categoria</label>
@@ -103,6 +106,7 @@
                 <div id="category-container" class="category-container">
                     <!-- Categorias adicionadas serão exibidas aqui -->
                 </div>
+
                 <button type="button" id="create-task-button" class="create-button">Criar Tarefa</button>
             </form>
         </div>
