@@ -53,13 +53,52 @@
                     <option value="1C">1° Ano - C</option>
                 </select>
             </div>
+            <button id="add-disciplina-button" class="add-button">Adicionar Disciplina</button>
+
+            <!-- Modal para adicionar nova disciplina -->
+            <div id="add-disciplina-modal" class="modal" style="display:none;">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3>Adicionar Disciplina</h3>
+                    
+                    <label for="disciplina-nome">Nome da Disciplina:</label>
+                    <input type="text" id="disciplina-nome" placeholder="Digite o nome da disciplina">
+                    
+                    <label for="professor-id">ID do Professor:</label>
+                    <input type="text" id="professor-id" placeholder="Digite o ID do professor">
+                    
+                    <label for="turma">Turma:</label>
+                    <select id="turma">
+                        <option value="1A">1° Ano - A</option>
+                        <option value="1B">1° Ano - B</option>
+                        <option value="1C">1° Ano - C</option>
+                        <option value="1D">1° Ano - D</option>
+                        <option value="2A">2° Ano - A</option>
+                        <option value="2B">2° Ano - B</option>
+                        <option value="2C">2° Ano - C</option>
+                        <option value="2D">2° Ano - D</option>
+                        <option value="3A">3° Ano - A</option>
+                        <option value="3B">3° Ano - B</option>
+                        <option value="3C">3° Ano - C</option>
+                        <option value="3D">3° Ano - D</option>
+                    </select>
+                    
+                    <button id="salvar-disciplina-button">Salvar</button>
+                </div>
+            </div>
+
+<div id="disciplinas-container">
+    <!-- Os cards das disciplinas serão inseridos aqui -->
+</div>
+
+
 
             <!-- Exibição da turma selecionada -->
             <h2 id="turma-titulo" class="turma-titulo" style="display:none;"></h2>
 
             <!-- Botão de adicionar matéria -->
             <button id="add-materia-button" class="add-button" style="display:none;">+</button>
-
+           
             <main id="materias-container">
                 <!-- Os cards das matérias serão inseridos dinamicamente aqui -->
             </main>
