@@ -130,7 +130,8 @@ header .titulo {
 
 /* Cartão de Tarefa */
 .agenda-item {
-    background-color: #F4EFFE;
+    background-color:  #F4EFFE;
+    ;
     border-radius: 12px;
     padding: 15px;
     margin-bottom: 10px; /* Margem inferior */
