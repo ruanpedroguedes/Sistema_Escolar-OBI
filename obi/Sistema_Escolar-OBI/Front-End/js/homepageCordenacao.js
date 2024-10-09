@@ -1,3 +1,4 @@
+// Controle do Modal de Adicionar Disciplina
 document.getElementById('add-disciplina-button').addEventListener('click', () => {
     document.getElementById('add-disciplina-modal').style.display = 'block';
 });
@@ -38,4 +39,9 @@ document.getElementById('salvar-disciplina-button').addEventListener('click', as
         const error = await response.json();
         console.error('Erro ao criar disciplina:', error);
     }
+});
+
+// Adicionar o Event Listener para o botão de agenda
+document.getElementById('agenda-button').addEventListener('click', () => {
+    window.location.href = 'agendaCoordenacao.html';
 });

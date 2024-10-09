@@ -27,6 +27,7 @@ const agendaSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
+  coordenador: { type: mongoose.Schema.Types.ObjectId, ref: 'Coordenacao' }
 });
 
 // Criação do modelo com base no Schema

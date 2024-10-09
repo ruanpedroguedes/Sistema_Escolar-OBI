@@ -7,7 +7,8 @@ const CoordenacaoSchema = new mongoose.Schema({
     password: { type: String, required: true },
     dateOfBirth: { type: Date, required: true }, // Data de nascimento
     funcao: { type: String, required: true },
-    local: { type: String }
+    local: { type: String },
+    usertype: { type: String, default: 'Coordenação' } 
 });
 
 // Hook para hash da senha antes de salvar
