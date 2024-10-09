@@ -247,6 +247,10 @@ header .titulo {
     padding-bottom: 10px;
 }
 
+.modal-header img {
+    width: 13px;
+}
+
 .button-container {
     display: flex;
     justify-content: space-between;
