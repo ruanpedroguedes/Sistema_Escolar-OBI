@@ -75,3 +75,56 @@ header .titulo {
 .nav-button img {
     height: 50px;
 }
+
+main {
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto;
+    box-shadow: rgb(0, 0, 0);
+  }
+  
+  .main-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header-img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: black;
+  }
+  
+  .card-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+  }
+  
+  .card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #103ADA;
+  }
+  
+  .card p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: black;
+  }
+  
