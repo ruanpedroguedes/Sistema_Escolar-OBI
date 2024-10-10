@@ -7,7 +7,6 @@ document.querySelector('form').addEventListener('submit', async (e) => {
     const username = document.querySelector('input[name="username"]').value;
     const password = document.querySelector('input[name="password"]').value;
 
-    
     // Envia os dados para a API de login
     const response = await fetch(API_URL, {
         method: 'POST',
