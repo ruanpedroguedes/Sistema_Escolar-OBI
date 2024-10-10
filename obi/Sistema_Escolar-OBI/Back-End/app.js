@@ -14,8 +14,8 @@ const turmaRoute = require('./routes/turmaRoutes');
 const disciplinaRoute = require('./routes/disciplinaRoute');
 const boletimRoutes = require('./routes/boletimRoutes');
 const avisoRoute = require('./routes/avisoRoute');
-
 const agendaRoutes = require('./routes/agendaRoute');
+const funcionariosRoute = require('./routes/funcionariosRoute');
 
 dotenv.config();
 
@@ -46,6 +46,7 @@ app.use('/api/professores', professorRoute);
 app.use('/api/coordenacao', coordenacaoRoute);
 app.use('/api/login', loginRoute);
 app.use('/api/agendaRoute', agendaRoutes);
+app.use('/api/funcionarios', funcionariosRoute);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server running on port ${port}`));

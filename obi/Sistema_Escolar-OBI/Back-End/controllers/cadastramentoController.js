@@ -11,7 +11,7 @@ exports.registerUser = async (req, res) => {
         let newUser;
         if (usertype === 'aluno') {
             userFields.curso = curso;
-            userFields.turma = turma;
+            userFields.turma = turma;z
             newUser = new Aluno(userFields);
         } else if (usertype === 'professor') {
             userFields.materia = materia;
