@@ -13,6 +13,8 @@ const cadastramentoRoute = require('./routes/cadastramentoRoute');
 const turmaRoute = require('./routes/turmaRoutes');
 const disciplinaRoute = require('./routes/disciplinaRoute');
 const boletimRoutes = require('./routes/boletimRoutes');
+const avisoRoute = require('./routes/avisoRoute');
+
 const agendaRoutes = require('./routes/agendaRoute');
 
 dotenv.config();
@@ -31,6 +33,7 @@ mongoose.connect(process.env.MONGO_URI, {
   console.error('MongoDB connection error:', err);
 });
 
+app.use('/api/avisos', avisoRoute);
 app.use('/api/boletim', boletimRoutes);
 app.use('/api/disciplinaRoute', disciplinaRoute);
 app.use('/api/cadastramentoRoute', cadastramentoRoute);

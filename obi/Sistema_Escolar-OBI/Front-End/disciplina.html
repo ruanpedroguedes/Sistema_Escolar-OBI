@@ -17,10 +17,11 @@
 
     <div class="main-container"> 
         <nav class="sidebar">
-            <button class="nav-button"><img src="img/semanaSelecionada.png" alt="Semana"></button>
-            <button class="nav-button active"><img src="img/carometro.png" alt="Carômetro"></button>
-            <button class="nav-button"><img src="img/agenda.png" alt="Chat"></button>
-            <button class="nav-button"><img src="img/perfil.png" alt="Perfil"></button>
+            <a href="homepageCoordenacao.html"><button class="nav-button"><img src="img/semanaSelecionada.png" alt="Semana"></button></a>
+            <a href="carometro.html"><button class="nav-button active"><img src="img/carometro.png" alt="Carômetro"></button></a>
+            <a href="funcionarios.html"><button class="nav-button active"><img src="img/people_14960715 1.png" alt="funcionarios"></button></a>
+            <a href="agendaCoordenacao.html"><button class="nav-button"><img src="img/agenda.png" alt="Chat"></button></a>
+            <a href="perfilCoordenacao.html"><button class="nav-button"><img src="img/perfil.png" alt="Perfil"></button></a>
         </nav>
 
         <div class="content-area"> 
@@ -39,6 +40,7 @@
                 </div>
                 <section class="tab-content" id="avisos-section">
                     <h2>Avisos</h2>
+                    <!-- Avisos serão inseridos aqui -->
                 </section>
                 <section class="tab-content" id="materiais-section">
                     <h2>Materiais</h2>
@@ -75,20 +77,6 @@
                 <button id="create-post" class="create-post-button">Criar Post</button>
             </div>
         </div>
-    </div>
-
-    <!-- Card de Materiais -->
-    <div id="materials-card" class="card materials" style="display: none;">
-        <div class="card-header">
-            <img src="img/iconeX.png" alt="Fechar" class="close-icon" id="closeMaterialsCard">
-        </div>
-        <textarea placeholder="Escreva algo"></textarea>
-        <div class="icon-row">
-            <img src="img/avisos.png" alt="Aviso" class="small-icon" title="Avisos">
-            <img src="img/materiais.png" alt="Materiais" class="small-icon selected-icon" title="Materiais">
-            <img src="img/enquetes.png" alt="Enquetes" class="small-icon" title="Enquetes">
-        </div>
-        <button class="create-post-button">Criar Post</button>
     </div>
 
     <script src="js/disciplina.js"></script>

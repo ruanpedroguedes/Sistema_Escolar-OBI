@@ -14,7 +14,7 @@ header {
 
 header h1 {
     font-family: "Arvo", serif;
-    font-size: 24px;
+    font-size: 40px;
     font-weight: 200;
     line-height: 29.64px;
     text-align: left;
@@ -39,11 +39,12 @@ header h1 {
     position: fixed;
     left: 0;
     top: 82px; /* Distância do topo (ajuste conforme a altura do cabeçalho) */
-    width: 40px; /* Largura do menu lateral */
+    width: 50px; /* Largura do menu lateral */
     background-color: #FFFFFF; /* Cor do fundo do menu lateral */
     padding: 10px;
     box-shadow: 0px 4px 10px 0px #00000026;
     height: 100%;
+    margin-top: 20.8px;
 }
 
 .sidebar ul {
@@ -56,8 +57,8 @@ header h1 {
 }
 
 .sidebar img {
-    width: 40px; /* Ajuste o tamanho da imagem do menu */
-    height: 40px; /* Ajuste o tamanho da imagem do menu */
+    width: 50px; /* Ajuste o tamanho da imagem do menu */
+    height: 50px; /* Ajuste o tamanho da imagem do menu */
 }
 
 #titulo {
