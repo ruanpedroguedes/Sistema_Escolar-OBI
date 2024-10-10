@@ -16,15 +16,16 @@
 
     <div class="main-container">
         <nav class="sidebar">
-            <button class="nav-button"><img src="img/semana.png" alt="Agenda"></button>
-            <button class="nav-button"><img src="img/carometro.png" alt="Carômetro"></button>
-            <button class="nav-button active"><img src="img/agendaClicada.png" alt="Agenda"></button>
-            <button class="nav-button"><img src="img/perfil.png" alt="Perfil"></button>
+            <a href="homepageCoordenacao.html"><button class="nav-button"><img src="img/semana.png" alt="Semana"></button></a>
+            <a href="carometro.html"><button class="nav-button"><img src="img/carometro.png" alt="Carômetro"></button></a>
+            <a href="funcionarios.html"><button class="nav-button"><img src="img/funcionarios.png" alt="funcionarios"></button></a>
+            <a href="agendaCoordenacao.html"><button class="nav-button"><img src="img/agendaClicada.png" alt="Chat"></button></a>
+            <a href="perfilCoordenacao.html"><button class="nav-button"><img src="img/perfil.png" alt="Perfil"></button></a>
         </nav>
 
         <div class="content">
             <p>
-                <span class="ola">Olá Susana,</span>
+                <span class="ola">Olá,</span>
                 <br>
                 <span class="highlight">Veja sua programação dos próximos dias!</span>
             </p>
@@ -92,11 +93,6 @@
                 <div class="form-group">
                     <label for="task-date">Data</label>
                     <input type="date" id="task-date" placeholder="DD/MM/AAAA">
-                </div>
-                <div class="form-group">
-                    <label for="category-input">Adicionar categoria</label>
-                    <input type="text" id="category-input" placeholder="Ex: Prova">
-                    <button type="button" id="add-category-button" class="add-category-btn">+</button>
                 </div>
                 <div id="category-container" class="category-container">
                     <!-- Categorias adicionadas serão exibidas aqui -->

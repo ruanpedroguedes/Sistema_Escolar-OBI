@@ -7,9 +7,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
     const usertype = document.getElementById('tipoUsuario').value;
     const dateOfBirth = document.getElementById('dataNascimento').value;
     const password = document.getElementById('senha').value;
-    const unidade = document.getElementById('unidade').value;
-
-
+    const local = document.getElementById('local').value;
 
     // Definindo a URL da API com base no tipo de usuário
     let API_URL;
@@ -22,7 +20,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
     }
 
     // Variáveis específicas
-    let curso, turma, materia, funcao, local;
+    let curso, turma, materia, funcao;
 
     // Capturando campos específicos com base no tipo de usuário
     if (usertype === 'aluno') {
@@ -30,10 +28,8 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
         turma = document.getElementById('turma').value;
     } else if (usertype === 'professor') {
         materia = document.getElementById('materia').value;
-        local = document.getElementById('local').value;
     } else if (usertype === 'coordenacao') {
         funcao = document.getElementById('funcao').value;
-        local = document.getElementById('local').value;
     }
 
     // Enviando os dados para a API
@@ -42,7 +38,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ username, useremail, password, usertype, dateOfBirth, curso, turma,unidade, materia, funcao, local })
+        body: JSON.stringify({ username, useremail, password, usertype, dateOfBirth, curso, turma, local, materia, funcao })
     });
 
     const messageDiv = document.getElementById('message');
@@ -76,3 +72,22 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
         messageDiv.style.display = 'none';
     }, 3000);
 });
+
+function atualizarCampos() {
+    const tipoUsuario = document.getElementById('tipoUsuario').value;
+    const alunoCampos = document.getElementById('alunoCampos');
+    const professorCampos = document.getElementById('professorCampos');
+    const coordenacaoCampos = document.getElementById('coordenacaoCampos');
+
+    alunoCampos.style.display = 'none';
+    professorCampos.style.display = 'none';
+    coordenacaoCampos.style.display = 'none';
+
+    if (tipoUsuario === 'aluno') {
+        alunoCampos.style.display = 'block';
+    } else if (tipoUsuario === 'professor') {
+        professorCampos.style.display = 'block';
+    } else if (tipoUsuario === 'coordenacao') {
+        coordenacaoCampos.style.display = 'block';
+    }
+}

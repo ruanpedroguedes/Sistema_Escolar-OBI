@@ -1,0 +1,224 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    background-color: #0037ff;
+    color: #fff;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container h1 {
+    margin-right: 10px;
+}
+
+.logo-container img {
+    height: 40px;
+}
+
+header .titulo {
+    margin-right: 10px; 
+    font-size: 40px;
+    font-family: 'Arvo', system-ui; 
+}
+
+.main-container {
+    display: flex;
+    height: calc(100vh - 80px); 
+}
+
+.ola {
+    font-size: 30px;
+}
+
+.highlight {
+    font-size: 35px; 
+    color: #007bff;  
+    font-weight: normal; 
+}
+
+.sidebar {
+    width: 80px; 
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 20px;
+    height: 100%; 
+    position: relative;
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar .nav-button {
+    background: none;
+    border: none;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.nav-button img {
+    height: 50px;
+}
+
+.nav-button.active img {
+    border: 2px solid #036AC9;
+    border-radius: 50%;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 20px;
+    color: #007bff;
+}
+
+.filter-section {
+    margin-top: 20px;
+}
+
+.filter-dropdown {
+    padding: 10px;
+    border: 1px solid #007bff;
+    border-radius: 20px;
+    background: transparent;
+    color: #000000;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.employee-cards {
+    display: flex;
+    flex-wrap: wrap;             
+    gap: 10px;                   
+    justify-content: flex-start; 
+}
+
+.employee-card {
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    padding: 15px; 
+    width: 100%; 
+    max-width: 400px; 
+    display: flex; 
+    align-items: center; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    position: relative; 
+}
+
+.employee-card .employee-image {
+    margin-right: 15px; 
+    display: flex;
+    align-items: center;
+}
+
+.employee-card img {
+    border-radius: 50%; 
+    height: 60px; 
+    width: 60px; 
+}
+
+.employee-card .info {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    max-width: calc(100% - 70px); 
+}
+
+.employee-card .name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px; 
+}
+
+.employee-card .cargo {
+    font-size: 14px;
+    color: #000000; 
+    margin-bottom: 10px;
+}
+
+.employee-card .details {
+    display: flex;
+    flex-direction: column;
+}
+
+.employee-card .turma {
+    font-size: 12px; 
+    color: #007bff;
+    margin-bottom: 3px; 
+}
+
+.details-button {
+    background-color: #0037ff; 
+    color: white; 
+    border: none;
+    border-radius: 0 10px 10px 0; 
+    width: 40px; 
+    height: 100%; 
+    font-size: 18px;
+    position: absolute; 
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.details-button:hover {
+    background-color: #0022cc;
+}
+
+.add-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #036AC9;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.delete-button {
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 50px; /* Ajuste para posicionar no canto superior direito */
+    cursor: pointer;
+}
+
+.delete-button img {
+    width: 24px;
+    height: 24px;
+}

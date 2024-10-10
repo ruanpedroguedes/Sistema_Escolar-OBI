@@ -3,10 +3,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const disciplinas = await response.json();
 
     disciplinas.forEach(disciplina => {
+        const professorNome = disciplina.professor ? disciplina.professor.username : 'Professor não atribuído';
         const cardHTML = `
             <div class="card" data-id="${disciplina._id}" data-nome="${disciplina.nome}">
                 <h3>${disciplina.nome}</h3>
-                <p>Professor: ${disciplina.professor.username}</p>
+                <p>Professor: ${professorNome}</p>
                 <p>Turma: ${disciplina.turma}</p>
                 <button class="edit-button">Editar</button>
             </div>
@@ -26,11 +27,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 });
 
-
 function openEditForm(disciplina) {
     const modal = document.getElementById('edit-disciplina-modal');
     document.getElementById('edit-disciplina-nome').value = disciplina.nome;
-    document.getElementById('edit-professor-nome').value = disciplina.professor.username;
+    document.getElementById('edit-professor-nome').value = disciplina.professor ? disciplina.professor.username : '';
     document.getElementById('edit-turma').value = disciplina.turma; // Esse select deve ter o valor da turma pre-selecionado
     modal.style.display = 'block';
 
@@ -83,7 +83,6 @@ document.querySelector('.close-button').addEventListener('click', () => {
     document.getElementById('edit-disciplina-modal').style.display = 'none';
 });
 
-
 document.getElementById('add-disciplina-button').addEventListener('click', () => {
     document.getElementById('add-disciplina-modal').style.display = 'block';
 });
@@ -121,7 +120,7 @@ document.getElementById('salvar-disciplina-button').addEventListener('click', as
         document.getElementById('disciplinas-container').insertAdjacentHTML('beforeend', `
             <div class="card">
                 <h3>${disciplina.nome}</h3>
-                <p>Professor: ${disciplina.professor.username}</p>
+                <p>Professor: ${disciplina.professor ? disciplina.professor.username : 'Professor não atribuído'}</p>
                 <p>Turma: ${disciplina.turma}</p>
                  <div class="button-container">
                     <a href="pagina1.html" class="btn">Página 1</a>

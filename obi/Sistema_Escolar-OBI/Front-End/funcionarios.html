@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carômetro de Funcionários</title>
+    <link rel="stylesheet" href="styles/funcionarios.css">
+    <link rel="stylesheet" href="styles/fonts.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <p><span class="titulo">OBI</span></p>
+            <img src="img/logobranca 1 (1).png" alt="logo">
+        </div>
+    </header>
+
+    <div class="main-container">
+        <nav class="sidebar">
+            <a href="homepageCoordenacao.html"><button class="nav-button"><img src="img/semana.png" alt="Agenda"></button></a>
+            <a href="carometro.html"><button class="nav-button"><img src="img/carometro.png" alt="Carômetro"></button></a>
+            <a href="funcionarios.html"><button class="nav-button"><img src="img/funcionariosClicado.png" alt="Funcionários"></button></a>
+            <a href="agendaCoordenacao.html"><button class="nav-button"><img src="img/agenda.png" alt="agenda"></button></a>
+            <a href="perfilCoordenacao.html"><button class="nav-button"><img src="img/perfil.png" alt="Perfil"></button></a>
+        </nav>
+
+        <div class="content">
+            <p><span class="ola">Olá,</span>
+                <br>
+                <span class="highlight">Confira os funcionários</span>
+            </p>
+            <div class="filter-buttons centered">
+                <select id="unidade-dropdown" class="filter-dropdown">
+                    <option value="none">Selecione a Unidade</option>
+                    <option>Mediotec Recife</option>
+                    <option>Mediotec Paulista</option>
+                    <option>Mediotec Caruaru</option>
+                    <option>Mediotec Petrolina</option>
+                </select>
+
+                <select id="cargo-dropdown" class="filter-dropdown">
+                    <option value="none">Selecione o Cargo</option>
+                    <option>Coordenador</option>
+                    <option>Professor</option>
+                </select>
+            </div>
+
+            <h3 id="funcionarios-titulo" style="display:none;"></h3>
+            <div class="employee-cards" id="employee-cards" style="display:none;">
+                <!-- Exemplo de card de funcionário -->
+                <div class="employee-card">
+                    <div class="employee-image">
+                        <img src="img/funcionario.png" alt="Foto do Funcionário">
+                    </div>
+                    <div class="info">
+                        <div class="name">Nome do Funcionário</div>
+                        <div class="details">
+                            <div class="cargo">Cargo: Coordenador</div>
+                            <div class="unidade">Unidade: Mediotec Recife</div>
+                        </div>
+                    </div>
+                    <button class="details-button">></button>
+                </div>
+            </div>
+        </div>
+
+       <a href="cadastramento.html"><button class="add-button">+</button></a> 
+    </div>
+
+    <script src="js/funcionarios.js"></script>
+</body>
+</html>
