@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     disciplinas.forEach(disciplina => {
         const cardHTML = `
-            <div class="card" data-id="${disciplina._id}">
+            <div class="card" data-id="${disciplina._id}" data-nome="${disciplina.nome}">
                 <h3>${disciplina.nome}</h3>
                 <p>Professor: ${disciplina.professor.username}</p>
                 <p>Turma: ${disciplina.turma}</p>
@@ -19,11 +19,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (event.target.classList.contains('edit-button')) {
                 openEditForm(disciplina);
             } else {
-                window.location.href = `/disciplina/${disciplina._id}`;
+                const disciplinaNome = disciplina.nome;
+                window.location.href = `disciplina.html?nome=${encodeURIComponent(disciplinaNome)}`;
             }
         });
     });
 });
+
 
 function openEditForm(disciplina) {
     const modal = document.getElementById('edit-disciplina-modal');
