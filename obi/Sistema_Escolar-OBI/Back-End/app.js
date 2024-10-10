@@ -13,6 +13,7 @@ const cadastramentoRoute = require('./routes/cadastramentoRoute');
 const turmaRoute = require('./routes/turmaRoutes');
 const disciplinaRoute = require('./routes/disciplinaRoute');
 const boletimRoutes = require('./routes/boletimRoutes');
+const agendaRoutes = require('./routes/agendaRoute');
 
 dotenv.config();
 
@@ -41,6 +42,7 @@ app.use('/api/alunos', alunoRoute);
 app.use('/api/professores', professorRoute);
 app.use('/api/coordenacao', coordenacaoRoute);
 app.use('/api/login', loginRoute);
+app.use('/api/agendaRoute', agendaRoutes);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
