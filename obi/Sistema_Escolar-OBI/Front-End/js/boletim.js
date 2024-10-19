@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const card = document.createElement('div');
                 card.className = 'card';
                 
+                const link = document.createElement('a');
+                link.href = `detalhesAluno.html?id=${aluno._id}`;
+                
                 const img = document.createElement('img');
                 img.src = 'img/foto do aluno.png'; // Substitua pelo caminho correto da imagem
                 img.alt = 'Foto do Aluno';
@@ -36,7 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.textContent = '>';
                 card.appendChild(button);
 
-                main.appendChild(card);
+                link.appendChild(card);
+                main.appendChild(link);
             });
         })
         .catch(error => console.error('Erro ao buscar dados:', error));

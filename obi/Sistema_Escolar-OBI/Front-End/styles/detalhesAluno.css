@@ -1,0 +1,265 @@
+/* styles/detalhesAluno.css */
+body {
+    background-color: #FFFFFF;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0037FF; /* Cor do fundo do cabeçalho */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+header h1 {
+    font-family: "Arvo", serif;
+    font-size: 40px;
+    font-weight: 200;
+    line-height: 29.64px;
+    text-align: left;
+    margin-left: 2px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+.header-image {
+    width: 40px; /* Ajuste o tamanho da imagem */
+    height: 40px; /* Ajuste o tamanho da imagem */
+    margin-left: 10px;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 82px; /* Distância do topo (ajuste conforme a altura do cabeçalho) */
+    width: 50px; /* Largura do menu lateral */
+    background-color: #FFFFFF; /* Cor do fundo do menu lateral */
+    padding: 10px;
+    box-shadow: 0px 4px 10px 0px #00000026;
+    height: 100%;
+    margin-top: 20.8px;
+}
+
+.sidebar ul {
+    list-style-type: none; /* Remove marcadores da lista */
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 15px 0; /* Espaçamento entre os itens */
+}
+
+.sidebar img {
+    width: 50px; /* Ajuste o tamanho da imagem do menu */
+    height: 50px; /* Ajuste o tamanho da imagem do menu */
+}
+
+#titulo {
+    position: relative; /* Necessário para posicionar o h1 e a imagem */
+    text-align: center; /* Centraliza o h1 */
+    height: 100px; /* Ajuste a altura conforme necessário */
+}
+
+#titulo h1 {
+    width: 156px;
+    font-family: "Poppins";
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 60px;
+}
+
+#titulo img {
+    position: absolute; /* Posiciona a imagem de forma independente do fluxo normal */
+    left: 80px; /* Posiciona a imagem à esquerda */
+    top: 40%; /* Centraliza verticalmente em relação ao contêiner */
+    transform: translateY(-50%);
+}
+
+#titulo h1 {
+    display: inline-block; /* Garante que o h1 ocupe o espaço central */
+}
+
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    display: flex;
+    flex-direction: column; /* Organizar o conteúdo verticalmente */
+    justify-content: flex-start;
+    border: 0.5px solid #ccc;
+    border-radius: 18px;
+    padding: 16px;
+    width: 868px;
+    height: 495px;
+    margin-bottom: 300px;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 16px;
+}
+
+.card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 16px;
+}
+
+.card .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.card .info h3 {
+    margin: 0;
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+}
+
+.card .info p {
+    margin: 4px 0;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.conceitos {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.conceitos .av {
+    display: flex;
+    flex-direction: column; /* Mantém o rótulo e checkbox em coluna */
+    align-items: center; /* Centraliza os itens */
+    width: 80px; /* Ajuste a largura conforme necessário */
+    margin: 0 114px; /* Espaço lateral entre colunas */
+}
+
+
+.conceitos label {
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+    text-align: center;
+}
+
+.conceitos input[type="checkbox"] {
+    margin: 4px;
+}
+
+.materia {
+    margin-top: 16px;
+    width: 100%;
+    text-align: center;
+}
+
+.materia label {
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+}
+
+.materia select {
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+    padding: 4px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+}
+
+button {
+    margin-top: 16px;
+    padding: 10px 20px;
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+    color: white;
+    background-color: #0037FF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 230px;
+    margin: 0 auto;
+}
+
+button:hover {
+    background-color: #0026CC;
+}
+
+label {
+    color: #103ADA;
+    font-weight: 500;
+}
+
+.av{
+    font-family: Poppins;
+}
+
+.checkbox-container {
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+}
+
+input[type="checkbox"] {
+    width: 20px; /* Tamanho do checkbox */
+    height: 20px; /* Tamanho do checkbox */
+    border-radius: 50%; /* Arredondar */
+    border: 2px solid  #D9D9D9; /* Cor da borda */
+    cursor: pointer; /* Cursor de ponteiro para indicar que é clicável */
+    appearance: none; /* Remove o estilo padrão do checkbox */
+    outline: none; /* Remove a borda de foco */
+    position: relative; /* Para o posicionamento */
+    background-color: #D9D9D9;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #007BFF; /* Cor de fundo quando checado */
+    color: #007BFF;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '';
+    display: block;
+    width: 12px; /* Tamanho do símbolo de checagem */
+    height: 12px; /* Tamanho do símbolo de checagem */
+    border-radius: 50%; /* Arredondar */
+    background-color: #0037FF; /* Cor do símbolo de checagem */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+

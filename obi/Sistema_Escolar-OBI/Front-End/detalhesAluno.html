@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes conceito do Aluno</title>
+    <link rel="stylesheet" href="styles/detalhesAluno.css">
+    <link rel="stylesheet" href="styles/fonts.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>OBI</h1>
+            <img src="img/logoobiperfil.png" alt="Logo" class="header-image">
+        </div>
+    </header>
+
+    <aside class="sidebar">
+        <ul>
+            <li><a href="homepageCoordenacao.html"><img src="img/semanaSelecionada.png"alt="calendario"></a></li>
+            <li><a href="carometro.html"><img src="img/bxs_face.png" alt="alunos"></a></li>
+            <li><a href="funcionarios.html"><img src="img/people_14960715 1.png" alt="alunos"></a></li>
+            <li><a href="agendaCoordenacao.html"><img src="img/message-text.png" alt="Imagem 3"></a></li>
+            <li><a href="perfilCoordenacao.html"><img src="img/perfil.png" alt="perfil"></a></li>
+        </ul>
+    </aside>
+    
+    <div id="textomedio">
+        <div id="titulo">
+            <a href="boletim.html"><img src="img/voltar.png" alt=""></a>
+            <h1>Conceitos</h1>
+        </div>    
+    </div>
+
+    <main>
+        <div class="card">
+            <img src="img/foto do aluno.png" alt="Foto do Aluno">
+            <div class="info">
+                <h3 id="aluno-nome">Nome do Aluno</h3>
+                <p id="aluno-turma">Turma: </p>
+            </div>
+            <div class="conceitos">
+                <div class="av">
+                    <label>AV1</label>
+                    <input type="checkbox" name="av1" value="A"> A
+                    <input type="checkbox" name="av1" value="PA"> PA
+                    <input type="checkbox" name="av1" value="NA"> NA
+                </div>
+                <div class="av">
+                    <label>AV2</label>
+                    <input type="checkbox" name="av2" value="A"> A
+                    <input type="checkbox" name="av2" value="PA"> PA
+                    <input type="checkbox" name="av2" value="NA"> NA
+                </div>
+                <div class="av">
+                    <label>AV3</label>
+                    <input type="checkbox" name="av3" value="A"> A
+                    <input type="checkbox" name="av3" value="PA"> PA
+                    <input type="checkbox" name="av3" value="NA"> NA
+                </div>
+            </div>
+            <div class="materia">
+                <label for="materia">Matéria</label>
+                <select id="materia" name="materia">
+                    <option value="Portugues">Português</option>
+                    <option value="Ingles">Inglês</option>
+                    <option value="Arte">Arte</option>
+                    <option value="Educacao_Fisica">Educação Física</option>
+                    <option value="Matematica">Matemática</option>
+                    <option value="Biologia">Biologia</option>
+                    <option value="Fisica">Física</option>
+                    <option value="Quimica">Química</option>
+                    <option value="Historia">História</option>
+                    <option value="Geografia">Geografia</option>
+                    <option value="Filosofia">Filosofia</option>
+                    <option value="Sociologia">Sociologia</option>
+                </select>
+            </div>
+            <button id="save-button">Salvar</button>
+        </div>
+    </main>
+    <script src="js/detalhesAluno.js"></script>
+</body>
+</html>
