@@ -9,9 +9,8 @@ const AlunoSchema = new mongoose.Schema({
     curso: { type: String, required: true },
     turma: { type: String, required: true },
     local: { type: String },
-    unidade: { type: String, required: true }, 
-     // Adicionando campos dos responsáveis
-     responsaveis: {
+    // Adicionando campos dos responsáveis
+    responsaveis: {
         mae: {
             nome: { type: String },
             telefone: { type: String },

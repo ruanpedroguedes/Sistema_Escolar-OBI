@@ -100,7 +100,7 @@ main {
 
 .card {
     display: flex;
-    flex-direction: column; /* Organizar o conteúdo verticalmente */
+    flex-direction: column;
     justify-content: flex-start;
     border: 0.5px solid #ccc;
     border-radius: 18px;
@@ -108,6 +108,19 @@ main {
     width: 868px;
     height: 495px;
     margin-bottom: 300px;
+    position: relative; /* Adicione esta linha */
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5%; /* Ajuste a largura conforme necessário */
+    height: 100%;
+    background-color: #0037FF; /* Cor azul */
+    border-radius: 0 18px 18px 0; /* Arredondar apenas os cantos direitos */
+    z-index: -1; /* Coloca o fundo atrás do conteúdo do card */
 }
 
 .card-header {
@@ -190,13 +203,17 @@ main {
 
 .materia select {
     font-family: Poppins;
-    font-size: 24px;
+    font-size: 20px; /* Ajuste o tamanho da fonte conforme necessário */
     font-weight: 400;
-    line-height: 36px;
+    line-height: 30px;
     padding: 4px;
     margin-top: 8px;
     margin-bottom: 15px;
+    width: 200px; /* Ajuste a largura conforme necessário */
+    height: 40px; /* Ajuste a altura conforme necessário */
+    border-radius: 8px;
 }
+
 
 button {
     margin-top: 16px;
