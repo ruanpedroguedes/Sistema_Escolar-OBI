@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Funcionário</title>
+    <link rel="stylesheet" href="styles/perfilFuncionario.css">
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="shortcut icon" href="img/logoobiperfil.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <p><span class="titulo">OBI</span></p>
+            <img src="img/logobranca 1 (1).png" alt="logo">
+        </div>
+    </header>
+
+    <div class="main-container">
+        <nav class="sidebar">
+            <a href="homepageCoordenacao.html"><button class="nav-button"><img src="img/semanaSelecionada.png" alt="Agenda"></button></a>
+            <a href="carometro.html"><button class="nav-button active"><img src="img/carometroClicado.png" alt="Carômetro"></button></a>
+            <a href="agendaCoordenacao.html"><button class="nav-button"><img src="img/chat.png" alt="Chat"></button></a>
+            <a href="perfilCoordenacao.html"><button class="nav-button"><img src="img/perfil.png" alt="Perfil"></button></a>
+        </nav>
+
+        <div class="content">
+            <a href="carometro.html"><img src="img/setaPerfilAluno.png" class="setaAluno" alt=""></a>
+            <h1>Perfil do Funcionário</h1>
+            <div class="employee-profile">
+                <div class="profile-header">
+                    <img src="img/aluno.png" alt="Foto do Funcionário" class="profile-photo" id="profile-photo">
+                    <div class="profile-info">
+                        <h2 class="employee-name" id="employee-name"></h2>
+                    </div>
+                </div>
+                <div class="employee-details">
+                    <p class="employee-unit" id="employee-unit">
+                        <span class="title">Unidade:</span><br>
+                        <span class="info"></span>
+                        <a href="#" class="edit-icon"><img src="img/lapis.png" alt="Editar"></a>
+                    </p>
+                    <p class="employee-role" id="employee-role">
+                        <span class="title">Cargo:</span><br>
+                        <span class="info"></span>
+                        <a href="#" class="edit-icon"><img src="img/lapis.png" alt="Editar"></a>
+                    </p>
+                    <p class="employee-classes" id="employee-classes">
+                        <span class="title">Turmas:</span><br>
+                        <span class="info"></span>
+                        <a href="#" class="edit-icon"><img src="img/lapis.png" alt="Editar"></a>
+                    </p>
+                </div>
+                <div class="profile-buttons">
+                    <button class="edit-button" onclick="toggleEditForm()">Editar <img src="img/lapis.png" class="imgLapis" alt=""></button>
+                    <button class="delete-button" onclick="deleteFuncionario()">Excluir Funcionário</button>
+                </div>
+            </div>
+
+            <div class="edit-form" id="edit-form" style="display: none;">
+                <h2>Editar Informações do Funcionário</h2>
+                <form id="edit-employee-form">
+                    <label for="edit-name">Nome:</label>
+                    <input type="text" id="edit-name" name="edit-name">
+
+                    <label for="edit-unidade">Unidade:</label>
+                    <select id="edit-unidade" name="edit-unidade">
+                        <option value="Mediotec Recife">Mediotec Recife</option>
+                        <option value="Mediotec Paulista">Mediotec Paulista</option>
+                        <option value="Mediotec Caruaru">Mediotec Caruaru</option>
+                        <option value="Mediotec Petrolina">Mediotec Petrolina</option>
+                    </select>
+
+                    <label for="edit-cargo">Cargo:</label>
+                    <input type="text" id="edit-cargo" name="edit-cargo">
+
+                    <label for="edit-classes">Turmas:</label>
+                    <input type="text" id="edit-classes" name="edit-classes" placeholder="N/A" disabled> <!-- Para coordenadores, pode ser desativado -->
+
+                    <button type="button" onclick="saveChanges()">Salvar</button>
+                    <button type="button" onclick="toggleEditForm()">Cancelar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/perfilFuncionario.js"></script>
+</body>
+</html>

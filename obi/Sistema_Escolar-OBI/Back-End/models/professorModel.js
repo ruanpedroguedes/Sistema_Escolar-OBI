@@ -7,7 +7,8 @@ const ProfessorSchema = new mongoose.Schema({
     password: { type: String, required: true },
     dateOfBirth: { type: Date, required: true }, // Data de nascimento
     materia: { type: String, required: true },
-    local: { type: String }
+    local: { type: String },
+    turmas: [{ type: String }]
 });
 
 // Hook para hash da senha antes de salvar

@@ -10,12 +10,36 @@ exports.getProfessores = async (req, res) => {
     }
 };
 
+exports.getProfessorById = async (req, res) => {
+    try {
+        const professor = await Professor.findById(req.params.id);
+        if (!professor) {
+            return res.status(404).json({ message: 'Professor não encontrado.' });
+        }
+        res.status(200).json(professor);
+    } catch (error) {
+        res.status(500).json({ message: 'Erro ao obter professor.', error: error.message });
+    }
+};
+
 exports.getCoordenacao = async (req, res) => {
     try {
         const coordenacao = await Coordenacao.find();
         res.status(200).json(coordenacao);
     } catch (error) {
         res.status(500).json({ message: 'Erro ao obter coordenação.', error: error.message });
+    }
+};
+
+exports.getCoordenadorById = async (req, res) => {
+    try {
+        const coordenador = await Coordenacao.findById(req.params.id);
+        if (!coordenador) {
+            return res.status(404).json({ message: 'Coordenador não encontrado.' });
+        }
+        res.status(200).json(coordenador);
+    } catch (error) {
+        res.status(500).json({ message: 'Erro ao obter coordenador.', error: error.message });
     }
 };
 

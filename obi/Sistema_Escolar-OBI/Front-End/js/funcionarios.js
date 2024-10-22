@@ -1,3 +1,5 @@
+let funcionarios = []; // Variável global para armazenar funcionários
+
 document.addEventListener('DOMContentLoaded', async () => {
     const PROFESSORES_API_URL = 'http://localhost:3000/api/funcionarios/professores';
     const COORDENACAO_API_URL = 'http://localhost:3000/api/funcionarios/coordenacao';
@@ -23,7 +25,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 };
             });
 
-            renderFuncionarios([...professoresComTurmas, ...coordenacao]);
+            // Armazena os funcionários na variável global
+            funcionarios = [...professoresComTurmas, ...coordenacao];
+            renderFuncionarios(funcionarios); // Chama renderização inicial
         } else {
             console.error('Erro ao obter funcionários:', professores.message || coordenacao.message || disciplinas.message);
         }
@@ -54,7 +58,7 @@ function renderFuncionarios(funcionarios) {
                         <div class="unidade">Unidade: ${funcionario.local}</div>
                     </div>
                 </div>
-                <button class="details-button" data-id="${funcionario._id}" data-type="professor" disabled>></button>
+                <button class="details-button" data-id="${funcionario._id}" data-type="professor">></button>
                 <button class="delete-button" data-id="${funcionario._id}" data-type="professor">
                     <img src="img/lixeira.png" alt="Excluir">
                 </button>
@@ -72,7 +76,7 @@ function renderFuncionarios(funcionarios) {
                         <div class="unidade">Unidade: ${funcionario.local}</div>
                     </div>
                 </div>
-                <button class="details-button" data-id="${funcionario._id}" data-type="coordenacao" disabled>></button>
+                <button class="details-button" data-id="${funcionario._id}" data-type="coordenacao">></button>
                 <button class="delete-button" data-id="${funcionario._id}" data-type="coordenacao">
                     <img src="img/lixeira.png" alt="Excluir">
                 </button>
@@ -129,3 +133,27 @@ async function deleteFuncionario(id, type) {
         alert('Erro ao excluir funcionário.');
     }
 }
+
+// Função para normalizar os valores
+const normalizeValue = (value) => {
+    return value.toUpperCase().replace(/ /g, '_');
+};
+
+const filterFuncionarios = () => {
+    const unidade = normalizeValue(document.getElementById('unidade-dropdown').value);
+    const cargo = document.getElementById('cargo-dropdown').value;
+
+    const filteredFuncionarios = funcionarios.filter(funcionario => {
+        const isProfessor = funcionario.materia !== undefined; // Verifica se é professor
+        const isCoordenador = funcionario.materia === undefined; // Verifica se é coordenador
+
+        return (unidade === 'NONE' || normalizeValue(funcionario.local) === unidade) &&
+               (cargo === 'none' || (isProfessor && cargo === 'Professor') || (isCoordenador && cargo === 'Coordenador'));
+    });
+
+    renderFuncionarios(filteredFuncionarios);
+};
+
+// Adiciona eventos de mudança aos dropdowns
+document.getElementById('unidade-dropdown').addEventListener('change', filterFuncionarios);
+document.getElementById('cargo-dropdown').addEventListener('change', filterFuncionarios);
