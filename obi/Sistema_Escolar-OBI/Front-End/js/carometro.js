@@ -31,7 +31,7 @@ function renderAlunos(alunos) {
                 <div class="name">${aluno.username}</div>
                 <div class="details">
                     <div class="turma">${aluno.turma}</div>
-                    <div class="unidade">${aluno.unidade}</div> <!-- Novo campo adicionado -->
+                    <div class="unidade">${aluno.local}</div> <!-- Novo campo adicionado -->
                     <div class="matricula">Matrícula: <span>${aluno._id}</span></div>
                     <div class="data-nascimento">Data de Nascimento: <span>${new Date(aluno.dateOfBirth).toLocaleDateString()}</span></div>
                 </div>
