@@ -17,6 +17,7 @@ const avisoRoute = require('./routes/avisoRoute');
 const agendaRoutes = require('./routes/agendaRoute');
 const funcionariosRoute = require('./routes/funcionariosRoute');
 const conceitoRoute = require('./routes/conceitoRoute');
+const conceitoCoordenacaoRoute = require('./routes/conceitocoordenacaoRoute');
 
 dotenv.config();
 
@@ -35,6 +36,7 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 app.use('/api/conceitos', conceitoRoute);
+app.use('/api/conceitos-coordenacao', conceitoCoordenacaoRoute);
 app.use('/api/avisos', avisoRoute);
 app.use('/api/boletim', boletimRoutes);
 app.use('/api/disciplinaRoute', disciplinaRoute);
