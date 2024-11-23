@@ -4,7 +4,7 @@ const { getProfessores, getCoordenacao, deleteProfessor, deleteCoordenador, getP
 
 router.get('/professores', getProfessores);
 router.get('/professores/:id', getProfessorById); // Nova rota para obter um professor pelo ID
-router.get('/coordenacao/:id', getCoordenadorById);
+
 router.get('/coordenacao', getCoordenacao);
 router.delete('/professores/:id', deleteProfessor);
 router.delete('/coordenacao/:id', deleteCoordenador);
