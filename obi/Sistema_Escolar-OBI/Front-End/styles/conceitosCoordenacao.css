@@ -1,112 +1,139 @@
 body {
-          margin: 0;
-          background-color: #FFFFFF;
-          font-family: Poppins;
-      }
-      
-      header {
-          background-color: #0037FF;
-          color: white;
-          padding: 10px 20px;
-          display: flex;
-          align-items: center;
-          width: 100%;
-      }
-      
-      header h1 {
-          font-family: "Arvo", serif;
-          font-size: 40px;
-          font-weight: 200;
-          line-height: 29.64px;
-          text-align: left;
-          margin-left: 2px;
-      }
-      
-      .header-content {
-          display: flex;
-          align-items: center;
-      }
-      
-      .header-image {
-          width: 40px;
-          height: 40px;
-          margin-left: 10px;
-          text-align: center;
-          align-items: center;
-          margin-bottom: 10px;
-      }
-      
-      .sidebar {
-          position: fixed;
-          left: 0;
-          top: 82px;
-          width: 50px;
-          background-color: #FFFFFF;
-          padding: 10px;
-          box-shadow: 0px 4px 10px 0px #00000026;
-          height: 100%;
-          margin-top: 20.8px;
-      }
-      
-      .sidebar ul {
-          list-style-type: none;
-          padding: 0;
-      }
-      
-      .sidebar li {
-          margin: 15px 0;
-      }
-      
-      .sidebar img {
-          width: 50px;
-          height: 50px;
-      }
-      
-      #titulo {
-          position: relative;
-          text-align: center;
-          height: 100px;
-      }
-      
-      #titulo h1 {
-          font-family: "Poppins";
-          font-size: 40px;
-          font-weight: 600;
-          line-height: 60px;
-      }
-      
-      #titulo img {
-          position: absolute;
-          left: 80px;
-          top: 40%;
-          transform: translateY(-50%);
-      }
-      
-      #titulo h1 {
-          display: inline-block;
-      }
-      
-      main {
-          margin-left: 175px;
-          padding: 20px;
-      }
-      
-      table {
-          width: 100%;
-          border-collapse: collapse;
-      }
-      
-      th, td {
-          padding: 12px;
-          border: 1px solid #ddd;
-          text-align: left;
-      }
-      
-      th {
-          background-color: #0037FF;
-          color: white;
-      }
-      
-      tr:nth-child(even) {
-          background-color: #f9f9f9;
-      }
+    margin: 0;
+    background-color: #FFFFFF;
+    font-family: Poppins;
+}
+
+header {
+    background-color: #0037FF;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+header h1 {
+    font-family: "Arvo", serif;
+    font-size: 40px;
+    font-weight: 200;
+    line-height: 29.64px;
+    text-align: left;
+    margin-left: 2px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+.header-image {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 82px;
+    width: 50px;
+    background-color: #FFFFFF;
+    padding: 10px;
+    box-shadow: 0px 4px 10px 0px #00000026;
+    height: 100%;
+    margin-top: 20.8px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 15px 0;
+}
+
+.sidebar img {
+    width: 50px;
+    height: 50px;
+}
+
+#titulo {
+    position: relative;
+    text-align: center;
+    height: 100px;
+}
+
+#titulo h1 {
+    font-family: "Poppins";
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 60px;
+}
+
+#titulo img {
+    position: absolute;
+    left: 80px;
+    top: 40%;
+    transform: translateY(-50%);
+}
+
+#titulo h1 {
+    display: inline-block;
+}
+
+#filtros {
+    display: flex;
+    align-items: center;
+    margin-left: 140px;
+    margin-bottom: 20px; /* Adiciona espaço abaixo do filtro */
+}
+
+#filtros label {
+    font-family: Poppins;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 22.5px;
+    margin-right: 10px;
+}
+
+#materia-select, #turma-select {
+    width: 200px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: Poppins;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 22.5px;
+    margin-right: 20px; /* Espaço entre os selects */
+}
+
+main {
+    margin-left: 175px;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #0037FF;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
