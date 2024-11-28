@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Turmas</title>
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/homepageProfessor.css">
+    <link rel="stylesheet" href="styles/turma.css"> <!-- Adicione esta linha -->
+    <link rel="shortcut icon" href="img/logoobiperfil.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <p><span class="titulo">OBI</span></p>
+            <img src="img/logobranca 1 (1).png" alt="logo">
+        </div>
+    </header>
+
+    <div class="main-container">
+        <nav class="sidebar">
+            <button class="nav-button"> <a href="homepageProfessor.html"><img src="img/semanaSelecionada.png" alt="Semana"></a></button>
+            <button class="nav-button"><a href=""></a> <img src="img/carometro.png" alt="Carômetro"></button>
+            <button class="nav-button"><img src="img/agenda.png" alt="Chat"></button>
+            <button class="nav-button"><a href="perfilProfessor.html"><img src="img/perfil.png" alt="Perfil"></a></button>
+        </nav>
+
+        <div class="content">
+            <p><span class="ola">Olá Susana,</span>
+                <br>
+                <span class="highlight">Gerencie suas turmas</span>
+            </p>
+
+            <!-- Botão para criar turma e filtros -->
+            <div class="controls">
+                <button id="open-form-button">Criar Turma</button>
+                <div class="filters">
+                    <select id="filter-ano">
+                        <option value="">Todos os Anos</option>
+                        <option value="1A">1° Ano - A</option>
+                        <option value="1B">1° Ano - B</option>
+                        <option value="1C">1° Ano - C</option>
+                        <option value="1D">1° Ano - D</option>
+                        <option value="2A">2° Ano - A</option>
+                        <option value="2B">2° Ano - B</option>
+                        <option value="2C">2° Ano - C</option>
+                        <option value="2D">2° Ano - D</option>
+                        <option value="3A">3° Ano - A</option>
+                        <option value="3B">3° Ano - B</option>
+                        <option value="3C">3° Ano - C</option>
+                        <option value="3D">3° Ano - D</option>
+                    </select>
+                    <select id="filter-turno">
+                        <option value="">Todos os Turnos</option>
+                        <option value="Manhã">Manhã</option>
+                        <option value="Tarde">Tarde</option>
+                    </select>
+                    <select id="filter-unidade">
+                        <option value="">Todas as Unidades</option>
+                        <option value="Recife">Recife</option>
+                        <option value="Petrolina">Petrolina</option>
+                        <option value="Paulista">Paulista</option>
+                        <option value="Caruaru">Caruaru</option>
+                    </select>
+                    <select id="filter-curso">
+                        <option value="">Todos os Cursos</option>
+                        <option value="Informática">Informática</option>
+                        <option value="Logística">Logística</option>
+                        <option value="ADS">Análise e Desenvolvimento de Sistemas</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Formulário para criar turma -->
+            <div id="form-container" class="form-container" style="display:none;">
+                <label for="ano">Ano:</label>
+                <select id="ano">
+                    <option value="1A">1° Ano - A</option>
+                    <option value="1B">1° Ano - B</option>
+                    <option value="1C">1° Ano - C</option>
+                    <option value="1D">1° Ano - D</option>
+                    <option value="2A">2° Ano - A</option>
+                    <option value="2B">2° Ano - B</option>
+                    <option value="2C">2° Ano - C</option>
+                    <option value="2D">2° Ano - D</option>
+                    <option value="3A">3° Ano - A</option>
+                    <option value="3B">3° Ano - B</option>
+                    <option value="3C">3° Ano - C</option>
+                    <option value="3D">3° Ano - D</option>
+                </select>
+
+                <label for="unidade">Unidade:</label>
+                <select id="unidade">
+                    <option value="Recife">Recife</option>
+                    <option value="Petrolina">Petrolina</option>
+                    <option value="Paulista">Paulista</option>
+                    <option value="Caruaru">Caruaru</option>
+                </select>
+
+                <label for="curso">Curso:</label>
+                <select id="curso">
+                    <option value="Informática">Informática</option>
+                    <option value="Logística">Logística</option>
+                    <option value="ADS">Análise e Desenvolvimento de Sistemas</option>
+                </select>
+
+                <label for="turno">Turno:</label>
+                <select id="turno">
+                    <option value="Manhã">Manhã</option>
+                    <option value="Tarde">Tarde</option>
+                </select>
+
+                <button id="criar-turma-button">Criar Turma</button>
+            </div>
+
+            <!-- Exibição das turmas criadas -->
+            <div id="turmas-container" class="turmas-container">
+                <!-- Turmas serão adicionadas aqui -->
+            </div>
+        </div>
+    </div>
+
+    <script defer src="js/criarTurma.js"></script>
+</body>
+</html>

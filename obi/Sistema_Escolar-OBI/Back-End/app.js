@@ -10,7 +10,6 @@ const alunoPostRoute = require('./routes/alunoPostRoute');
 const alunoGetRoute = require('./routes/alunoGetRoute');
 const responsaveisRoute = require('./routes/responsaveisRoute');
 const cadastramentoRoute = require('./routes/cadastramentoRoute');
-const turmaRoute = require('./routes/turmaRoutes');
 const disciplinaRoute = require('./routes/disciplinaRoute');
 const boletimRoutes = require('./routes/boletimRoutes');
 const avisoRoute = require('./routes/avisoRoute');
@@ -18,6 +17,7 @@ const agendaRoutes = require('./routes/agendaRoute');
 const funcionariosRoute = require('./routes/funcionariosRoute');
 const conceitoRoute = require('./routes/conceitoRoute');
 const conceitoCoordenacaoRoute = require('./routes/conceitocoordenacaoRoute');
+const turmaRoute = require('./routes/turmaRoute');
 
 dotenv.config();
 
@@ -35,6 +35,7 @@ mongoose.connect(process.env.MONGO_URI, {
   console.error('MongoDB connection error:', err);
 });
 
+app.use('/api/turmas', turmaRoute);
 app.use('/api/conceitos', conceitoRoute);
 app.use('/api/conceitos-coordenacao', conceitoCoordenacaoRoute);
 app.use('/api/avisos', avisoRoute);
