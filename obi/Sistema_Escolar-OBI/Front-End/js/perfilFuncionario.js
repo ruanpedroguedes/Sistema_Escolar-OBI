@@ -71,15 +71,15 @@ async function saveChanges() {
             body: JSON.stringify({ username, local, materia, classes })
         });
 
-        const result = await response.json();
-        if (response.ok) {
-            console.log('Funcionário atualizado:', result);
-            alert('Dados atualizados com sucesso!');
-            preencherDadosDoFuncionario(result, tipoFuncionario);
-        } else {
-            console.error('Erro ao atualizar funcionário:', result.message);
-            alert('Erro ao atualizar funcionário.');
+        if (!response.ok) {
+            const result = await response.json();
+            throw new Error(result.message || 'Erro ao atualizar funcionário.');
         }
+
+        const result = await response.json();
+        console.log('Funcionário atualizado:', result);
+        alert('Dados atualizados com sucesso!');
+        preencherDadosDoFuncionario(result, tipoFuncionario);
     } catch (error) {
         console.error('Erro na requisição:', error);
         alert('Erro ao atualizar funcionário.');
@@ -106,15 +106,15 @@ async function deleteFuncionario() {
             }
         });
 
-        const result = await response.json();
-        if (response.ok) {
-            console.log('Funcionário excluído com sucesso:', result);
-            alert('Funcionário excluído com sucesso!');
-            window.location.href = 'paginaFuncionarios.html'; // Altere conforme necessário
-        } else {
-            console.error('Erro ao excluir funcionário:', result.message);
-            alert('Erro ao excluir funcionário.');
+        if (!response.ok) {
+            const result = await response.json();
+            throw new Error(result.message || 'Erro ao excluir funcionário.');
         }
+
+        const result = await response.json();
+        console.log('Funcionário excluído com sucesso:', result);
+        alert('Funcionário excluído com sucesso!');
+        window.location.href = 'paginaFuncionarios.html'; // Altere conforme necessário
     } catch (error) {
         console.error('Erro na requisição:', error);
         alert('Erro ao excluir funcionário.');
