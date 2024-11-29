@@ -20,62 +20,68 @@
         <nav class="sidebar">
             <a href="homepageCoordenacao.html"><button class="nav-button"><img src="img/semanaSelecionada.png" alt="Agenda"></button></a>
             <a href="carometro.html"><button class="nav-button active"><img src="img/carometroClicado.png" alt="Carômetro"></button></a>
-            <a href="agendaCoordenacao.html"><button class="nav-button"><img src="img/chat.png" alt="Chat"></button></a>
+            <a href="funcionarios.html"><button class="nav-button"><img src="img/funcionarios.png" alt="Chat"></button></a>
+            <a href="agendaCoordenacao.html"><button class="nav-button"><img src="img/agenda.png" alt="Chat"></button></a>
             <a href="perfilCoordenacao.html"><button class="nav-button"><img src="img/perfil.png" alt="Perfil"></button></a>
         </nav>
 
         <div class="content">
-            <a href="carometro.html"><img src="img/setaPerfilAluno.png" class="setaAluno" alt=""></a>
-            <h1>Carômetro</h1>
+            <a href="carometro.html"><img src="img/setaPerfilAluno.png" class="setaAluno" alt="Voltar"></a>
+            <h1>Perfil do Aluno</h1>
             <div class="student-profile">
                 <div class="profile-header">
                     <img src="img/aluno.png" alt="Foto do Aluno" class="profile-photo" id="profile-photo">
                     <div class="profile-info">
-                        <h2 class="student-name" id="student-name"></h2>
+                        <h2 class="student-name" id="student-name">Nome do Aluno</h2>
+                        <p class="student-class" id="student-class">
+                            <span class="title">Turma:</span><br>
+                            <span class="info">Turma A</span>
+                        </p>
+                        <p class="student-id" id="student-id">
+                            <span class="title">Matrícula:</span><br>
+                            <span class="info">123456789</span>
+                        </p>
                     </div>
                 </div>
+                
                 <div class="student-details">
-                    <p class="student-class" id="student-class">
-                        <span class="title">Turma:</span><br>
-                        <span class="info"></span>
-                        <a href="#" class="edit-icon"><img src="img/lapis.png" alt="Editar"></a>
-                    </p>
-                    <p class="student-id" id="student-id">
-                        <span class="title">Matrícula:</span><br>
-                        <span class="info"></span>
-                        <a href="#" class="edit-icon"><img src="img/lapis.png" alt="Editar"></a>
-                    </p>
                     <p class="student-dob" id="student-dob">
                         <span class="title">Data de Nascimento:</span><br>
-                        <span class="info"></span>
+                        <span class="info">01/01/2000</span>
                         <a href="#" class="edit-icon"><img src="img/lapis.png" alt="Editar"></a>
                     </p>
                     <p class="student-age" id="student-age">
                         <span class="title">Idade:</span><br>
-                        <span class="info"></span>
+                        <span class="info">24 anos</span>
                         <a href="#" class="edit-icon"><img src="img/lapis.png" alt="Editar"></a>
                     </p>
-                    <p class="student-unit" id="student-unit">  <!-- Adicionando campo unidade -->
+                    <p class="student-unit" id="student-unit">
                         <span class="title">Unidade:</span><br>
-                        <span class="info"></span>
+                        <span class="info">Unidade A</span>
                         <a href="#" class="edit-icon"><img src="img/lapis.png" alt="Editar"></a>
                     </p>
                 </div>
+
                 <div class="contact-info">
                     <h3 class="section-title">Responsáveis</h3>
-                    <p id="mother-name">Mãe: Nome da Mãe</p>
+                    <p id="mother-name">Mãe: Maria Silva</p>
                     <p id="mother-phone">Telefone: +55 81 99999-9999</p>
                     <p id="mother-email">Email: maedoaluno@gmail.com</p>
-                    <p id="father-name">Pai: Nome do Pai</p>
+                    <p id="father-name">Pai: João Silva</p>
                     <p id="father-phone">Telefone: +55 81 99999-9999</p>
                     <p id="father-email">Email: paidoaluno@gmail.com</p>
+                </div>
+
+                <div class="contact-info">
                     <h3 class="section-title">Contato do Aluno</h3>
                     <p id="student-email">Email: alunoobi@gmail.com</p>
                 </div>
+
                 <div class="observations">
                     <h3 class="section-title">Observações</h3>
                     <p id="observations">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
+                
                 <div class="profile-buttons">
                     <button class="pdi-button">Acessar PDI</button>
                     <button class="edit-button" onclick="toggleEditForm()">Editar <img src="img/lapis.png" class="imgLapis" alt=""></button>
@@ -96,17 +102,13 @@
                 
                     <label for="edit-class">Turma:</label>
                     <input type="text" id="edit-class" name="edit-class">
-                    <br>
-                    <br>
+                    
                     <label for="edit-unidade">Unidade:</label>
                     <select id="edit-unidade" name="edit-unidade">
-                        <option class="optionmediotec" value="Mediotec Recife">Mediotec Recife</option>
-                        <option class="optionmediotec" value="Mediotec Paulista">Mediotec Paulista</option>
-                        <option class="optionmediotec" value="Mediotec Caruaru">Mediotec Caruaru</option>
-                        <option class="optionmediotec" value="Mediotec Petrolina">Mediotec Petrolina</option>
+                        <option value="Unidade A">Unidade A</option>
+                        <option value="Unidade B">Unidade B</option>
                     </select>
-                    <br>
-                    <br>
+                    
                     <label for="edit-photo">Foto:</label>
                     <input type="file" id="edit-photo" name="edit-photo" accept="image/*">
                 
@@ -134,7 +136,6 @@
                     <button type="button" onclick="deleteStudent()">Excluir Aluno</button>
 
                 </form>
-                
             </div>
         </div>
     </div>

@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (response.ok) {
             renderAlunos(alunos);
+            setupFilters(alunos);
         } else {
             console.error('Erro ao obter alunos:', alunos.message);
         }
@@ -31,7 +32,7 @@ function renderAlunos(alunos) {
                 <div class="name">${aluno.username}</div>
                 <div class="details">
                     <div class="turma">${aluno.turma}</div>
-                    <div class="unidade">${aluno.local}</div> <!-- Novo campo adicionado -->
+                    <div class="unidade">${aluno.local}</div>
                     <div class="matricula">Matrícula: <span>${aluno._id}</span></div>
                     <div class="data-nascimento">Data de Nascimento: <span>${new Date(aluno.dateOfBirth).toLocaleDateString()}</span></div>
                 </div>
@@ -53,44 +54,36 @@ function renderAlunos(alunos) {
     studentCardsContainer.style.display = 'flex';
 }
 
-function preencherDadosDoAluno(aluno) {
-    document.getElementById('edit-name').value = aluno.username;
-    document.getElementById('edit-id').value = aluno._id;
-    document.getElementById('edit-dob').value = new Date(aluno.dateOfBirth).toISOString().split('T')[0];
-    document.getElementById('edit-class').value = aluno.turma;
-    document.getElementById('edit-mother-name').value = aluno.responsaveis.mae.nome || '';
-    document.getElementById('edit-mother-phone').value = aluno.responsaveis.mae.telefone || '';
-    document.getElementById('edit-mother-email').value = aluno.responsaveis.mae.email || '';
-    document.getElementById('edit-father-name').value = aluno.responsaveis.pai.nome || '';
-    document.getElementById('edit-father-phone').value = aluno.responsaveis.pai.telefone || '';
-    document.getElementById('edit-father-email').value = aluno.responsaveis.pai.email || '';
-    document.getElementById('edit-unidade').value = aluno.unidade || ''; // Novo campo adicionado
+function setupFilters(alunos) {
+    const unidadeDropdown = document.getElementById('unidade-dropdown');
+    const cursoDropdown = document.getElementById('curso-dropdown');
+    const turmaDropdown = document.getElementById('turma-dropdown');
 
-    document.getElementById('student-name').textContent = aluno.username;
-    document.getElementById('student-class').querySelector('.info').textContent = aluno.turma;
-    document.getElementById('student-unidade').querySelector('.info').textContent = aluno.unidade; // Novo campo adicionado
-    document.getElementById('student-id').querySelector('.info').textContent = aluno._id;
-    document.getElementById('student-dob').querySelector('.info').textContent = new Date(aluno.dateOfBirth).toLocaleDateString();
-    document.getElementById('student-email').textContent = `Email: ${aluno.useremail}`;
-    document.getElementById('mother-name').textContent = `Mãe: ${aluno.responsaveis.mae.nome || ''}`;
-    document.getElementById('mother-phone').textContent = `Telefone: ${aluno.responsaveis.mae.telefone || ''}`;
-    document.getElementById('mother-email').textContent = `Email: ${aluno.responsaveis.mae.email || ''}`;
-    document.getElementById('father-name').textContent = `Pai: ${aluno.responsaveis.pai.nome || ''}`;
-    document.getElementById('father-phone').textContent = `Telefone: ${aluno.responsaveis.pai.telefone || ''}`;
-    document.getElementById('father-email').textContent = `Email: ${aluno.responsaveis.pai.email || ''}`;
-
-    console.log('Dados preenchidos no formulário:', aluno);
+    unidadeDropdown.addEventListener('change', () => filterAlunos(alunos));
+    cursoDropdown.addEventListener('change', () => filterAlunos(alunos));
+    turmaDropdown.addEventListener('change', () => filterAlunos(alunos));
 }
 
-  // Adiciona evento de clique aos botões de detalhes
-  document.querySelectorAll('.details-button').forEach(button => {
-      button.addEventListener('click', () => {
-          const studentId = button.getAttribute('data-id');
-          window.location.href = `perfilAluno.html?id=${studentId}`;
-      });
-  });
+function filterAlunos(alunos) {
+    const unidadeDropdown = document.getElementById('unidade-dropdown');
+    const cursoDropdown = document.getElementById('curso-dropdown');
+    const turmaDropdown = document.getElementById('turma-dropdown');
 
-  // Exibir os elementos agora que foram preenchidos
-  document.getElementById('turma-titulo').style.display = 'block';
-  studentCardsContainer.style.display = 'flex'; // Supondo que você queira os cartões em layout flexível
+    const unidade = unidadeDropdown.value.toUpperCase().replace(/\s+/g, '_');
+    const cursoMap = {
+        'Análise e Desenvolvimento de Sistemas': 'ads',
+        'Informática': 'informatica',
+        'Logística': 'logistica'
+    };
+    const curso = cursoMap[cursoDropdown.value] || cursoDropdown.value;
+    const turma = turmaDropdown.value;
 
+    const filteredAlunos = alunos.filter(aluno => {
+        const matchUnidade = unidade === 'NONE' || aluno.local === unidade;
+        const matchCurso = curso === 'none' || aluno.curso === curso;
+        const matchTurma = turma === 'none' || aluno.turma === turma;
+        return matchUnidade && matchCurso && matchTurma;
+    });
+
+    renderAlunos(filteredAlunos);
+}

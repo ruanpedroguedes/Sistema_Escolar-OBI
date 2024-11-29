@@ -28,30 +28,47 @@ function preencherDadosDoAluno(aluno) {
     document.getElementById('edit-id').value = aluno._id;
     document.getElementById('edit-dob').value = new Date(aluno.dateOfBirth).toISOString().split('T')[0];
     document.getElementById('edit-class').value = aluno.turma;
-    document.getElementById('edit-unidade').value = aluno.unidade || ''; // Novo campo adicionado
-    document.getElementById('edit-mother-name').value = aluno.responsaveis.mae.nome || '';
-    document.getElementById('edit-mother-phone').value = aluno.responsaveis.mae.telefone || '';
-    document.getElementById('edit-mother-email').value = aluno.responsaveis.mae.email || '';
-    document.getElementById('edit-father-name').value = aluno.responsaveis.pai.nome || '';
-    document.getElementById('edit-father-phone').value = aluno.responsaveis.pai.telefone || '';
-    document.getElementById('edit-father-email').value = aluno.responsaveis.pai.email || '';
+    document.getElementById('edit-unidade').value = aluno.unidade || '';
+
+    const mae = aluno.responsaveis?.mae || {};
+    const pai = aluno.responsaveis?.pai || {};
+
+    document.getElementById('edit-mother-name').value = mae.nome || '';
+    document.getElementById('edit-mother-phone').value = mae.telefone || '';
+    document.getElementById('edit-mother-email').value = mae.email || '';
+    document.getElementById('edit-father-name').value = pai.nome || '';
+    document.getElementById('edit-father-phone').value = pai.telefone || '';
+    document.getElementById('edit-father-email').value = pai.email || '';
 
     document.getElementById('student-name').textContent = aluno.username;
     document.getElementById('student-class').querySelector('.info').textContent = aluno.turma;
-    document.getElementById('student-unit').querySelector('.info').textContent = aluno.unidade; // Novo campo adicionado
+    document.getElementById('student-unit').querySelector('.info').textContent = aluno.unidade;
     document.getElementById('student-id').querySelector('.info').textContent = aluno._id;
     document.getElementById('student-dob').querySelector('.info').textContent = new Date(aluno.dateOfBirth).toLocaleDateString();
     document.getElementById('student-email').textContent = `Email: ${aluno.useremail}`;
-    document.getElementById('mother-name').textContent = `Mãe: ${aluno.responsaveis.mae.nome || ''}`;
-    document.getElementById('mother-phone').textContent = `Telefone: ${aluno.responsaveis.mae.telefone || ''}`;
-    document.getElementById('mother-email').textContent = `Email: ${aluno.responsaveis.mae.email || ''}`;
-    document.getElementById('father-name').textContent = `Pai: ${aluno.responsaveis.pai.nome || ''}`;
-    document.getElementById('father-phone').textContent = `Telefone: ${aluno.responsaveis.pai.telefone || ''}`;
-    document.getElementById('father-email').textContent = `Email: ${aluno.responsaveis.pai.email || ''}`;
+    document.getElementById('mother-name').textContent = `Mãe: ${mae.nome || ''}`;
+    document.getElementById('mother-phone').textContent = `Telefone: ${mae.telefone || ''}`;
+    document.getElementById('mother-email').textContent = `Email: ${mae.email || ''}`;
+    document.getElementById('father-name').textContent = `Pai: ${pai.nome || ''}`;
+    document.getElementById('father-phone').textContent = `Telefone: ${pai.telefone || ''}`;
+    document.getElementById('father-email').textContent = `Email: ${pai.email || ''}`;
+
+    // Calcular e exibir a idade
+    const idade = calcularIdade(new Date(aluno.dateOfBirth));
+    document.getElementById('student-age').textContent = `Idade: ${idade} anos`;
 
     console.log('Dados preenchidos no formulário:', aluno);
 }
 
+function calcularIdade(dataNascimento) {
+    const hoje = new Date();
+    let idade = hoje.getFullYear() - dataNascimento.getFullYear();
+    const mes = hoje.getMonth() - dataNascimento.getMonth();
+    if (mes < 0 || (mes === 0 && hoje.getDate() < dataNascimento.getDate())) {
+        idade--;
+    }
+    return idade;
+}
 
 async function saveChanges() {
     const alunoid = new URLSearchParams(window.location.search).get('id');
@@ -60,7 +77,7 @@ async function saveChanges() {
     const username = document.getElementById('edit-name').value;
     const dateOfBirth = document.getElementById('edit-dob').value;
     const turma = document.getElementById('edit-class').value;
-    const unidade = document.getElementById('edit-unidade').value; // Certifique-se de que este campo está capturando o valor correto
+    const unidade = document.getElementById('edit-unidade').value;
     const mae = {
         nome: document.getElementById('edit-mother-name').value,
         telefone: document.getElementById('edit-mother-phone').value,
@@ -107,8 +124,6 @@ async function saveChanges() {
         console.error('Erro na requisição:', error);
     }
 }
-
-
 
 function toggleEditForm() {
     const form = document.getElementById('edit-form');
