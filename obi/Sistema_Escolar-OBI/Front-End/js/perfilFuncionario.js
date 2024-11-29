@@ -44,7 +44,7 @@ function preencherDadosDoFuncionario(funcionario, tipoFuncionario) {
 
     if (employeeName) employeeName.textContent = funcionario.username;
     if (employeeUnit) employeeUnit.textContent = funcionario.local || 'N/A';
-    if (employeeRole) employeeRole.textContent = tipoFuncionario === 'professor' ? funcionario.materia || 'N/A' : 'Coordenador';
+    if (employeeRole) employeeRole.textContent = tipoFuncionario === 'professor' ? funcionario.materia || '' : 'Coordenador';
     if (employeeClasses) employeeClasses.textContent = tipoFuncionario === 'professor' ? funcionario.turma || 'N/A' : 'N/A';
 
     console.log('Dados preenchidos no perfil do funcionário:', funcionario);
