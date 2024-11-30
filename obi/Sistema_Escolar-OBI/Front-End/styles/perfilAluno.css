@@ -64,7 +64,6 @@ header .titulo {
 }
 
 .nav-button.active img {
-    border: 2px solid #036AC9;
     border-radius: 50%;
 }
 
