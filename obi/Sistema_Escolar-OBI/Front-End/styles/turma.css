@@ -106,3 +106,31 @@
     width: 100px;
     height: 30px;
 }
+
+.edit-button, .delete-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    margin: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.edit-button {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #45a049;
+}
+
+.delete-button {
+    background-color: #f44336; /* Vermelho */
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #da190b;
+}

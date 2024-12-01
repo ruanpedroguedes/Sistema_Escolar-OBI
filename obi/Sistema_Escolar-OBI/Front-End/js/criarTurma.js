@@ -62,15 +62,22 @@ async function createTurma() {
 
 function addTurmaToDOM(turma) {
     const turmaHTML = `
-        <div class="turma-card">
+        <div class="turma-card" data-id="${turma._id}">
             <h3>${turma.ano}</h3>
             <p>Unidade: ${turma.unidade}</p>
             <p>Curso: ${turma.curso}</p>
             <p>Turno: ${turma.turno}</p>
+            <button class="edit-button">Editar</button>
+            <button class="delete-button">Excluir</button>
         </div>
     `;
     const container = document.getElementById('turmas-container');
     container.insertAdjacentHTML('beforeend', turmaHTML);
+
+    // Adicionar eventos aos botões
+    const card = container.querySelector(`.turma-card[data-id="${turma._id}"]`);
+    card.querySelector('.edit-button').addEventListener('click', () => editTurma(turma._id));
+    card.querySelector('.delete-button').addEventListener('click', () => deleteTurma(turma._id));
 }
 
 function filterTurmas() {
@@ -97,4 +104,92 @@ function filterTurmas() {
             card.style.display = 'none';
         }
     });
+}
+
+async function deleteTurma(turmaId) {
+    try {
+        const response = await fetch(`http://localhost:3000/api/turmas/${turmaId}`, {
+            method: 'DELETE'
+        });
+
+        if (response.ok) {
+            // Remover o card da DOM
+            const card = document.querySelector(`.turma-card[data-id="${turmaId}"]`);
+            card.remove();
+        } else {
+            const error = await response.json();
+            console.error('Erro ao excluir turma:', error);
+        }
+    } catch (error) {
+        console.error('Erro na requisição:', error);
+    }
+}
+
+async function editTurma(turmaId) {
+    try {
+        const response = await fetch(`http://localhost:3000/api/turmas/${turmaId}`);
+        const turma = await response.json();
+
+        // Preencher o formulário com os dados da turma
+        document.getElementById('ano').value = turma.ano;
+        document.getElementById('unidade').value = turma.unidade;
+        document.getElementById('curso').value = turma.curso;
+        document.getElementById('turno').value = turma.turno;
+        document.getElementById('professores').value = turma.professores.map(prof => prof.username).join(', ');
+
+        // Mostrar o formulário
+        document.getElementById('form-container').style.display = 'block';
+
+        // Atualizar a função de criar turma para salvar as alterações
+        document.getElementById('criar-turma-button').removeEventListener('click', createTurma);
+        document.getElementById('criar-turma-button').addEventListener('click', () => updateTurma(turmaId));
+    } catch (error) {
+        console.error('Erro ao carregar turma:', error);
+    }
+}
+
+async function updateTurma(turmaId) {
+    const ano = document.getElementById('ano').value;
+    const unidade = document.getElementById('unidade').value;
+    const curso = document.getElementById('curso').value;
+    const turno = document.getElementById('turno').value;
+    const professoresInput = document.getElementById('professores').value;
+    const professores = professoresInput.split(',').map(nome => nome.trim());
+
+    try {
+        const response = await fetch(`http://localhost:3000/api/turmas/${turmaId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ ano, unidade, curso, turno, professores })
+        });
+
+        if (response.ok) {
+            const updatedTurma = await response.json();
+            // Atualizar o card na DOM
+            const card = document.querySelector(`.turma-card[data-id="${turmaId}"]`);
+            card.querySelector('h3').textContent = updatedTurma.ano;
+            card.querySelector('p:nth-child(2)').textContent = `Unidade: ${updatedTurma.unidade}`;
+            card.querySelector('p:nth-child(3)').textContent = `Curso: ${updatedTurma.curso}`;
+            card.querySelector('p:nth-child(4)').textContent = `Turno: ${updatedTurma.turno}`;
+
+            // Limpar e esconder o formulário
+            document.getElementById('ano').value = '';
+            document.getElementById('unidade').value = '';
+            document.getElementById('curso').value = '';
+            document.getElementById('turno').value = '';
+            document.getElementById('professores').value = '';
+            document.getElementById('form-container').style.display = 'none';
+
+            // Restaurar a função de criar turma
+            document.getElementById('criar-turma-button').removeEventListener('click', updateTurma);
+            document.getElementById('criar-turma-button').addEventListener('click', createTurma);
+        } else {
+            const error = await response.json();
+            console.error('Erro ao atualizar turma:', error);
+        }
+    } catch (error) {
+        console.error('Erro na requisição:', error);
+    }
 }
