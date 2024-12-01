@@ -53,38 +53,56 @@
 }
 
 .form-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Aumenta o espaço entre os itens */
-    padding: 25px; /* Aumenta o padding */
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 15px 20px; /* Espaço entre linhas e colunas */
+    padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 400px; /* Aumenta a largura */
-    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto; /* Centraliza o formulário */
     font-family: 'Poppins', sans-serif;
 }
 
 .form-container label {
     font-weight: bold;
-    margin-bottom: 5px;
+    align-self: center;
+    color: #333;
 }
 
-.form-container select,
+.form-container select, 
 .form-container button {
     padding: 10px;
     border-radius: 4px;
     border: 1px solid #ddd;
     font-family: 'Poppins', sans-serif;
+    width: 100%;
 }
 
-#open-form-button {
-    width: 100px;
-    height: 34px;
-    font-family: 'Poppins', sans-serif;
-    border-radius: 4px;
-    border: 1px solid #ddd;
+
+#criar-turma-button {
+    grid-column: 1 / -1; /* O botão ocupa a largura total */
     background-color: #0037ff;
     color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#criar-turma-button:hover {
+    background-color: #002bb5;
+}
+
+#open-form-button{
+    background-color:#0037ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 4px;
+    width: 100px;
+    height: 30px;
 }
