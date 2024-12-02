@@ -1,9 +1,7 @@
-# obi
-
+obi
 Plataforma de Gestão e Comunicação Escolar
 
-Descrição: 
-Este projeto é uma aplicação web desenvolvida para facilitar a gestão e comunicação entre alunos, professores e coordenações. A plataforma centraliza informações importantes, permitindo uma comunicação eficiente e um gerenciamento mais organizado das atividades escolares.
+Descrição: Este projeto é uma aplicação web desenvolvida para facilitar a gestão e comunicação entre alunos, professores e coordenações. A plataforma centraliza informações importantes, permitindo uma comunicação eficiente e um gerenciamento mais organizado das atividades escolares.
 
 Funcionalidades
 
@@ -25,10 +23,7 @@ Tecnologias Utilizadas
 
 Como Executar o Projeto
 
-Pré-requisitos
-Node.js
-MongoDB
-Yarn ou npm
+Pré-requisitos Node.js MongoDB Yarn ou npm
 
 Participantes: Grupo 6
 
