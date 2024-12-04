@@ -46,6 +46,23 @@ body {
           box-shadow: 0px 4px 10px 0px #00000026;
           height: 100%;
       }
+
+      .sidebar .nav-button {
+        background: none;
+        border: none;
+        margin: 10px 0;
+        cursor: pointer;
+    }
+    
+    .nav-button img {
+        height: 50px;
+    }
+    
+    .nav-button.active img {
+        border: 2px solid #0037ff;
+        border-radius: 10px;
+    }
+    
       
       .sidebar ul {
           list-style-type: none; /* Remove marcadores da lista */
