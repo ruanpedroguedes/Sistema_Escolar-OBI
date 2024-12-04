@@ -18,12 +18,9 @@
 
     <div class="main-container">
         <nav class="sidebar">
-            <a href="homepageCoordenacao.html"><button class="nav-button"><img src="img/semana.png" alt="Semana"></button></a>
-            <a href="carometro.html"><button class="nav-button"><img src="img/carometro.png" alt="Carômetro"></button></a>
-            <a href="criaturma.html"><button class="nav-button"><img src="img/people_14960715 1.png" alt="Carômetro"></button></a>
-            <a href="funcionarios.html"><button class="nav-button"><img src="img/funcionarios.png" alt="funcionarios"></button></a>
-            <a href="agendaCoordenacao.html"><button class="nav-button"><img src="img/agenda.png" alt="Chat"></button></a>
-            <a href="perfilCoordenacao.html"><button class="nav-button"><img src="img/perfil.png" alt="Perfil"></button></a>
+            <button class="nav-button"> <a href="homepageProfessor.html"><img src="img/semana.png" alt="Semana"></a></button>
+            <button class="nav-button"><a href="agendaProfessor.html"> <img src="img/agendaClicada.png" alt="agenda"></a></button>
+            <button class="nav-button"><a href="perfilProfessor.html"><img src="img/perfil.png" alt="Perfil"></a></button>
         </nav>
 
         <div class="content">
@@ -63,28 +60,30 @@
                     <option value="3C">3° Ano - C</option>
                     <option value="3D">3° Ano - D</option>
                 </select>
-
-                
             </div>
 
             <div id="turma-titulo" class="turma-titulo" style="display: none;"></div> <!-- Exibe a turma selecionada -->
-            <div id="agenda-container" class="agenda-container">
-                
-            </div>
+            <div id="agenda-container" class="agenda-container"></div>
         </div>
     </div>
 
     <button id="add-agenda-button" class="add-button">+</button> <!-- O ID foi adicionado para o JavaScript -->
 
-    
     <div class="modal-overlay" id="modal-overlay"></div>
 
-    
     <div id="task-modal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <h2>Criar nova tarefa</h2>
             <form id="task-form">
+                <div class="form-group">
+                    <label for="task-professor">Professor</label>
+                    <input type="text" id="task-professor" placeholder="Nome do Professor">
+                </div>
+                <div class="form-group">
+                    <label for="task-disciplina">Disciplina</label>
+                    <input type="text" id="task-disciplina" placeholder="Nome da Disciplina">
+                </div>
                 <div class="form-group">
                     <label for="task-title">Título</label>
                     <input type="text" id="task-title" placeholder="Digite o nome da tarefa">
@@ -97,11 +96,13 @@
                     <label for="task-date">Data</label>
                     <input type="date" id="task-date" placeholder="DD/MM/AAAA">
                 </div>
+            
                 <div id="category-container" class="category-container">
                     <!-- Categorias adicionadas serão exibidas aqui -->
                 </div>
 
                 <button type="button" id="create-task-button" class="create-button">Criar Tarefa</button>
+                <button type="button" id="update-task-button" class="update-button" style="display: none;">Atualizar Tarefa</button>
             </form>
         </div>
     </div>

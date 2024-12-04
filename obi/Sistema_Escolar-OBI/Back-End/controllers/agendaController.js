@@ -1,15 +1,12 @@
 const Agenda = require('../models/agendaModel');
-const Coordenacao = require('../models/coordenacaoModel'); // Importa o modelo de Coordenação
 
-// Criar nova tarefa e associar ao coordenador
+// Criar nova tarefa e associar ao professor
 exports.createTask = async (req, res) => {
   try {
-    const { unidade, curso, turma, titulo, descricao, dataHora } = req.body;
-    // Recuperar o ID do coordenador do localStorage
-    const coordenadorId = req.body.coordenadorId; // Presumindo que o ID do coordenador será enviado no corpo da requisição
+    const { unidade, curso, turma, professor, disciplina, titulo, descricao, dataHora } = req.body;
 
-    // Cria a nova tarefa e associa ao coordenador
-    const newTask = new Agenda({ unidade, curso, turma, titulo, descricao, dataHora, coordenador: coordenadorId });
+    // Cria a nova tarefa e associa ao professor
+    const newTask = new Agenda({ unidade, curso, turma, professor, disciplina, titulo, descricao, dataHora });
     await newTask.save();
     res.status(201).json({ message: 'Tarefa criada com sucesso!', task: newTask });
   } catch (error) {
@@ -21,7 +18,7 @@ exports.createTask = async (req, res) => {
 // Obter todas as tarefas
 exports.getTasks = async (req, res) => {
   try {
-    const tasks = await Agenda.find().populate('coordenador', 'username useremail funcao'); // Popula com dados do coordenador
+    const tasks = await Agenda.find();
     res.status(200).json(tasks);
   } catch (error) {
     console.error('Erro ao buscar tarefas:', error); // Log do erro no console
@@ -35,7 +32,7 @@ exports.getTaskById = async (req, res) => {
     const { id } = req.params; // Extrai o ID da rota
     console.log(`Buscando tarefa com ID: ${id}`); // Log do ID recebido
 
-    const task = await Agenda.findById(id).populate('coordenador', 'username useremail funcao'); // Busca a tarefa por ID e popula com dados do coordenador
+    const task = await Agenda.findById(id);
 
     if (!task) {
       console.log(`Tarefa não encontrada com ID: ${id}`);
@@ -65,7 +62,7 @@ exports.getTasksByFilters = async (req, res) => {
 
     console.log('Filtro aplicado:', filter); // Log do filtro
 
-    const filteredTasks = await Agenda.find(filter).populate('coordenador', 'username useremail funcao');
+    const filteredTasks = await Agenda.find(filter);
 
     if (filteredTasks.length === 0) {
       console.log('Nenhuma tarefa encontrada para os filtros aplicados.');
@@ -82,14 +79,14 @@ exports.getTasksByFilters = async (req, res) => {
 exports.updateTask = async (req, res) => {
   try {
     const { id } = req.params;
-    const { titulo, descricao, dataHora } = req.body;
+    const { professor, disciplina, titulo, descricao, dataHora } = req.body;
 
-    // Atualiza a tarefa sem necessidade de coordenadorId
+    // Atualiza a tarefa com os novos campos
     const updatedTask = await Agenda.findByIdAndUpdate(
       id,
-      { titulo, descricao, dataHora },
+      { professor, disciplina, titulo, descricao, dataHora },
       { new: true }
-    ).populate('coordenador', 'username useremail funcao');
+    );
 
     if (!updatedTask) {
       console.log(`Tarefa não encontrada para atualização com ID: ${id}`);
