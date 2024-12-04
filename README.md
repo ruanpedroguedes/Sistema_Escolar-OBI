@@ -1,4 +1,4 @@
-Agora que tenho o segundo README, vou aplicar melhorias no primeiro com base nas práticas e detalhes que encontrei no segundo. Aqui está a versão melhorada do primeiro README:
+
 
 ---
 
