@@ -143,14 +143,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const taskInput = document.getElementById('task-title').value.trim();
         const descriptionInput = document.getElementById('task-description').value.trim();
         const dateInput = document.getElementById('task-date').value.trim();
-        const professorInput = document.getElementById('task-professor').value.trim();
-        const disciplinaInput = document.getElementById('task-disciplina').value.trim();
 
         const now = new Date();
         const formattedTime = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         const dataHora = new Date(`${dateInput}T${formattedTime}`);
 
-        if (!taskInput || !descriptionInput || !dateInput || !professorInput || !disciplinaInput) {
+        if (!taskInput || !descriptionInput || !dateInput) {
             alert("Por favor, preencha todos os campos da tarefa.");
             return;
         }
@@ -159,8 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
             unidade: selectedUnidade,
             curso: selectedCurso,
             turma: selectedTurma,
-            professor: professorInput,
-            disciplina: disciplinaInput,
             titulo: taskInput,
             descricao: descriptionInput,
             dataHora: dataHora
@@ -202,28 +198,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const taskInput = document.getElementById('task-title').value.trim();
         const descriptionInput = document.getElementById('task-description').value.trim();
         const dateInput = document.getElementById('task-date').value.trim();
-        const professorInput = document.getElementById('task-professor').value.trim();
-        const disciplinaInput = document.getElementById('task-disciplina').value.trim();
 
         const now = new Date();
         const formattedTime = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         const dataHora = new Date(`${dateInput}T${formattedTime}`);
 
-        if (!taskInput || !descriptionInput || !dateInput || !professorInput || !disciplinaInput) {
+        if (!taskInput || !descriptionInput || !dateInput) {
             alert("Por favor, preencha todos os campos da tarefa.");
             return;
         }
 
         const updatedTask = {
-            professor: professorInput,
-            disciplina: disciplinaInput,
             titulo: taskInput,
             descricao: descriptionInput,
             dataHora: dataHora
         };
 
         try {
-            const response = await fetch(`http://localhost:3000/api/agendaRoute/${currentTaskId}`, {
+            const response = await fetch(`http://localhost:3000/api/agendaRoute/agenda/${currentTaskId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -295,8 +287,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div>
                                 <h3>${tarefa.titulo}</h3>
                                 <p>${tarefa.descricao}</p>
-                                <p>Professor: ${tarefa.professor}</p>
-                                <p>Disciplina: ${tarefa.disciplina}</p>
                             </div>
                             <span>${new Date(tarefa.dataHora).toLocaleString()}</span>
                             <button class="edit-button" data-id="${tarefa._id}">Editar</button>
@@ -314,8 +304,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         document.getElementById('task-title').value = selectedTask.titulo;
                         document.getElementById('task-description').value = selectedTask.descricao;
                         document.getElementById('task-date').value = new Date(selectedTask.dataHora).toISOString().split('T')[0];
-                        document.getElementById('task-professor').value = selectedTask.professor;
-                        document.getElementById('task-disciplina').value = selectedTask.disciplina;
                         taskModal.style.display = 'block';
                         createTaskButton.style.display = 'none';
                         updateTaskButton.style.display = 'block';
@@ -359,8 +347,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('task-title').value = '';
         document.getElementById('task-description').value = '';
         document.getElementById('task-date').value = '';
-        document.getElementById('task-professor').value = '';
-        document.getElementById('task-disciplina').value = '';
     }
 
     loadAllTasks();

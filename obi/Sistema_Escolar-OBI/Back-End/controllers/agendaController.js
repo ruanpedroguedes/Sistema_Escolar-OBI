@@ -1,12 +1,12 @@
 const Agenda = require('../models/agendaModel');
 
-// Criar nova tarefa e associar ao professor
+// Criar nova tarefa
 exports.createTask = async (req, res) => {
   try {
-    const { unidade, curso, turma, professor, disciplina, titulo, descricao, dataHora } = req.body;
+    const { unidade, curso, turma, titulo, descricao, dataHora } = req.body;
 
-    // Cria a nova tarefa e associa ao professor
-    const newTask = new Agenda({ unidade, curso, turma, professor, disciplina, titulo, descricao, dataHora });
+    // Cria a nova tarefa
+    const newTask = new Agenda({ unidade, curso, turma, titulo, descricao, dataHora });
     await newTask.save();
     res.status(201).json({ message: 'Tarefa criada com sucesso!', task: newTask });
   } catch (error) {
@@ -79,12 +79,12 @@ exports.getTasksByFilters = async (req, res) => {
 exports.updateTask = async (req, res) => {
   try {
     const { id } = req.params;
-    const { professor, disciplina, titulo, descricao, dataHora } = req.body;
+    const { titulo, descricao, dataHora } = req.body;
 
     // Atualiza a tarefa com os novos campos
     const updatedTask = await Agenda.findByIdAndUpdate(
       id,
-      { professor, disciplina, titulo, descricao, dataHora },
+      { titulo, descricao, dataHora },
       { new: true }
     );
 
