@@ -1,0 +1,159 @@
+/* Estilos gerais */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', system-ui;
+    font-weight: 400;
+}
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    background-color: #0037ff;
+    color: #fff;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container h1 {
+    margin-right: 10px;
+}
+
+.logo-container img {
+    height: 40px;
+}
+
+header .titulo {
+    margin-right: 10px;
+    font-size: 40px;
+    font-family: 'Arvo', system-ui;
+}
+
+.main-container {
+    display: flex;
+    height: calc(100vh - 80px);
+}
+
+.ola {
+    font-size: 30px;
+}
+
+.highlight {
+    font-size: 35px;
+    color: #007bff;
+    font-weight: normal;
+}
+
+.sidebar {
+    width: 80px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 20px;
+    height: 100%;
+    position: relative;
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar .nav-button {
+    background: none;
+    border: none;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.nav-button img {
+    height: 50px;
+}
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+/* Estilos para os comunicados */
+.comunicado-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.comunicado-card:hover {
+    background-color: #0037ff;
+    color: white;
+}
+
+.comunicado-card:hover h3,
+.comunicado-card:hover p {
+    color: white;
+}
+
+.comunicado-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+    color: #000;
+}
+
+.comunicado-card p {
+    margin: 5px 0;
+    color: #000;
+}
+
+/* Estilos para o formulário de criação de comunicados */
+#form-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+#form-container input,
+#form-container textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#form-container button {
+    background-color: #0037ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#form-container button:hover {
+    background-color: #002bb5;
+}

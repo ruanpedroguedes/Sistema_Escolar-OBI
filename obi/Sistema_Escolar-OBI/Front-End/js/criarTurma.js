@@ -80,6 +80,18 @@ function addTurmaToDOM(turma) {
     card.querySelector('.delete-button').addEventListener('click', () => deleteTurma(turma._id));
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Código existente...
+
+    document.getElementById('turmas-container').addEventListener('dblclick', (event) => {
+        const turmaCard = event.target.closest('.turma-card');
+        if (turmaCard) {
+            const turmaId = turmaCard.getAttribute('data-id');
+            window.location.href = `comunicados.html?turmaId=${turmaId}`;
+        }
+    });
+});
+
 function filterTurmas() {
     const ano = document.getElementById('filter-ano').value;
     const turno = document.getElementById('filter-turno').value;

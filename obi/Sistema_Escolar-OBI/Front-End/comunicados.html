@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicados da Turma</title>
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/homepageProfessor.css">
+    <link rel="stylesheet" href="styles/comunicados.css"> <!-- Adicione esta linha -->
+    <link rel="shortcut icon" href="img/logoobiperfil.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <p><span class="titulo">OBI</span></p>
+            <img src="img/logobranca 1 (1).png" alt="logo">
+        </div>
+    </header>
+
+    <div class="main-container">
+        <nav class="sidebar">
+            <button class="nav-button"><a href="homepageCoordenacao.html"><img src="img/semanaSelecionada.png" alt="Semana"></a></button>
+            <a href="carometro.html"><button class="nav-button"><img src="img/carometro.png" alt="alunos"></button></a>
+            <button class="nav-button"><a href="criaturma.html"></a> <img src="img/people_14960715 1.png" alt="criarTurma"></button>
+            <a href="funcionarios.html"><button class="nav-button"><img src="img/funcionarios.png" alt="funcionarios"></button></a>
+            <a href="agendaCoordenacao.html"><button class="nav-button"><img src="img/agenda.png" alt="Chat"></button></a>
+            <button class="nav-button"><a href="perfilCoordenacao.html"><img src="img/perfil.png" alt="Perfil"></a></button>
+        </nav>
+
+        <div class="content">
+            <h2>Comunicados da Turma</h2>
+            <div id="comunicados-container"></div>
+            <div id="form-container">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo">
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao"></textarea>
+                <button id="criar-comunicado-button">Criar Comunicado</button>
+            </div>
+        </div>
+    </div>
+
+    <script defer src="js/comunicados.js"></script>
+</body>
+</html>

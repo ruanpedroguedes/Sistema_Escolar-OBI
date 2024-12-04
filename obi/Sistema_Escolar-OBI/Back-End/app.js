@@ -18,6 +18,7 @@ const funcionariosRoute = require('./routes/funcionariosRoute');
 const conceitoRoute = require('./routes/conceitoRoute');
 const conceitoCoordenacaoRoute = require('./routes/conceitocoordenacaoRoute');
 const turmaRoute = require('./routes/turmaRoute');
+const comunicadoRoute = require('./routes/comunicadoRoute');
 
 dotenv.config();
 
@@ -35,6 +36,7 @@ mongoose.connect(process.env.MONGO_URI, {
   console.error('MongoDB connection error:', err);
 });
 
+app.use('/api/comunicados', comunicadoRoute);
 app.use('/api/turmas', turmaRoute);
 app.use('/api/conceitos', conceitoRoute);
 app.use('/api/conceitos-coordenacao', conceitoCoordenacaoRoute);
