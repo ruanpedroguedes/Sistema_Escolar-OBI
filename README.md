@@ -86,7 +86,7 @@ A **OBI** é uma aplicação web desenvolvida para facilitar a gestão e comunic
 
 ## Participantes
 
-Grupo 6:
+Grupo 5:
 - **ERICK CARRASCO OLIVEIRA**
 - **JAIRO MARQUES MARINHO**
 - **RUAN PEDRO PEREIRA GUEDES**
