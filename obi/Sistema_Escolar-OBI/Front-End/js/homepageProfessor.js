@@ -1,243 +1,174 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const turmaDropdown = document.getElementById('turma-dropdown');
-    const turmaTitulo = document.getElementById('turma-titulo');
-    const unidadeDropdown = document.getElementById('unidade-dropdown');
-    const cursoDropdown = document.getElementById('curso-dropdown');
-    const addMateriaButton = document.getElementById('add-materia-button');
-    const materiasContainer = document.getElementById('materias-container');
+document.addEventListener('DOMContentLoaded', async () => {
+    const response = await fetch('http://localhost:3000/api/disciplinaRoute');
+    const disciplinas = await response.json();
 
-    // Modal para adicionar matéria
-    const modal = document.getElementById('add-materia-modal');
-    const closeButton = document.querySelector('.close-button');
-    const salvarMateriaButton = document.getElementById('salvar-materia-button');
-    const imagemInput = document.getElementById('imagem-materia'); // Campo de entrada de imagem
+    // Função para renderizar as disciplinas
+    const renderDisciplinas = (disciplinas) => {
+        const container = document.getElementById('disciplinas-container');
+        container.innerHTML = ''; // Limpa o container antes de renderizar
 
-    // Estrutura de dados para armazenar as matérias
-    let materiasData = {
-        'Mediotec Recife': {
-            'Análise e Desenvolvimento de Sistemas': {
-                '1A': [],
-                '1B': [],
-                '1C': []
+        disciplinas.forEach(disciplina => {
+            const professorNome = disciplina.professor ? disciplina.professor.username : 'Professor não atribuído';
+            const cardHTML = `
+                <div class="card" data-id="${disciplina._id}" data-nome="${disciplina.nome}">
+                    <h3>${disciplina.nome}</h3>
+                    <p>Professor: ${professorNome}</p>
+                    <p>Turma: ${disciplina.turma}</p>
+                    <p>Unidade: ${disciplina.unidade}</p>
+                    <p>Curso: ${disciplina.curso}</p>
+                    <button class="edit-button" data-id="${disciplina._id}">
+                        <img src="img/lapisbranco.png" alt="Editar">
+                    </button>
+                </div>
+            `;
+            container.insertAdjacentHTML('beforeend', cardHTML);
+
+            // Adicione os eventos de clique
+            container.lastElementChild.querySelector('.edit-button').addEventListener('click', (event) => {
+                event.stopPropagation(); // Evita que o clique no botão de editar acione o clique no card
+                openEditForm(disciplina);
+            });
+
+            container.lastElementChild.addEventListener('click', () => {
+                const disciplinaNome = disciplina.nome;
+                window.location.href = `disciplinaProfessor.html?nome=${encodeURIComponent(disciplinaNome)}`;
+            });
+        });
+    };
+
+    // Renderiza todas as disciplinas inicialmente
+    renderDisciplinas(disciplinas);
+
+    // Função para filtrar disciplinas
+    const filterDisciplinas = () => {
+        const unidade = document.getElementById('unidade-dropdown').value;
+        const curso = document.getElementById('curso-dropdown').value;
+        const turma = document.getElementById('turma-dropdown').value;
+
+        const filteredDisciplinas = disciplinas.filter(disciplina => {
+            return (unidade === 'none' || disciplina.unidade === unidade) &&
+                   (curso === 'none' || disciplina.curso === curso) &&
+                   (turma === 'none' || disciplina.turma === turma);
+        });
+
+        renderDisciplinas(filteredDisciplinas);
+    };
+
+    // Adiciona eventos de mudança aos dropdowns
+    document.getElementById('unidade-dropdown').addEventListener('change', filterDisciplinas);
+    document.getElementById('curso-dropdown').addEventListener('change', filterDisciplinas);
+    document.getElementById('turma-dropdown').addEventListener('change', filterDisciplinas);
+});
+
+function openEditForm(disciplina) {
+    const modal = document.getElementById('edit-disciplina-modal');
+    document.getElementById('edit-disciplina-nome').value = disciplina.nome;
+    document.getElementById('edit-professor-nome').value = disciplina.professor ? disciplina.professor.username : '';
+    document.getElementById('edit-turma').value = disciplina.turma;
+    document.getElementById('edit-unidade').value = disciplina.unidade; // Preenche o campo unidade
+    document.getElementById('edit-curso').value = disciplina.curso; // Preenche o campo curso
+    modal.style.display = 'block';
+
+    document.getElementById('salvar-edicao-disciplina-button').onclick = async () => {
+        const nome = document.getElementById('edit-disciplina-nome').value;
+        const professorNome = document.getElementById('edit-professor-nome').value;
+        const turma = document.getElementById('edit-turma').value;
+        const unidade = document.getElementById('edit-unidade').value;
+        const curso = document.getElementById('edit-curso').value;
+
+        const response = await fetch(`http://localhost:3000/api/disciplinaRoute/${disciplina._id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
             },
-            'Informática': {
-                '1A': [],
-                '1B': [],
-                '1C': []
-            },
-            'Logística': {
-                '1A': [],
-                '1B': [],
-                '1C': []
-            }
-        },
-        'Mediotec Paulista': {
-            'Análise e Desenvolvimento de Sistemas': {
-                '1A': [],
-                '1B': [],
-                '1C': []
-            },
-            'Informática': {
-                '1A': [],
-                '1B': [],
-                '1C': []
-            },
-            'Logística': {
-                '1A': [],
-                '1B': [],
-                '1C': []
-            }
-        },
-        'Mediotec Caruaru': {
-            'Análise e Desenvolvimento de Sistemas': {
-                '1A': [],
-                '1B': [],
-                '1C': []
-            },
-            'Informática': {
-                '1A': [],
-                '1B': [],
-                '1C': []
-            },
-            'Logística': {
-                '1A': [],
-                '1B': [],
-                '1C': []
-            }
-        },
-        'Mediotec Petrolina': {  // Nova unidade adicionada
-            'Análise e Desenvolvimento de Sistemas': {
-                '1A': [],
-                '1B': [],
-                '1C': []
-            },
-            'Informática': {
-                '1A': [],
-                '1B': [],
-                '1C': []
-            },
-            'Logística': {
-                '1A': [],
-                '1B': [],
-                '1C': []
-            }
+            body: JSON.stringify({ nome, professorNome, turma, unidade, curso })
+        });
+
+        if (response.ok) {
+            const updatedDisciplina = await response.json();
+            console.log('Disciplina atualizada:', updatedDisciplina);
+            modal.style.display = 'none';
+            location.reload();
+        } else {
+            const error = await response.json();
+            console.error('Erro ao atualizar disciplina:', error);
         }
     };
 
-    unidadeDropdown.addEventListener('change', function () {
-        clearSelection();
-        updateTurmaDisplay();
-    });
-
-    cursoDropdown.addEventListener('change', function () {
-        clearSelection();
-        updateTurmaDisplay();
-    });
-
-    turmaDropdown.addEventListener('change', function () {
-        const selectedTurma = turmaDropdown.value;
-
-        if (selectedTurma === "none") {
-            turmaTitulo.style.display = "none";
-            addMateriaButton.style.display = "none";
-            materiasContainer.innerHTML = ''; // Limpa os cards ao trocar para "none"
-        } else {
-            turmaTitulo.style.display = "block";
-            turmaTitulo.innerText = `Turma: ${formatTurma(selectedTurma)}`; // Formata a turma
-            addMateriaButton.style.display = "block"; // Mostra o botão de adicionar
-            updateMateriasDisplay(); // Atualiza a exibição das matérias
-        }
-    });
-
-    // Função para formatar a turma
-    function formatTurma(turma) {
-        const ano = turma.charAt(0); // Obtém o primeiro caractere (1, 2 ou 3)
-        const letra = turma.charAt(1); // Obtém a letra da turma (A, B ou C)
-        return `${ano}° Ano - ${letra.toUpperCase()}`; // Formata a string
-    }
-
-    // Função para atualizar a exibição das matérias
-    function updateMateriasDisplay() {
-        const unidadeSelecionada = unidadeDropdown.value;
-        const cursoSelecionado = cursoDropdown.value;
-        const turmaSelecionada = turmaDropdown.value;
-
-        materiasContainer.innerHTML = ''; // Limpa o conteúdo atual
-
-        // Verifica se a unidade, curso e turma estão selecionados
-        if (unidadeSelecionada && cursoSelecionado && turmaSelecionada) {
-            materiasData[unidadeSelecionada][cursoSelecionado][turmaSelecionada].forEach(materia => {
-                const newCard = document.createElement('div');
-                newCard.classList.add('category');
-                newCard.innerHTML = `
-                    <img src="${materia.imagem}" alt="${materia.nome}" class="materia-imagem" />
-                    <p><span class="discipline">${materia.nome}</span></p>
-                    <p><span class="professor">${materia.professor}</span></p>
-                    <div class="buttons">
-                        <button class="button blue">Avisos</button>
-                        <button class="button material-button">Materiais</button>
-                        <button class="button enquete-button">Enquetes</button>
-                    </div>
-                `;
-
-                // Adiciona o evento de clique para cada botão
-                newCard.querySelector('.blue').addEventListener('click', () => {
-                    // Redireciona para a seção de avisos da disciplina
-                    window.location.href = 'disciplina.html?section=avisos';
-                });
-                newCard.querySelector('.material-button').addEventListener('click', () => {
-                    // Redireciona para a seção de materiais da disciplina
-                    window.location.href = 'disciplina.html?section=materiais';
-                });
-                newCard.querySelector('.enquete-button').addEventListener('click', () => {
-                    // Redireciona para a seção de enquetes da disciplina
-                    window.location.href = 'disciplina.html?section=enquetes';
-                });
-
-                materiasContainer.appendChild(newCard);
-            });
-        }
-    }
-
-    // Limpa a seleção atual
-    function clearSelection() {
-        turmaDropdown.value = "none";
-        turmaTitulo.style.display = "none";
-        addMateriaButton.style.display = "none";
-        materiasContainer.innerHTML = ''; // Limpa os cards ao trocar de unidade ou curso
-    }
-
-    // Atualiza as opções de turma com base na unidade e curso selecionados
-    function updateTurmaDisplay() {
-        const unidadeSelecionada = unidadeDropdown.value;
-        const cursoSelecionado = cursoDropdown.value;
-
-        turmaDropdown.innerHTML = `<option value="none">Selecione a Turma</option>`;
-
-        if (unidadeSelecionada && cursoSelecionado) {
-            Object.keys(materiasData[unidadeSelecionada][cursoSelecionado]).forEach(turma => {
-                turmaDropdown.innerHTML += `<option value="${turma}">${formatTurma(turma)}</option>`;
-            });
-        }
-    }
-
-    // Função para abrir o modal de adicionar matéria
-    addMateriaButton.addEventListener('click', () => {
-        modal.style.display = 'block';
-    });
-
-    // Função para fechar o modal
-    closeButton.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-
-    // Função para salvar nova matéria
-    salvarMateriaButton.addEventListener('click', () => {
-        const materiaNome = document.getElementById('materia-nome').value;
-        const professorNome = document.getElementById('professor-nome').value;
-        const selectedTurma = turmaDropdown.value;
-        const unidadeSelecionada = unidadeDropdown.value;
-        const cursoSelecionado = cursoDropdown.value;
-
-        // Obter a imagem selecionada
-        const imagemFile = imagemInput.files[0];
-        const reader = new FileReader();
-
-        if (materiaNome && professorNome && selectedTurma !== "none" && imagemFile) {
-            reader.onload = function (e) {
-                const newMateria = {
-                    nome: materiaNome,
-                    professor: professorNome,
-                    imagem: e.target.result // Armazena a imagem na estrutura de dados
-                };
-
-                // Adiciona a nova matéria à turma correspondente
-                materiasData[unidadeSelecionada][cursoSelecionado][selectedTurma].push(newMateria);
-                updateMateriasDisplay(); // Atualiza a exibição
-                modal.style.display = 'none'; // Fecha o modal
-                clearModalInputs(); // Limpa os campos do modal
-            };
-
-            reader.readAsDataURL(imagemFile); // Lê o arquivo como URL de dados
-        } else {
-            alert('Por favor, preencha todos os campos e selecione uma turma e uma imagem.');
-        }
-    });
-
-    // Limpa os campos do modal
-    function clearModalInputs() {
-        document.getElementById('materia-nome').value = '';
-        document.getElementById('professor-nome').value = '';
-        imagemInput.value = ''; // Limpa o campo de imagem
-    }
-
-    document.querySelectorAll('.nav-button').forEach(button => {
-        button.addEventListener('click', () => {
-            if (button.querySelector('img').alt === 'Agenda') {
-                window.location.href = 'homepageCoordenacao.html';
-            } else if (button.querySelector('img').alt === 'Carômetro') {
-                window.location.href = 'carometro.html';
-            }
+    document.getElementById('excluir-disciplina-button').onclick = async () => {
+        const response = await fetch(`http://localhost:3000/api/disciplinaRoute/${disciplina._id}`, {
+            method: 'DELETE'
         });
+
+        if (response.ok) {
+            console.log('Disciplina excluída');
+            modal.style.display = 'none';
+            location.reload();
+        } else {
+            const error = await response.json();
+            console.error('Erro ao excluir disciplina:', error);
+        }
+    };
+}
+
+// Adicione o evento de clique ao botão de fechar
+document.querySelector('.close-button-edit').addEventListener('click', () => {
+    document.getElementById('edit-disciplina-modal').style.display = 'none';
+});
+
+document.querySelector('.close-button').addEventListener('click', () => {
+    document.getElementById('edit-disciplina-modal').style.display = 'none';
+});
+
+document.getElementById('add-disciplina-button').addEventListener('click', () => {
+    document.getElementById('add-disciplina-modal').style.display = 'block';
+});
+
+document.querySelector('.close-button').addEventListener('click', () => {
+    document.getElementById('add-disciplina-modal').style.display = 'none';
+});
+
+document.getElementById('salvar-disciplina-button').addEventListener('click', async () => {
+    const nome = document.getElementById('disciplina-nome').value;
+    const professorNome = document.getElementById('professor-nome').value; // Usar o username do professor
+    const unidade = document.getElementById('unidade').value;
+    const curso = document.getElementById('curso').value;
+    const turma = document.getElementById('turma').value;
+
+    if (!professorNome) {
+        console.error('Nome do professor está vazio');
+        return;
+    }
+
+    console.log('Dados para envio:', { nome, professorNome, unidade, curso, turma });
+
+    const response = await fetch('http://localhost:3000/api/disciplinaRoute', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ nome, professorNome, unidade, curso, turma }) // Enviar o username do professor
     });
+
+    console.log('Resposta do servidor:', response);
+
+    if (response.ok) {
+        const disciplina = await response.json();
+        console.log('Disciplina criada:', disciplina);
+        
+        document.getElementById('disciplinas-container').insertAdjacentHTML('beforeend', `
+            <div class="card">
+                <h3>${disciplina.nome}</h3>
+                <p>Professor: ${disciplina.professor ? disciplina.professor.username : 'Professor não atribuído'}</p>
+                <p>Turma: ${disciplina.turma}</p>
+                <p>Unidade: ${disciplina.unidade}</p>
+                <p>Curso: ${disciplina.curso}</p>
+            </div>
+        `);
+        
+        document.getElementById('add-disciplina-modal').style.display = 'none';
+    } else {
+        const error = await response.json();
+        console.error('Erro ao criar disciplina:', error);
+    }
 });

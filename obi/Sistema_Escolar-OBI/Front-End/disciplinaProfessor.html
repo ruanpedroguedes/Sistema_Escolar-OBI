@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/disciplina.css">
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="shortcut icon" href="img/logoobiperfil.png" type="image/x-icon">
+    <title>Disciplina</title>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <p><span class="titulo">OBI</span></p>
+            <img src="img/logobranca 1 (1).png" alt="logo">
+        </div>
+    </header>
+
+    <div class="main-container"> 
+        <nav class="sidebar">
+            <button class="nav-button"> <a href="homepageProfessor.html"><img src="img/semanaSelecionada.png" alt="Semana"></a></button>
+            <button class="nav-button"><a href="agendaProfessor.html"> <img src="img/agenda.png" alt="agenda"></a></button>
+            <button class="nav-button"><a href="perfilProfessor.html"><img src="img/perfil.png" alt="Perfil"></a></button>
+        </nav>
+
+        <div class="content-area"> 
+            <div class="title-bar">
+                <a href="homepageProfessor.html" class="back-arrow">
+                    <img src="img/seta.png" alt="Voltar" />
+                </a>
+                <h2 id="disciplina-titulo">Título da Disciplina</h2> 
+            </div>
+
+            <main class="main-content">
+                <div class="tabs">
+                    <button class="tab-button" data-tab="avisos">Avisos</button>
+                    <button class="tab-button" data-tab="materiais">Materiais</button>
+                    <button class="tab-button" data-tab="enquetes">Enquetes</button>
+                </div>
+                <section class="tab-content" id="avisos-section">
+                    <h2>Avisos</h2>
+                    <!-- Avisos serão inseridos aqui -->
+                </section>
+                <section class="tab-content" id="materiais-section">
+                    <h2>Materiais</h2>
+                </section>
+                <section class="tab-content" id="enquetes-section">
+                    <h2>Enquetes</h2>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <button class="add-button" id="open-form-button">+</button>
+
+    <div id="form-container" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img src="img/iconeX.png" alt="Fechar" class="close-icon" id="closeIcon">
+            </div>
+            <label for="card-author">Autor:</label>
+            <input type="text" id="card-author" placeholder="Autor">
+            
+            <label for="card-date">Data:</label>
+            <input type="date" id="card-date">
+    
+            <label for="post-content">Conteúdo:</label>
+            <textarea id="post-content" placeholder="Escreva algo"></textarea>
+    
+            <div class="modal-footer">
+                <div class="icon-container">
+                    <a href="#avisos-section"><img src="img/avisos.png" alt="Aviso" class="small-icon" title="Avisos"></a>
+                    <a href="#materiais-section"><img src="img/materiais.png" alt="Materiais" class="small-icon" title="Materiais"></a>
+                    <a href="#enquetes-section"><img src="img/enquetes.png" alt="Enquetes" class="small-icon" title="Enquetes"></a>
+                </div>
+                <button id="create-post" class="create-post-button">Criar Post</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/disciplina.js"></script>
+</body>
+</html>
